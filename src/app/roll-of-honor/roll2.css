@@ -5,26 +5,34 @@
   justify-content: space-between;
   align-items: center;
   width: 90vw;
+  margin-top: 2vw;
   padding-top: 1vw;
-  gap: 1vw;
-  grid-template-columns: 30vw 30vw 33vw;
+
+  gap: 3vw;
+  grid-template-columns: 27vw 27vw 32vw;
   /* padding: 4vw 10vw; */
   > .card {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     flex-direction: column;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border-radius: 1vw;
+    transition:
+      transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.2s ease;
     list-style: none;
-    box-shadow: 0 0.2vw 0.2vw #e6e8ea;
+    box-shadow: 0 15px 30px -10px rgba(15,72,35,.08),
+    0 6px 12px -4px rgba(15,35,71,.04);
     background-color: #ffffff;
-
+    width: 22vw;
     /* padding: 3vw; */
     position: relative;
     align-self: flex-end;
-    gap: 0.1vw;
-    padding: 2.8vw 3vw;
+    /* gap: 0.1vw; */
+    height: 27vw;
+    padding: 3.3vw 3vw 1.7vw 3vw;
+    border-radius: 2vw;
     /* width: 20vw; */
     > .number,
     > .number2,
@@ -36,10 +44,10 @@
       background-size: cover;
       background-position: center;
       position: absolute;
-      top: -6%;
+      top: -15%;
       /* right: 31%; */
       padding: 1.4vw;
-      font-size: 1vw;
+      font-size: 0.7vw;
       display: flex;
       justify-content: center;
       border-radius: 50%;
@@ -48,8 +56,10 @@
     }
     > .number2 {
       background: url('./assets/Screens/grade_2.png') no-repeat;
-      width: 2vw;
-      height: 2vw;
+      width: 1.7vw;
+      height: 1.7vw;
+      font-size: 0.7vw;
+
       background-size: cover;
       background-position: center;
     }
@@ -57,6 +67,8 @@
       background: url('./assets/Screens/grade3.png') no-repeat;
       width: 3vw;
       height: 3vw;
+      font-size: 0.7vw;
+
       background-size: cover;
       background-position: center;
     }
@@ -65,18 +77,25 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
+      font-size: 0.7vw;
+
       /* position: absolute; */
       > p {
         color: var(--secondary-color);
-        font-size: 01vw;
         width: 4vw;
         text-wrap: nowrap;
+        font-size: 0.9vw;
+
         color: #8e4900;
       }
       > p:nth-child(2) {
         background-color: #f4ede5;
         border-radius: 2vw;
         padding: 0.4vw;
+        font-size: 0.8vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
     > .cardContent {
@@ -84,10 +103,10 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      gap: 0.7vw;
+      gap: 0.6vw;
       > .personimage {
-        width: 10vw;
-        height: 10vw;
+        width: 6vw;
+        height: 6vw;
         border: 0.3vw solid #fe901f;
         position: static;
         background-size: cover;
@@ -115,13 +134,15 @@
       > h4 {
         /* width: 10vw; */
         text-wrap: nowrap;
-        font-size: 2vw;
+        font-size: 1.4vw;
         margin: 0;
       }
+
       > p {
         text-wrap: nowrap;
-        font-size: 1.3vw;
+        font-size: 1.1vw;
         margin: 0;
+        margin-bottom: 0.4vw;
 
         /* width: 4vw; */
       }
@@ -134,48 +155,48 @@
         /* width: 5vw; */
         padding: 0.4vw 1vw;
         border-radius: 1vw;
-        font-size: 1.3vw;
+        font-size: 1vw;
         font-weight: bold;
       }
       > .grade2 {
         background-color: #ffede1;
         color: var(--secondary-color);
         font-weight: 400;
-        font-size: 1.3vw;
+        font-size: 1vw;
         margin: 0;
-        margin-bottom: 2vw;
+        /* margin-bottom: 2vw; */
       }
       > .grade1 {
         background-color: #904d00;
         color: #ffffff;
         font-weight: 400;
-        font-size: 1.3vw;
+        font-size: 1vw;
 
         margin: 0;
-        margin-bottom: 2vw;
+        /* margin-bottom: 2vw; */
       }
       > .grade3 {
         background-color: #d8dadc;
         color: #56595f;
         font-weight: 400;
-        font-size: 1.3vw;
+        font-size: 1vw;
 
         margin: 0;
-        margin-bottom: 2vw;
+        /* margin-bottom: 2vw; */
       }
       > .Analytics {
         display: grid;
         grid-template-columns: repeat(3, 8vw);
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         /* width: 20vw; */
         /* height: 4vw; */
         /* padding: 1vw; */
-        height: 4vw;
-        padding: 1vw 1vw 1vw 1vw;
+        height: 2vw;
+        padding: 0.8vw 0.8vw 1.9vw 0.8vw;
         border-radius: 2vw;
         > * {
-          height: 2vw;
+          /* height: 1vw; */
         }
         > .point,
         > .point1,
@@ -183,26 +204,28 @@
           /* width: 8vw; */
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: space-between;
           align-items: center;
+          /* gap: .3vw; */
+          /* height: 1vw; */
           /* height: vw; */
           > p,
           h1 {
             color: #545764;
             margin: 0;
-            font-size: 1.3vw;
+            font-size: 1vw;
           }
           > h1 {
             color: black;
 
-            font-size: 1.8vw;
+            font-size: 1.4vw;
           }
           > p {
-            font-size: 1.3vw;
+            font-size: 1.1vw;
           }
         }
         > h1 {
-          color: var(--Tertiary-color);
+          color: #37ad83 !important;
         }
       }
       > .person1Analytics,
@@ -228,26 +251,86 @@
       }
     }
   }
+  .point2 > h1 {
+    color: #37ad83 !important;
+  }
   > .card2,
   .card3 {
-    box-shadow:
-      0 3vw 10vw #d8dadc,
-      0 2vw 8vw #d8dadc,
-      0 7vw 17vw #d8dadc,
-      0 2vw 8vw #d8dadc;
-    box-shadow:
-      0 3vw 10vw #f9f3f0 inset,
-      0 2vw 8vw #f9f3f0 inset,
-      0 7vw 17vw #f9f3f0 inset,
-      0 2vw 8vw #f9f3f0 inset,
-      0 2vw 8vw #d8dadc;
-
-    /* height: 37vw; */
+ 
     align-self: start;
+  }
+  .card1,
+  .card3 {
+    height: 20vw;
+    align-self: start;
+    /* border: 0.1vw solid rgba(12, 12, 12, 0.26); */
   }
 }
 .card:hover {
   transform: translateY(-1vw);
+  box-shadow:
+  0 20px 40px -15x rgba(15,72,35,.08),
+  0 12px 24px -8x rgba(15,72,35,.04),
+   !important;
 }
 .card2 {
+  border: 0.3vw solid #f7a85b;
+  padding-top: 0 !important;
+  justify-content: space-between !important;
+ box-shadow: 0 20px 40px -17px rgba(15,72,35,.08),
+    0 10px 20px -10px rgba(15,35,71,.04);
+}
+.card2 {
+    padding:3vw !important;
+    padding-top: 1.4vw !important;
+  > .cardContent {
+    > h4 {
+      font-size: 1.7vw !important;
+    }
+    > p {
+      font-size: 1.2vw !important;
+    }
+    > .grade1 {
+      font-size: 1.1vw !important;
+    }
+    > .Analytics {
+      font-size: 2.1vw !important;
+      > * {>p{
+        font-size: 1.3vw !important;
+
+      }
+        > h1 {
+        font-size: 1.9vw !important;
+      }}
+    }
+  }
+}
+@media (max-width:900px) {
+    .containCards{
+grid-template-columns: 90vw;
+>.card{
+    width: 80vw;
+    >.cardContent{
+    width: 40vw !important;
+font-size: 1.9vw;
+>.grade{
+    display: flex;
+    width: 20vw !important;
+    justify-content: center;
+    font-size: 1.3vw !important;
+    align-items: center;
+}
+    >.Analytics{
+        width: 40vw !important;
+font-size: 1.9vw;
+
+        grid-template-columns: 18vw 18vw 18vw;
+        >.point{
+font-size: 1.9vw;
+            
+        }
+    }
+}
+}
+    }
 }

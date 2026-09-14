@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="./roll.css">
 <link rel="stylesheet" href="./roll2.css">
-    <div class="contain1">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+<div class="contain1">
         <div class="rightContain">
         <ul>
             <li>صوم الميلاد المجيد + منافسه شهر نوفمبر</li>
@@ -72,13 +74,13 @@
             <h4>{{person.Name_of_the_person}}</h4>
             <p>{{ person.family_and_class }}</p>
             @if($index==0){
-            <h5 class="grade2">وسام المداوم المجتهد</h5>
+            <h5 class="grade grade2">وسام المداوم المجتهد</h5>
             }
             @else if($index==1){
-            <h5 class="grade1">وسام بطل الإنجيل</h5>
+            <h5 class="grade grade1">وسام بطل الإنجيل</h5>
             }
             @else {
-            <h5 class="grade3">تلميذة الإنجيل الأمينة</h5>
+            <h5 class="grade grade3">تلميذة الإنجيل الأمينة</h5>
             }
             <div [ngClass]="['Analytics',$index==0?'person1Analytics':$index==1?'person2Analytics':'person3Analytics']">
                 <div class=" point">
@@ -107,8 +109,11 @@
             <p>يتم تحديث الترتيب يومياً في تمام الساعة 11:59 مساءً عقب غلق مسابقة اليوم</p>
         </div>
         <div class="left">
-            : اجمالى المشتركين النشطين
-            <p>>مخدوم {{ Makhdoom().length }}</p>
+        <p>
+        
+            اجمالى المشتركين النشطين:
+        </p>
+        <p>{{ Makhdoom().length }} مخدوم</p>
         </div>
     </div>
     <table>
@@ -127,13 +132,13 @@
         <tbody>
             @for (person of Makhdoom(); track $index) {
             <tr>
-                <td [ngClass]="[$index==0?'index1':$index==1?'index2':$index==2?'index2':'']">{{ $index + 1 }}</td>
+                <td [ngClass]="['index',$index==0?'index1':$index==1?'index2':$index==2?'index2':'']">{{ $index + 1 }}</td>
                 <td class="Name">{{ person.Name_of_the_person }}</td>
                 <td>{{ person.family_and_class }}</td>
                 <td>{{ person.completed_competitions }}</td>
                 <td class="daily-series">{{ person.daily_series }} يوم</td>
                 <td class="success-rate">{{ person.success_rate }}%</td>
-                <td [ngClass]="[$index==0?'points1':'']">{{ person.total_points }}</td>
+                <td [ngClass]="['points',$index==0?'points1':'']">{{ person.total_points }}</td>
                 </tr>
                 }
                 </tbody>
@@ -141,14 +146,20 @@
 </div>
 <div class="footer">
     <div class="content">
-        <h3>منصة كلمة الحياة</h3>
-        <p>مسابقة الكتاب المقدس اليومية</p>
+<h3>
+
+    كلمة الحياة - مسابقة الكتاب المقدس اليومية
+</h3>
+<p>
+
+    «سِرَاجٌ لِرِجْلِي كَلاَمُكَ وَنُورٌ لِسَبِيلِي» (مز 119 : 105) • خدمة مدارس الأحد والشباب
+</p>
     </div>
     <ul class="ChrchUl">
         <li>مسابقه اليوم</li>
         <li>لوحه الشرف</li>
         <li>لوحه الخادم</li>
     </ul>
-    <div class="copyRight">© 2025 كنيسة القديس بولس الرسول. جميع الحقوق محفوظة.</div>
+    <div class="copyRight">© 2025 كنيسة القديس يوحنا المعمدان.جميع الحقوق محفوظة.</div>
 </div>
     </div>
