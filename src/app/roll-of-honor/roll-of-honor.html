@@ -1,0 +1,149 @@
+<div class="contain1">
+    <div class="rightContain">
+        <ul>
+            <li>صوم الميلاد المجيد + منافسه شهر نوفمبر</li>
+            <li>لوحه الشرف ومسابقاتى الكنسيه</li>
+            <li>
+                <h6>
+                    «وَكُلُّ مَنْ يُجَاهِدُ يَضْبُطُ نَفْسَهُ فِي كُلِّ شَيْءٍ. أَمَّا أُولئِكَ فلكى يَأْخُذُونَ
+                    إِكْلِيلاً يَفْنَى، وَأَمَّا نَحْنُ فَإِكْلِيلاً لاَ يَفْنَى.»
+                    <span>(1 كو 9 : 25)</span>
+                </h6>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="btns">
+        <div class="btn btn1">لوحة الشرف والترتيب</div>
+        <div class="btn btn2">
+
+            سجل مسابقاتي المتبقية
+            <p>16</p>
+        </div>
+    </div>
+</div>
+<div class="contain2">
+    <ul class="ulStages">
+        <li>كل المراحل</li>
+        <li>إعدادي</li>
+        <li>ثانوي (مرحلتي)</li>
+        <li>جامعيين وخريجين</li>
+    </ul>
+    <ul class="ulDate">
+        <li>هذا الأسبوع</li>
+
+        <li>صوم الميلاد (الشهر)</li>
+        <li>الترتيب العام الشامل</li>
+    </ul>
+    <!-- <img src="./assets/Screens/screen_1.png" alt="" /> -->
+    <input type="text" placeholder="بحث باسم المخدوم أو الأسرة..." />
+</div>
+<div class="containCards">
+    @for (person of CentresMakhdoom(); track $index) {
+    <div [ngClass]="['card',$index==0?'card1':$index==1?'card2':'card3']">
+
+        @if($index==0){
+        <div class="number2"></div>
+        }
+        @else if($index==1){
+        <div class="first">
+            <p>
+                {{ first_Center_in_pain.daily_series }}
+                يوم توالى
+            </p>
+
+            <p>
+                الحمد لله
+            </p>
+        </div>
+        <div class="number"></div>
+        }
+        @else {
+        <div class="number3"></div>
+        }
+        <div class="cardContent">
+            <div [ngClass]="['personimage',$index==0?'person1img':$index==1?'person2img':'person3img']">
+            </div>
+            <h4>{{person.Name_of_the_person}}</h4>
+            <p>{{ person.family_and_class }}</p>
+            @if($index==0){
+            <h5 class="grade2">وسام المداوم المجتهد</h5>
+            }
+            @else if($index==1){
+            <h5 class="grade1">وسام بطل الإنجيل</h5>
+            }
+            @else {
+            <h5 class="grade3">تلميذة الإنجيل الأمينة</h5>
+            }
+            <div [ngClass]="['Analytics',$index==0?'person1Analytics':$index==1?'person2Analytics':'person3Analytics']">
+                <div class=" point">
+                    <p>النقاط</p>
+                    <h1>{{ person.total_points }}</h1>
+                </div>
+                <div class="point1">
+                    <p>المسابقات</p>
+                    <h1>{{ person.completed_competitions }}</h1>
+                </div>
+                <div class="point2">
+                    <p>المتوسط</p>
+                    <h1 class="green">{{ person.success_rate }}%</h1>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    }
+</div>
+
+<div class="containTab">
+    <div class="List">
+        <div class="right">
+            <h3>قائمة الترتيب العام للمخدومين</h3>
+            <p>يتم تحديث الترتيب يومياً في تمام الساعة 11:59 مساءً عقب غلق مسابقة اليوم</p>
+        </div>
+        <div class="left">
+
+
+            : اجمالى المشتركين النشطين
+            <p>>مخدوم {{ Makhdoom().length }}</p>
+        </div>
+
+        <table>
+            <thead>
+                <th>#</th>
+                <th>اسم المخدوم</th>
+                <th>الاسره والفصل</th>
+                <th>المسابقات المنجزه</th>
+                <th>السلسه اليوميه</th>
+                <th>معدل النجاح</th>
+                <th>مجموه النقاط</th>
+            </thead>
+            <tbody>
+                @for (person of Makhdoom(); track $index) {
+                <tr>
+                    <td>{{ $index + 1 }}</td>
+                    <td class="Name">{{ person.Name_of_the_person }}</td>
+                    <td>{{ person.family_and_class }}</td>
+                    <td>{{ person.completed_competitions }}</td>
+                    <td class="daily-series">{{ person.daily_series }}</td>
+                    <td class="success-rate">{{ person.success_rate }}</td>
+                    <td [ngClass]="[$index==0?'points1':'']">{{ person.total_points }}</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="footer">
+    <div class="content">
+        <h3>منصة كلمة الحياة</h3>
+        <p>مسابقة الكتاب المقدس اليومية</p>
+    </div>
+    <ul class="ChrchUl">
+        <li>مسابقه اليوم</li>
+        <li>لوحه الشرف</li>
+        <li>لوحه الخادم</li>
+    </ul>
+    <div class="copyRight">© 2025 كنيسة القديس بولس الرسول. جميع الحقوق محفوظة.</div>
+</div>

@@ -1,0 +1,280 @@
+ :host {
+    --bright-blue: oklch(51.01% 0.274 263.83);
+    --electric-violet: oklch(53.18% 0.28 296.97);
+    --french-violet: oklch(47.66% 0.246 305.88);
+    --vivid-pink: oklch(69.02% 0.277 332.77);
+    --hot-red: oklch(61.42% 0.238 15.34);
+    --orange-red: oklch(63.32% 0.24 31.68);
+
+    --gray-900: oklch(19.37% 0.006 300.98);
+    --gray-700: oklch(36.98% 0.014 302.71);
+    --gray-400: oklch(70.9% 0.015 304.04);
+
+    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
+      180deg,
+      var(--orange-red) 0%,
+      var(--vivid-pink) 50%,
+      var(--electric-violet) 100%
+    );
+
+    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
+      90deg,
+      var(--orange-red) 0%,
+      var(--vivid-pink) 50%,
+      var(--electric-violet) 100%
+    );
+
+    --pill-accent: var(--bright-blue);
+
+    font-family:
+      'Inter',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      Helvetica,
+      Arial,
+      sans-serif,
+      'Apple Color Emoji',
+      'Segoe UI Emoji',
+      'Segoe UI Symbol';
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: block;
+    height: 100dvh;
+  }
+  :root {
+    --primary-color: #0f2547;
+    --secondary-color: #d97706;
+    --Tertiary-color: #10b981;
+    --neutral-color: #f8fafc;
+  }
+  * {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    /* font-optical-sizing: auto; */
+    /* font-weight: <weight>; */
+    font-style: normal;
+    direction: rtl;
+    margin: 0;
+    transition: all .3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  h1 {
+    font-size: 3.125rem;
+    color: var(--gray-900);
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.125rem;
+    margin: 0;
+    font-family:
+      'Inter Tight',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      Helvetica,
+      Arial,
+      sans-serif,
+      'Apple Color Emoji',
+      'Segoe UI Emoji',
+      'Segoe UI Symbol';
+  }
+  
+  p {
+    margin: 0;
+    color: var(--gray-700);
+  }
+  li{
+  cursor: pointer;
+  }
+ .ChrchUl> li:hover {
+    background-color: var(--secondary-color);
+    background-color: #0f2547;
+    color: #e6e8ea;
+  }
+ 
+.nav {
+  display: grid;
+  grid-template-columns: auto 40vw auto;
+  justify-content: start;
+  align-items: center;
+    /* width: 100vw; */
+/* transform: translateX(10vw); */
+  /* width: fit-content; */
+  /* font-size: 1.3vw; */
+  padding:.01vw;
+  /* height:1vw; */
+  gap: 1vw;
+  /* width: 100vw; */
+  /*  */
+  background-color: var(--neutral-color);
+ /* background-color: aqua; */
+  >.logo {
+    display: flex;
+    justify-content: start;
+    width: 14vw;
+    /* height: 3vw; */
+    align-items: center;
+    gap: 1vw;
+    > .img {
+      background: url('../app/roll-of-honor/assets/screen07.png') no-repeat;
+      background-size: contain;
+      background-position: center;
+      border-radius: 3vw;
+      height: 3vw;
+      display: flex;
+      justify-content: start;
+      align-content: start;
+      width: 3vw;
+    }
+    > .content {
+      width: 10vw;
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+      /* width: 49vw; */
+      /* height: 10vw; */
+      /* height: 1vw; */
+      align-items: start;
+     >*{
+      width: 10vw;
+
+      /* height: .3vw; */
+     }
+      > p {
+        font-size: 1vw;
+        width: 13vw;
+        color: var(--secondary-color);
+      }
+      >h3{
+        font-size: 1.3vw;
+      }
+    }
+  }
+  > .ChrchUl,
+  .churchDetialsUl {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style: none;
+    /* padding: 1vw; */
+    gap: 1vw;
+    width: 30vw;
+    height: 1vw;
+    padding: 0;
+    
+    > li {
+      /* width: 4vw; */
+      /* padding: 1vw; */
+      /* margin: .4vw; */
+      font-size: 1vw;
+      text-wrap: nowrap;
+      display: flex;
+      padding: .7vw 1vw;
+      border-radius: 2vw;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  > .churchDetialsUl {
+    /* width: 10vw; */
+    /* margin-right: 10vw; */
+    display: flex;
+    width: 10vw;
+    justify-content: space-between;
+    align-items: center;
+gap: 1vw;
+margin-right: 6vw;
+    /* padding: 1vw; */
+    > li {
+      width: 2vw;
+      font-size: 1vw;
+      /* width: 4vw; */
+      padding: .4vw 2.6vw;
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      border-radius: 1vw;
+
+    }
+    > li:nth-child(1) {
+      background: #fef1e7;
+    }
+    > li:nth-child(1)::before {
+      /* content: "assa"; */
+      background-image: url('./roll-of-honor/assets/Screens/fire.png') no-repeat;
+      background-size: cover;
+      background-position: center;
+      right: 10%;
+      width: 1vw;
+      height: 1vw;
+    }
+    > li:nth-child(2) {
+              background: url('./roll-of-honor/assets/stars.png') no-repeat;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      background: #e6e8ea;
+       right: 10%;
+          width: 1vw;
+      height: 1vw;
+    }
+    >li:nth-child(3){
+    display: flex;
+    /* justify-content: center !important; */
+    width: 13vw;
+    padding: 1vw;
+      justify-content: start !important;
+
+    align-items: center !important;
+    /* gap:2vw; */
+    >.logo {
+    display: flex;
+    justify-content: center;
+    width: 13vw;
+    /* height: 3vw; */
+    align-items: center;
+    /* gap: 1vw; */
+      >.img{
+  display: flex;
+      justify-content: center;
+
+        background: url('../app/roll-of-honor/assets/Screens/screen_13.png') no-repeat;
+        background-size: cover;
+        background-position: center;
+        /* border-radius: 3vw; */
+        height: 1.6vw;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      width: 2vw;
+    }
+    > .content {
+      width: 7vw;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      /* width: 49vw; */
+      height: 10vw;
+      /* height: 1vw; */
+      align-items: center;
+     >*{
+      width: 10vw;
+
+      /* height: .3vw; */
+     }
+      > p {
+        font-size: 1vw;
+        width: 13vw;
+        color: var(--secondary-color);
+      }
+      >h3{
+        font-size: 1.3vw;
+      }
+    }
+  }
+ 
+  }
+    }
+  }
