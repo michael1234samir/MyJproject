@@ -163,7 +163,7 @@ height: 1.7vw;
       /* width: 13vw; */
     }
     .btn1::before {
-      background: url('./assets/screens/screen_3.png') no-repeat;
+      /* background: url('./assets/screens/screen_3.png') no-repeat; */
       /* position: absolute; */
       /* z-index: 1000; */
       /* right: -1vw; */
