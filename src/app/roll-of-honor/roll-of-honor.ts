@@ -5,7 +5,7 @@ import { CommonModule, NgIf } from '@angular/common';
 @Component({
   imports: [CommonModule],
   selector: 'app-roll-of-honor',
-  styleUrl: ['./roll-of-honor.css','./roll.css']
+  styleUrl: './roll-of-honor.css',
   templateUrl: './roll-of-honor.html',
 })
 export class RollOfHonor {
