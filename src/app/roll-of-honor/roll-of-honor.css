@@ -65,7 +65,7 @@ li,
 
       /* width: 67vw; */
       gap: 1vw;
-      > li:nth-child(1) {
+      > li:nth-child(1),.rect {
         background-color: #334665;
         border-radius: 1vw;
         font-size: 1vw;
