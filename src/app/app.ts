@@ -19,8 +19,11 @@ export class App {
     success_rate: 95,
     total_points: 480,
   });
-  goToNexPage() {
+  goToRacePage() {
     this.router.navigate(['race']);
+  }
+  goToMainPage() {
+    this.router.navigate(['Main']);
   }
   goToPage() {
     this.router.navigate(['']);
