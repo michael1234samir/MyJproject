@@ -25,6 +25,9 @@ export class App {
   goToMainPage() {
     this.router.navigate(['Main']);
   }
+  goToCompetitionPage() {
+    this.router.navigate(['Competition']);
+  }
   goToPage() {
     this.router.navigate(['']);
   }

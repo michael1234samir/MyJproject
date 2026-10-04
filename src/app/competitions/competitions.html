@@ -1,0 +1,506 @@
+<div class="container">
+    <div class="contain1">
+        <div class="rightContain">
+            <ul>
+                <li class="rect">
+                    قطاع خدمة الشباب والتربية الكنسية - كنيسة القديس بولس العنوان الرئيسي
+                </li>
+                <li>
+                    لوحة تحكم الخدمة وإدارة المسابقات الكنسية
+                </li>
+                <li>
+                    <h6>
+                        متابعة حضور وتفاعل أطفالنا وبناتنا في قراءة الإنجيل، تقييم الإجابات اليومية، وجدولة مسابقات
+                        الأصحاحات الجديدة لنمو
+                        أرواحهم بالكلمة.
+                    </h6>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="btns">
+            <div class="btn btn1"> إضافة مسابقة اليوم</div>
+            <div class="btn btn2">
+                تصدير تقرير الغياب والدرجات (Excel)
+            </div>
+        </div>
+    </div>
+    <div class="contain2">
+        <div class="btns">
+
+            <div class="btn btn5">
+                <div class="content">
+                    <div class="first">
+                        <div class="number">
+                            إجمالي المخدومين المسجلين:
+                        </div>
+                        <p class="BgBrown">1</p>
+                    </div>
+                    <div class="content">
+                        <div class="inline">
+
+                            <h1>
+                                142
+                            </h1>
+                            <span>
+                                شاب وشابة
+                            </span>
+                        </div>
+                        <p class="green">
+                            +8 مخدومين هذا الأسبوع
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="btn btn5">
+                <div class="content">
+                    <div class="first">
+                        <div class="number">
+                            مشاركو مسابقة اليوم
+                        </div>
+                        <p class="BgBrown">1</p>
+                    </div>
+                    <div class="content">
+                        <div class="inline">
+
+
+                            <h1 class="Brown">
+                                98
+
+                            </h1>
+                            <span class="Brown2">
+                                / 142
+                            </span>
+                        </div>
+                        <div class="line"></div>
+                        <p>
+                            نسبة التفاعل: 69% حتى اللحظة
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="btn btn5">
+                <div class="content">
+                    <div class="first">
+                        <div class="number">
+                            المسابقات النشطة والمجدولة
+                        </div>
+                        <p class="BgBrown">1</p>
+                    </div>
+                    <div class="content">
+                        <div class="inline">
+
+                            <h1>
+                                30
+                            </h1>
+                            <span class="black">
+                                مسابقة أصحاح
+                            </span>
+                        </div>
+                        <p class="skin">
+                            مجدولة حتى ختام صوم الرسل
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="btn btn5">
+                <div class="content">
+                    <div class="first">
+                        <div class="number">
+                            متوسط درجات اليوم
+                        </div>
+                        <p class="BgBrown">1</p>
+                    </div>
+                    <div class="content">
+                        <div class="inline">
+
+                            <h1>
+                                26.4
+                            </h1>
+                            <span class="black">
+                                من 30 درجة
+                            </span>
+                        </div>
+                        <p class="green">
+                            مستوى استيعاب ممتاز 88%
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="img"></div>
+        <div class="content">
+
+            <h3>
+                تذكير اجتماع الخدام التحضيري الأسبوعي
+            </h3>
+            <p class="aya">
+                لجمعة القادمة الساعة 6:30 مساءً لمناقشة نتائج دراسة إنجيل القديس يوحنا وتكريم أوال الشهر.
+            </p>
+        </div>
+    </div>
+    <div class="first">
+        <ul>
+
+            <li class="brown">الحمد لله</li>
+            <ul class="content">
+
+                <li>
+                    <h6>
+                        إضافة مسابقة جديدة للكتاب المقدس ✍️
+                    </h6>
+                </li>
+                <li>قم بتحديد الأصحاح، تاريخ النشر التلقائي، والأسئلة الثلاثة الدقيقة مع إجاباتها ليتم إرسال
+                    الإشعارات
+                    لجميع
+                    المخدومين
+                    مباشرة في تمام الساعة 6:00 صباحاً.</li>
+            </ul>
+        </ul>
+    </div>
+    <div class="comp">
+
+
+        <div class="detials">
+            <!-- <div class="detail"> -->
+            <div class="content">
+                <p>
+                    تاريخ ظهور المسابقة
+                </p>
+                <div class="input">
+                    <input type="date" name="" id="input" class="form-control" value="" required="required" title="">
+                </div>
+            </div>
+            <!-- </div> -->
+            <!-- <div class="detail"> -->
+
+            <div class="book content">
+                <p>
+                    السفر المقدس:
+                </p>
+
+                <div class="input">
+                    <input class="select" value="{{title}}" />
+                    <!-- <p>{{selected}}</p> -->
+                    <div class="menu-items">
+                        @for(book of books();track $index){
+                        <a (click)="select(book)">{{book.book}}</a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+            <!-- <div class="detail"> -->
+
+            <div class="chapter content">
+                <p>
+                    رقم الأصحاح
+                </p>
+
+                <div class="input">
+                    <div class="select" {{chapter}}>
+                        <p>{{chapter}}</p>
+                    </div>
+                    @if(book !=null){
+                    <div class="menu-items">
+                        @for(i of [].constructor(book);track $index){
+                        <a (click)="selectchapter($index+1)">{{$index+1}}</a>
+                        }
+                    </div>
+                    }
+                </div>
+            </div>
+
+            <div class="content">
+                <p>
+                    عنوان المسابقة أو الآية المفتاحية
+                </p>
+                <div class="input">
+                    <input name="" value="«أَنَا هُوَ الطَّرِيقُ وَالْحَقُّ وَالْحَيَاةُ»" id="input" />
+                </div>
+            </div>
+        </div>
+        <div class="questions">
+            <div class="question">
+                <div class="first">
+                    <div class="number">
+                        <p class="index">
+                            1
+                        </p>
+                        <p>
+                            السؤال الأول (10 درجات)
+                        </p>
+                    </div>
+                    <p>الحمد لله</p>
+                </div>
+
+                <div class="body">
+                    <h3>بِمَ وَعَدَ الرَّبُّ تَلاَمِيذَهُ أَنْ يُرْسِلَ لَهُمُ الآبُ لِيَمْكُثَ مَعَهُمْ إِلَى الأَبَدِ؟
+                    </h3>
+                    <div class="choices">
+                        <div class="choice">
+                            <div class="number">
+                                <input class="circle" type="radio" />
+                                <p class="index">
+                                    1
+                                </p>
+                            </div>
+                            <p>
+                                أ) ملكاً أرضياً كبيراً
+                            </p>
+                        </div>
+                        <div class="choice">
+                            <div class="number">
+                                <input class="circle" type="radio" />
+                                <p class="index">
+                                    1
+                                </p>
+                                <p>
+                                    ب) مُعَزِّيًا آخَرَ... رُوحَ الْحَقِّ (مُحدد كإجابة صحيحة)
+                                </p>
+                            </div>
+                            <div class="choice">
+                                <div class="number">
+                                    <input class="circle" type="radio" />
+                                    <p class="index">
+                                        1
+                                    </p>
+                                    <p>
+                                        ج) سَيْفاً وَجُنُوداً لِحِمَايَتِهِمْ
+                                    </p>
+                                </div>
+                                <div class="choice">
+                                    <div class="number">
+                                        <input class="circle" type="radio" />
+                                        <p class="index">
+                                            1
+                                        </p>
+                                        <p>
+                                            د) كُنُوزاً وَأَمْوَالاً مَكْتُوزَةً
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="question">
+                <div class="first">
+                    <div class="number">
+                        <p class="index">
+                            1
+                        </p>
+                        <p>
+                            السؤال الأول (10 درجات)
+                        </p>
+                    </div>
+                    <p>الحمد لله</p>
+                </div>
+
+                <div class="body">
+                    <h3>
+                        أَكْمِلْ قَوْلَ الرَّبِّ: «سَلاَمًا أَتْرُكُ لَكُمْ أَنَا...»
+
+                    </h3>
+                    <div class="choices">
+                        <div class="choice">
+                            <div class="number">
+                                <input class="circle" type="radio" />
+                                <p class="index">
+                                    1
+                                </p>
+                            </div>
+                            <p>
+                                أ) أَنَا هُوَ الطَّرِيقُ وَالْحَقُّ وَالْحَيَاةُ (مُحدد كإجابة صحيحة)
+                            </p>
+                        </div>
+                        <div class="choice">
+                            <div class="number">
+                                <input class="circle" type="radio" />
+                                <p class="index">
+                                    1
+                                </p>
+                                <p>
+                                    ب) أَنَا هُوَ نُورُ الْعَالَمِ
+                                </p>
+                            </div>
+                            <div class="choice">
+                                <div class="number">
+                                    <input class="circle" type="radio" />
+                                    <p class="index">
+                                        1
+                                    </p>
+                                    <p>
+                                        ج) أَنَا هُوَ الرَّاعِي الصَّالِحُ
+                                    </p>
+                                </div>
+                                <div class="choice">
+                                    <div class="number">
+                                        <input class="circle" type="radio" />
+                                        <p class="index">
+                                            1
+                                        </p>
+                                        <p>
+                                            د) أَنَا هُوَ خُبْزُ الْحَيَاةِ
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn btn1">
+                    إعادة ضبط الحقول
+                </div>
+                <div class="btn btn2">
+                    حفظ وجدولة المسابقة تلقائياً
+                </div>
+            </div>
+            <div class="question">
+                <div class="first">
+                    <div class="number">
+                        <p class="index">
+                            1
+                        </p>
+                        <p>
+                            السؤال الأول (10 درجات)
+                        </p>
+                    </div>
+                    <p>الحمد لله</p>
+                </div>
+
+                <div class="body">
+                    <h3>
+                        أَكْمِلْ قَوْلَ الرَّبِّ: «سَلاَمًا أَتْرُكُ لَكُمْ. سَلاَمِي أُعْطِيكُمْ. لَيْسَ كَمَا يُعْطِي
+                    </h3>
+                </div>
+                <div class="choices">
+                    <div class="choice">
+                        <div class="number">
+                            <input class="circle" type="radio" />
+                            <p class="index">
+                                1
+                            </p>
+                        </div>
+                        <p>
+                            أ) فَافْرَحُوا وَتَهَلَّلُوا!
+                        </p>
+                    </div>
+                    <div class="choice">
+                        <div class="number">
+                            <input class="circle" type="radio" />
+                            <p class="index">
+                                1
+                            </p>
+                            <p>
+                                ب) فَلاَ تَحْزَنُوا أَبَداً
+                            </p>
+                        </div>
+                        <div class="choice">
+                            <div class="number">
+                                <input class="circle" type="radio" />
+                                <p class="index">
+                                    1
+                                </p>
+                                <p>
+                                    ج) لاَ تَضْطَرِبْ قُلُوبُكُمْ وَلاَ تَرْهَبْ (مُحدد كإجابة صحيحة)
+                                </p>
+                            </div>
+                            <div class="choice">
+                                <div class="number">
+                                    <input class="circle" type="radio" />
+                                    <p class="index">
+                                        1
+                                    </p>
+                                    <p>
+                                        د) فَقُومُوا نَنْطَلِقُ مِنْ هُنَا
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn btn1">
+                إعادة ضبط الحقول
+            </div>
+            <div class="btn btn2">
+                حفظ وجدولة المسابقة تلقائياً
+            </div>
+        </div>
+    </div>
+    <div class="containTab">
+        <div class="List">
+            <div class="content">
+                <h3>
+                    سجل متابعة المخدومين ودرجات المسابقة
+                </h3>
+                <p>يتم تحديث الترتيب يومياً في تمام الساعة 11:59 مساءً عقب غلق مسابقة اليوم</p>
+            </div>
+            <div class="left">
+                <input type="text" placeholder="حث بالاسم، رقم الهاتف، أو المرحلة...">
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>
+                        اسم المخدوم
+                    </th>
+                    <th>
+                        المرحلة الدراسية
+                    </th>
+                    <th>
+                        رقم الهاتف (واتساب)
+                    </th>
+                    <th>
+                        المسابقات المنجزة
+                    </th>
+                    <th>
+                        إجمالي النقاط
+                    </th>
+                    <th>
+                        آخر مشاركة
+                    </th>
+                    <th>
+                        إجراءات الخادم
+                    </th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @for (person of Makhdoom(); track $index)
+                {
+                <tr>
+                    <td [ngClass]="['index',$index==0?'index1':$index==1?'index2':$index==2?'index2':'']">{{ $index
+                        + 1
+                        }}
+                    </td>
+                    <td class="Name">{{ person.Name_of_the_person }}</td>
+                    <td>{{ person.stage==1?'إعدادي (الصف الاول)':
+                        person.stage==2?'إعدادي (الصف الثاني)'
+                        :'إعدادي (الصف الثالث)' }}
+                    </td>
+                    <td>{{ person.Phone_Number }}</td>
+                    <td class="daily-series">{{ person.completed_competitions }} / 30</td>
+                    <td [ngClass]="['points',$index==0?'points1':'']">{{ person.total_points }}</td>
+                    <td>{{person.last_shared}}</td>
+                    <td>
+                        <img src="./https://img.icons8.com/?size=100&id=DCUh9XJvXLYQ&format=png&color=000000" alt="" />
+                        <img src=".https://img.icons8.com/?size=100&id=67884&format=png&color=000000" alt="" />
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
