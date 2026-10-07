@@ -8,5 +8,5 @@ export const routes: Routes = [
   { path: '', component: RollOfHonor },
   { path: 'race', component: Race },
   { path: 'Main', component: Main },
-  { path: 'Competition', component: Competitions },
+  { path: 'competition', component: Competitions },
 ];

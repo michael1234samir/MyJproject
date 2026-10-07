@@ -3,6 +3,7 @@ import { Component, signal } from '@angular/core';
 
 @Component({
   imports: [CommonModule],
+
   selector: 'app-competitions',
   styleUrl: './competitions.css',
   templateUrl: './competitions.html',
@@ -594,12 +595,30 @@ export class Competitions {
   book: any;
   title: any;
   chapter: any;
+  boolean: boolean = false;
+  boolean2: boolean = false;
   select(book: any) {
     this.book = book.total_chapters;
     this.title = book.book;
+    this.boolean = false;
   }
   selectchapter(book: any) {
     this.chapter = book;
+    this.boolean2 = false;
     // this.title = book.book;
+  }
+  tragger() {
+    this.boolean = !this.boolean;
+    this.boolean2 = false;
+  }
+  tragger2() {
+    this.boolean2 = !this.boolean2;
+    this.boolean = false;
+    // this.trigger3();
+  }
+  trigger3() {
+    if (this.boolean) {
+      // this.boolean = false;
+    }
   }
 }

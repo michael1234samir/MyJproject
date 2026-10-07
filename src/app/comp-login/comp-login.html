@@ -1,0 +1,146 @@
+<div class="container">
+    <div class="first">
+        <img alt="" />
+        <div class="con"></div>
+        <div class="content">
+            <h3>كنيسه ماريوحنا المعمدان وايليا النبى واخنوخ البار</h3>
+            <p>خدمة الرعية وكلمة الحياة</p>
+        </div>
+        <div class="aya">
+            :✨ « كُلُّ شَيْءٍ مُسْتَطَاعٌ لِلْمُؤْمِنِ »
+            <span> (مرقس 9 : 23) </span>
+        </div>
+    </div>
+    <!-- <div class="login1">
+        <div class="title">Registration</div>
+        <form action="">
+            <div class="user-details">
+                <div class="input-box">
+                    <span> Full Name </span>
+                    <input type="text" placeholder="Enter your Name" />
+                </div>
+                <div class="input-box"><span>
+                        Email
+                    </span><input type="text" placeholder="Enter your Name"></div>
+                <div class="input-box"><span>
+                        Phone Number
+                    </span><input type="text" placeholder="Enter your Name"></div>
+                <div class="input-box"><span>
+                        Password
+                    </span><input type="text" placeholder="Enter your Name"></div>
+                <div class="input-box"><span>
+                        Confirm Password
+                    </span><input type="text" placeholder="Enter your Name"></div>
+            </div>
+            <div class="gender-details">
+                <input type="radio" name="gender" id="dot-1" />
+                <input type="radio" name="gender" id="dot-2" />
+                <input type="radio" name="gender" id="dot-3" />
+                <span class="gender-title">
+                    Gender
+                </span>
+                <div class="catagory">
+                    <label for="dot-1"><span class="dot one"></span><span class="gender">male</span></label>
+                    <label for="dot-2"><span class="dot two"></span><span class="gender">female</span></label>
+                    <label for="dot-3"><span class="dot three"></span><span class="gender">Prefer not to
+                            say</span></label>
+                </div>
+            </div>
+            <div class="button"><input type="text" class="submit" value="register"></div>
+        </form>
+    </div> -->
+    <div class="login">
+        <div class="btns">
+            <div class="btn1" [style.background-color]="bgcolor1" [style.color]="color1" (click)="login()">
+                تسجيل الدخول
+            </div>
+            <div class="btn2" [style.background-color]="bgcolor2" [style.color]="color2" (click)="register()">
+                إنشاء حساب
+            </div>
+        </div>
+        @if (boolean1) {
+        <div class="form">
+            <div class="input">
+                <p>البريد الإلكتروني أو اسم المستخدم</p>
+                <input type="text" placeholder="مثال: Kyrillos@monastery.eg" />
+            </div>
+
+            <div class="input">
+                <p>كلمة المرور الكنسية</p>
+                <input type="password" placeholder="" />
+            </div>
+        </div>
+        } @else {
+        <div class="form">
+            <div class="input">
+                <p>البريد الإلكتروني أو اسم المستخدم</p>
+                <input type="text" placeholder="مثال: Kyrillos@monastery.eg" />
+            </div>
+
+            <div class="input">
+                <p>كلمة المرور الكنسية</p>
+                <input type="password" placeholder="" />
+            </div>
+            <div class="input">
+                <p>تأكيد كلمة المرور</p>
+                <input type="password" placeholder="" />
+            </div>
+            <div class="input">
+                <p>المرحله</p>
+                <div class="select">
+                    <P (click)="toggleMenu2()">{{ stage }}</P>
+                    @if (booleanstage) {
+                    <div class="menu-items">
+                        @for (stage of stages; track stage.key) {
+                        <a href="" (click)="selectStage(stage.key)">{{ stage.key }}</a>
+                        }
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="input">
+                <p>الصف الدراسى</p>
+                <div class="select" (click)="toggleMenu()">
+                    <P>{{ this.Stage }}</P>
+                    @if (booleanStage) {
+                    <div class="menu-items">
+                        @for (Stage of Stages; track Stage.key) {
+                        <a href="" (click)="selectStage(Stage.key)">{{ Stage.key }}</a>
+                        }
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="input">
+                <p>اب الاعتراف</p>
+                <input type="text" />
+            </div>
+            <div class="input">
+                <p>دورك</p>
+                <div class="select" (click)="toggleMenu3()">
+                    <P>{{ this.role }}</P>
+                    @if (booleanrole) {
+                    <div class="menu-items">
+                        @for (role of roles; track role.key) {
+                        <a href="" (click)="selectrole(role.key)">{{ role.key }}</a>
+                        }
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+        }
+        <div class="remember">نسيت كلمة المرور؟</div>
+        <div class="btns2">
+            <div class="btn1">تسجيل الدخول إلى الحساب</div>
+            <div class="btn2">⚡ دخول تجريبي سريع (صفة مخدوم / زائر)</div>
+        </div>
+        <div class="other">
+            <p>أو من خلال</p>
+            <div class="btns">
+                <div class="btn1">حساب Google</div>
+                <div class="btn2">الهوية الكنسية</div>
+            </div>
+        </div>
+    </div>
+</div>

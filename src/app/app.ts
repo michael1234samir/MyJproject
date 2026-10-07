@@ -1,9 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { RollOfHonor } from './roll-of-honor/roll-of-honor';
+import { CompLogin } from './comp-login/comp-login';
 
 @Component({
-  imports: [RouterOutlet, RollOfHonor],
+  imports: [RouterOutlet, RollOfHonor, CompLogin],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
@@ -26,7 +27,7 @@ export class App {
     this.router.navigate(['Main']);
   }
   goToCompetitionPage() {
-    this.router.navigate(['Competition']);
+    this.router.navigate(['competition']);
   }
   goToPage() {
     this.router.navigate(['']);

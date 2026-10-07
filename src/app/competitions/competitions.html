@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="./comp1.css">
+<link rel="stylesheet" href="./comp2.css">
+<link rel="stylesheet" href="./comp3.css">
+<link rel="stylesheet" href="./comp4.css">
 <div class="container">
     <div class="contain1">
         <div class="rightContain">
@@ -172,7 +176,15 @@
                     تاريخ ظهور المسابقة
                 </p>
                 <div class="input">
-                    <input type="date" name="" id="input" class="form-control" value="" required="required" title="">
+                    <input type="datetime-local" name="" id="input" class="form-control" value="" required="required" title="">
+                    </div>
+                    </div>
+                    <div class="content">
+                        <p>
+                            تاريخ انتهاء المسابقة
+                        </p>
+                        <div class="input">
+                            <input type="datetime-local" name="" id="input" class="form-control" value="" required="required" title="">
                 </div>
             </div>
             <!-- </div> -->
@@ -184,13 +196,15 @@
                 </p>
 
                 <div class="input">
-                    <input class="select" value="{{title}}" />
+                    <input class="select" value="{{title}}" (click)="tragger()" />
                     <!-- <p>{{selected}}</p> -->
+                    @if(boolean){
                     <div class="menu-items">
                         @for(book of books();track $index){
                         <a (click)="select(book)">{{book.book}}</a>
                         }
                     </div>
+                    }
                 </div>
             </div>
             <!-- </div> -->
@@ -202,10 +216,10 @@
                 </p>
 
                 <div class="input">
-                    <div class="select" {{chapter}}>
+                    <div class="select" (click)="tragger2()" {{chapter}}>
                         <p>{{chapter}}</p>
                     </div>
-                    @if(book !=null){
+                    @if(book !=null&&boolean2==true){
                     <div class="menu-items">
                         @for(i of [].constructor(book);track $index){
                         <a (click)="selectchapter($index+1)">{{$index+1}}</a>
@@ -239,8 +253,12 @@
                 </div>
 
                 <div class="body">
-                    <h3>بِمَ وَعَدَ الرَّبُّ تَلاَمِيذَهُ أَنْ يُرْسِلَ لَهُمُ الآبُ لِيَمْكُثَ مَعَهُمْ إِلَى الأَبَدِ؟
-                    </h3>
+<div class="first">
+    <p>نص السؤال التفاعلي:</p>
+    <input type="text" value="بِمَ وَعَدَ الرَّبُّ تَلاَمِيذَهُ أَنْ يُرْسِلَ لَهُمُ الآبُ لِيَمْكُثَ مَعَهُمْ إِلَى الأَبَدِ؟
+
+            ">
+</div>
                     <div class="choices">
                         <div class="choice">
                             <div class="number">
@@ -248,10 +266,8 @@
                                 <p class="index">
                                     1
                                 </p>
+                            <input value="أ) ملكاً أرضياً كبيراً" />
                             </div>
-                            <p>
-                                أ) ملكاً أرضياً كبيراً
-                            </p>
                         </div>
                         <div class="choice">
                             <div class="number">
@@ -259,36 +275,30 @@
                                 <p class="index">
                                     1
                                 </p>
-                                <p>
-                                    ب) مُعَزِّيًا آخَرَ... رُوحَ الْحَقِّ (مُحدد كإجابة صحيحة)
-                                </p>
-                            </div>
-                            <div class="choice">
+                                <input value="ب) مُعَزِّيًا آخَرَ... رُوحَ الْحَقِّ (مُحدد كإجابة صحيحة)">
+                                </div>
+                                                        </div>
+                                                        <div class=" choice">
                                 <div class="number">
                                     <input class="circle" type="radio" />
                                     <p class="index">
                                         1
                                     </p>
-                                    <p>
-                                        ج) سَيْفاً وَجُنُوداً لِحِمَايَتِهِمْ
-                                    </p>
-                                </div>
-                                <div class="choice">
-                                    <div class="number">
-                                        <input class="circle" type="radio" />
-                                        <p class="index">
-                                            1
-                                        </p>
-                                        <p>
-                                            د) كُنُوزاً وَأَمْوَالاً مَكْتُوزَةً
-                                        </p>
+                                    <input value="ج) سَيْفاً وَجُنُوداً لِحِمَايَتِهِمْ " />
                                     </div>
+                                    </div>
+                                    <div class="choice">
+                                        <div class="number">
+                                            <input class="circle" type="radio" />
+                                            <p class="index">
+                                                1
+                                            </p>
+                                <input value="د) كُنُوزاً وَأَمْوَالاً مَكْتُوزَةً">
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
             <div class="question">
                 <div class="first">
                     <div class="number">
@@ -303,10 +313,10 @@
                 </div>
 
                 <div class="body">
-                    <h3>
-                        أَكْمِلْ قَوْلَ الرَّبِّ: «سَلاَمًا أَتْرُكُ لَكُمْ أَنَا...»
-
-                    </h3>
+                    <div class="first">
+                        <p>نص السؤال التفاعلي:</p>
+                        <input type="text" value=" أَكْمِلْ قَوْلَ الرَّبِّ: «سَلاَمًا أَتْرُكُ لَكُمْ أَنَا...»" />
+                    </div>
                     <div class="choices">
                         <div class="choice">
                             <div class="number">
@@ -314,10 +324,8 @@
                                 <p class="index">
                                     1
                                 </p>
-                            </div>
-                            <p>
-                                أ) أَنَا هُوَ الطَّرِيقُ وَالْحَقُّ وَالْحَيَاةُ (مُحدد كإجابة صحيحة)
-                            </p>
+                            <input value="أ) أَنَا هُوَ الطَّرِيقُ وَالْحَقُّ وَالْحَيَاةُ (مُحدد كإجابة صحيحة)" />
+                                </div>
                         </div>
                         <div class="choice">
                             <div class="number">
@@ -325,19 +333,8 @@
                                 <p class="index">
                                     1
                                 </p>
-                                <p>
-                                    ب) أَنَا هُوَ نُورُ الْعَالَمِ
-                                </p>
-                            </div>
-                            <div class="choice">
-                                <div class="number">
-                                    <input class="circle" type="radio" />
-                                    <p class="index">
-                                        1
-                                    </p>
-                                    <p>
-                                        ج) أَنَا هُوَ الرَّاعِي الصَّالِحُ
-                                    </p>
+                                <input value="ب) أَنَا هُوَ نُورُ الْعَالَمِ" />
+                                </div>
                                 </div>
                                 <div class="choice">
                                     <div class="number">
@@ -345,23 +342,21 @@
                                         <p class="index">
                                             1
                                         </p>
-                                        <p>
-                                            د) أَنَا هُوَ خُبْزُ الْحَيَاةِ
-                                        </p>
-                                    </div>
+                                <input value=" ج) أَنَا هُوَ الرَّاعِي الصَّالِحُ">
                                 </div>
+                                </div>
+                                <div class="choice">
+                                    <div class="number">
+                                        <input class="circle" type="radio" />
+                                        <p class="index">
+                                            1
+                                        </p>
+                            <input value="د) أَنَا هُوَ خُبْزُ الْحَيَاةِ" />
+                            </div>
+                            </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="btn btn1">
-                    إعادة ضبط الحقول
-                </div>
-                <div class="btn btn2">
-                    حفظ وجدولة المسابقة تلقائياً
-                </div>
-            </div>
+                        </div>
             <div class="question">
                 <div class="first">
                     <div class="number">
@@ -376,10 +371,12 @@
                 </div>
 
                 <div class="body">
-                    <h3>
-                        أَكْمِلْ قَوْلَ الرَّبِّ: «سَلاَمًا أَتْرُكُ لَكُمْ. سَلاَمِي أُعْطِيكُمْ. لَيْسَ كَمَا يُعْطِي
-                    </h3>
-                </div>
+                    <div class="first">
+                        <p>نص السؤال التفاعلي:</p>
+                        <input type="text"
+                            value=" أَكْمِلْ قَوْلَ الرَّبِّ: «سَلاَمًا أَتْرُكُ لَكُمْ. سَلاَمِي أُعْطِيكُمْ. لَيْسَ كَمَا يُعْطِي" />
+                    </div>
+            
                 <div class="choices">
                     <div class="choice">
                         <div class="number">
@@ -387,10 +384,10 @@
                             <p class="index">
                                 1
                             </p>
-                        </div>
-                        <p>
-                            أ) فَافْرَحُوا وَتَهَلَّلُوا!
-                        </p>
+                            <p>
+                                أ) فَافْرَحُوا وَتَهَلَّلُوا!
+                            </p>
+                            </div>
                     </div>
                     <div class="choice">
                         <div class="number">
@@ -398,9 +395,8 @@
                             <p class="index">
                                 1
                             </p>
-                            <p>
-                                ب) فَلاَ تَحْزَنُوا أَبَداً
-                            </p>
+                        <input value="ب) فَلاَ تَحْزَنُوا أَبَداً">
+                        </div>
                         </div>
                         <div class="choice">
                             <div class="number">
@@ -408,9 +404,8 @@
                                 <p class="index">
                                     1
                                 </p>
-                                <p>
-                                    ج) لاَ تَضْطَرِبْ قُلُوبُكُمْ وَلاَ تَرْهَبْ (مُحدد كإجابة صحيحة)
-                                </p>
+                            <input value="ج) لاَ تَضْطَرِبْ قُلُوبُكُمْ وَلاَ تَرْهَبْ (مُحدد كإجابة صحيحة)" />
+                            </div>
                             </div>
                             <div class="choice">
                                 <div class="number">
@@ -418,24 +413,23 @@
                                     <p class="index">
                                         1
                                     </p>
-                                    <p>
-                                        د) فَقُومُوا نَنْطَلِقُ مِنْ هُنَا
-                                    </p>
+                                <input value=" د) فَقُومُوا نَنْطَلِقُ مِنْ هُنَا" />
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="btns">
 
-            <div class="btn btn1">
-                إعادة ضبط الحقول
-            </div>
-            <div class="btn btn2">
-                حفظ وجدولة المسابقة تلقائياً
-            </div>
-        </div>
-    </div>
+                                <div class="btn btn1">
+                                    إعادة ضبط الحقول
+                                </div>
+                                <div class="btn btn2">
+                                    حفظ وجدولة المسابقة تلقائياً
+                                </div>
+                                </div>
+                                </div>
     <div class="containTab">
         <div class="List">
             <div class="content">
@@ -475,7 +469,7 @@
                     </th>
 
 
-                </tr>
+            </tr>
             </thead>
             <tbody>
                 @for (person of Makhdoom(); track $index)
@@ -495,12 +489,12 @@
                     <td [ngClass]="['points',$index==0?'points1':'']">{{ person.total_points }}</td>
                     <td>{{person.last_shared}}</td>
                     <td>
-                        <img src="./https://img.icons8.com/?size=100&id=DCUh9XJvXLYQ&format=png&color=000000" alt="" />
-                        <img src=".https://img.icons8.com/?size=100&id=67884&format=png&color=000000" alt="" />
+                        <img src="https://img.icons8.com/?size=100&id=DCUh9XJvXLYQ&format=png&color=000000" alt="" />
+                        <img src="https://img.icons8.com/?size=100&id=67884&format=png&color=000000" alt="" />
                     </td>
                 </tr>
                 }
             </tbody>
-        </table>
-    </div>
+            </table>
+            </div>
 </div>

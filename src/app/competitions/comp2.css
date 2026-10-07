@@ -1,0 +1,158 @@
+.container > .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding: 1vw; */
+  background-color: #f2f4f6;
+  gap: 0.8vw;
+  margin-top: 3vw;
+  width: 87vw;
+  border-radius: 3vw;
+  margin-bottom: 3vw;
+  > .content {
+    width: 100%;
+    width: 87vw;
+    /* height: 3vw; */
+    gap: 2vw !important;
+    > h3 {
+      display: flex;
+      transition: all 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+      transition:
+        all 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+        all 0.2s ease;
+      justify-content: start;
+      align-items: center;
+      text-wrap: nowrap;
+      font-size: 1.3vw;
+      /* font-weight: 400; */
+      padding: 0 !important;
+      color: #05061b;
+      margin: 0 !important;
+    }
+    > p {
+      width: fit-content !important;
+      font-size: 0.7vw;
+      font-size: 1.1vw;
+      /* width: 29vw; */
+      /* height: 10vw; */
+      color: rgb(5, 6, 27, 0.6);
+      margin: 0 !important;
+      padding: 0 !important;
+      margin-top: 0.5vw !important;
+    }
+  }
+
+  > .aya {
+    display: flex;
+    margin-top: 1vw;
+    /* justify-content: start; */
+    align-items: center;
+    color: #05061b;
+    background-color: #f2f4f6;
+    font-size: 0.9vw;
+    border-radius: 0.5vw;
+    /* height: 7vw; */
+    padding: 1vw;
+    width: 26vw;
+    /* font-weight: 900 !important; */
+    color: #05061b;
+    color: rgb(5, 6, 27, 0.8);
+    margin: 0 !important;
+  }
+}
+.comp {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffff !important;
+  width: 90vw;
+  border-radius: 0.3vw;
+  gap: 2vw;
+  > .btns {
+    justify-self: center;
+    align-self: end;
+    display: flex;
+    width: 37vw;
+    font-size: 1.3vw;
+    height: 7vw;
+    padding-right: 1vw;
+    gap: 1vw;
+    justify-content: center;
+    align-items: start;
+    > .btn {
+      background-color: #eceef0 !important;
+      width: 8vw;
+      /* height: 1vw; */
+      /* padding: 0.1vw 2vw; */
+      padding: 0.7vw;
+      border-radius: 1vw;
+      text-wrap: nowrap;
+      transition: all 0.4s cubic-bezier(1, 0, 0, 1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* height: 1.3vw !important; */
+      /* padding: 2vw; */
+      /* font-size: 1.3vw; */
+      font-weight: bolder;
+      font-size: 0.9vw;
+      color: #05061b !important;
+    }
+    > .btn1:before:before {
+      /* background: url('./roll-of-honor/assets/fire.png') no-repeat; */
+      background-size: cover;
+      background-position: center;
+      right: 10%;
+    }
+    > .btn1 {
+      font-size: 0.9vw;
+      height: 1.7vw;
+      /* padding: 1vw; */
+      color: var(--primary-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* padding: 1.3vw; */
+      height: 1.7vw;
+      padding: 1vw;
+
+      /* height: 0; */
+      justify-content: space-between;
+      /* width: 17vw; */
+      /* width: 13vw; */
+    }
+    .btn1::before {
+      /* background: url('./assets/screens/screen_3.png') no-repeat; */
+      /* position: absolute; */
+      /* z-index: 1000; */
+      /* right: -1vw; */
+      background-size: cover;
+      content: '';
+      background-position: center;
+      width: 2vw;
+      height: 2vw;
+    }
+    .btn2 {
+      /* padding: 0.3vw 2vw 0.4vw 1vw; */
+      position: relative;
+      font-size: 1vw;
+      display: flex;
+      /* padding: 1vw; */
+      height: 1.7vw;
+      padding: 1vw;
+
+      /* height: 0; */
+      justify-content: center;
+      width: 15vw;
+      background-color: #3f434e !important;
+      color: #fff !important;
+      > p {
+        color: white;
+        padding-inline: 1vw;
+      }
+      /* background-image: url('./assets/Screens//screen_4.png') no-repeat; */
+      background-size: contain;
+      background-position: center;
+    }
+  }
+}
