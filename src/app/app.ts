@@ -1,7 +1,10 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, Input, OnInit, input, NgModule, signal } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { RollOfHonor } from './roll-of-honor/roll-of-honor';
 import { CompLogin } from './comp-login/comp-login';
+import { jwtDecode, JwtPayload } from 'jwt-decode';
+import { JeServiceTs } from './je-service.ts';
+import { Makhdoom } from '../IData';
 
 @Component({
   imports: [RouterOutlet, RollOfHonor, CompLogin],
@@ -12,14 +15,7 @@ import { CompLogin } from './comp-login/comp-login';
 export class App {
   private router = inject(Router);
   protected readonly title = signal('MyJProject');
-  LoginMakhdoom = signal<Makhdoom>({
-    Name_of_the_person: 'مينا سمير (أنت)',
-    family_and_class: '	أسرة القديس بولس الرسول',
-    completed_competitions: 16,
-    daily_series: 7,
-    success_rate: 95,
-    total_points: 480,
-  });
+  constructor(private myservice: JeServiceTs) {}
   goToRacePage() {
     this.router.navigate(['race']);
   }
@@ -30,6 +26,35 @@ export class App {
     this.router.navigate(['competition']);
   }
   goToPage() {
+    this.router.navigate(['roll']);
+  }
+  @Input() token?: Makhdoom | null;
+  Tokens: Makhdoom | null = {};
+  LoginMakhdoom: any;
+  // token: any;
+  login: boolean = false;
+  ngOnInit() {
+    this.myservice.isllogedIn$.subscribe((isloggedIn) => {
+      this.login = isloggedIn;
+      if (isloggedIn) {
+        this.token = this.myservice.GetDecodedToken();
+        this.router.navigate(['main']);
+        this.Tokens = this.token;
+      } else {
+        this.token = null;
+      }
+    });
+    this.token = this.myservice.GetDecodedToken();
+  }
+  logout() {
+    this.myservice.logout();
     this.router.navigate(['']);
+
+    // this.login = false;
+  }
+  registered: boolean = false;
+  onActivate(compref: any) {
+    console.log(this.token);
+    compref.payload = this.token;
   }
 }

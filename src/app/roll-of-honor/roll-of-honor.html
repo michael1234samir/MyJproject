@@ -46,7 +46,7 @@
     <input type="text" placeholder="بحث باسم المخدوم أو الأسرة..." />
 </div>
 <div class="containCards">
-    @for (person of CentresMakhdoom(); track $index) {
+    @for (person of CentresMakhdoom; track $index) {
     <div [ngClass]="['card',$index==0?'card1':$index==1?'card2':'card3']">
 
         @if($index==0){
@@ -55,12 +55,12 @@
         @else if($index==1){
         <div class="first">
             <p>
-                {{ first_Center_in_pain.daily_series }}
+                {{ person.daily_series }}
                 يوم توالى
             </p>
 
             <p>
-                الحمد لله
+            شكرا يارب
             </p>
         </div>
         <div class="number"></div>
@@ -71,8 +71,8 @@
         <div class="cardContent">
             <div [ngClass]="['personimage',$index==0?'person1img':$index==1?'person2img':'person3img']">
             </div>
-            <h4>{{person.Name_of_the_person}}</h4>
-            <p>{{ person.family_and_class }}</p>
+            <h4>{{person.Name}}</h4>
+            <p>{{ person.Family }}</p>
             @if($index==0){
             <h5 class="grade grade2">وسام المداوم المجتهد</h5>
             }
@@ -113,7 +113,7 @@
         
             اجمالى المشتركين النشطين:
         </p>
-        <p>{{ Makhdoom().length }} مخدوم</p>
+        <p>{{ Makhdoom.length }} مخدوم</p>
         </div>
     </div>
     <table>
@@ -130,11 +130,11 @@
             </tr>
         </thead>
         <tbody>
-            @for (person of Makhdoom(); track $index) {
+            @for (person of Makhdoom; track $index) {
             <tr>
                 <td [ngClass]="['index',$index==0?'index1':$index==1?'index2':$index==2?'index2':'']">{{ $index + 1 }}</td>
-                <td class="Name">{{ person.Name_of_the_person }}</td>
-                <td>{{ person.family_and_class }}</td>
+                <td class="Name">{{ person.Name }}</td>
+                <td>{{ person.Family }}</td>
                 <td>{{ person.completed_competitions }}</td>
                 <td class="daily-series">{{ person.daily_series }} يوم</td>
                 <td class="success-rate">{{ person.success_rate }}%</td>

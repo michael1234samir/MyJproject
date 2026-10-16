@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="./comp-login2.css">
 <div class="container">
     <div class="first">
         <img alt="" />
@@ -51,90 +52,108 @@
     </div> -->
     <div class="login">
         <div class="btns">
-            <div class="btn1" [style.background-color]="bgcolor1" [style.color]="color1" (click)="login()">
+    <div class="btn1" [style.background]="bgcolor1" [style.color]="color1" [style.border-color]="border_color1"
+        (click)="login()">
                 تسجيل الدخول
             </div>
-            <div class="btn2" [style.background-color]="bgcolor2" [style.color]="color2" (click)="register()">
+            <div class="btn2" [style.background]="bgcolor2" [style.color]="color2" [style.border-color]="border_color2"
+                (click)="register()">
                 إنشاء حساب
             </div>
         </div>
         @if (boolean1) {
         <div class="form">
             <div class="input">
-                <p>البريد الإلكتروني أو اسم المستخدم</p>
-                <input type="text" placeholder="مثال: Kyrillos@monastery.eg" />
+                <p> رقم التلفون</p>
+                <input [(ngModel)]="userlogin.phoneNumber" name="phoneNumber" type="text" />
             </div>
 
             <div class="input">
                 <p>كلمة المرور الكنسية</p>
-                <input type="password" placeholder="" />
-            </div>
+                <input [(ngModel)]="userlogin.password" name="password" type="password" placeholder="" />
+                </div>
+                <div class="btns2">
+                    <div class="btn1" (click)="logins()">تسجيل الدخول إلى الحساب</div>
+                    <div class="btn2">⚡ دخول تجريبي سريع (صفة مخدوم / زائر)</div>
+                </div>
         </div>
         } @else {
         <div class="form">
             <div class="input">
-                <p>البريد الإلكتروني أو اسم المستخدم</p>
-                <input type="text" placeholder="مثال: Kyrillos@monastery.eg" />
+            <p> رقم التلفون</p>
+            <input [(ngModel)]="user.phoneNumber" type="text" placeholder="مثال: Kyrillos@monastery.eg" />
             </div>
+<div class="input">
+    <p> الاسم الكامل</p>
+    <input type="text" [(ngModel)]="user.Full_Name" />
+</div>
+<div class="passwords">
 
+    <div class="input">
+        <p>كلمة المرور الكنسية</p>
+        <input [(ngModel)]="user.password" type="password" placeholder="" />
+    </div>
+    <div class="input">
+        <p>تأكيد كلمة المرور</p>
+        <input type="password" placeholder="" />
+    </div>
+</div>
             <div class="input">
-                <p>كلمة المرور الكنسية</p>
-                <input type="password" placeholder="" />
-            </div>
-            <div class="input">
-                <p>تأكيد كلمة المرور</p>
-                <input type="password" placeholder="" />
-            </div>
-            <div class="input">
+                <p>تاريخ الميلاد </p>
+                <input type="date" [(ngModel)]="user.BirthDate" placeholder="" />
+                </div>
+                <div class="inputradio">
                 <p>المرحله</p>
-                <div class="select">
-                    <P (click)="toggleMenu2()">{{ stage }}</P>
-                    @if (booleanstage) {
-                    <div class="menu-items">
-                        @for (stage of stages; track stage.key) {
-                        <a href="" (click)="selectStage(stage.key)">{{ stage.key }}</a>
-                        }
+                <div class="menu-items">
+                    @for (stage of stages; track stage.key) {
+                    <div class="radio" (click)="selectstage(stage.key)">
+                    
+                        <input type="radio" name="Stage" id="">
+                        <a>{{ stage.key }}</a>
                     </div>
                     }
                 </div>
             </div>
-            <div class="input">
-                <p>الصف الدراسى</p>
-                <div class="select" (click)="toggleMenu()">
-                    <P>{{ this.Stage }}</P>
-                    @if (booleanStage) {
-                    <div class="menu-items">
-                        @for (Stage of Stages; track Stage.key) {
-                        <a href="" (click)="selectStage(Stage.key)">{{ Stage.key }}</a>
-                        }
+        <div class="inputradio">
+                <p>اجتماع</p>
+                <div class="menu-items">
+                    @for (stage of families; track stage.key) {
+                    <div class="radio" (click)="selectStage(stage.key)">
+                    
+                        <input type="radio" name="family" id="">
+                        <a>{{ stage.key }}</a>
                     </div>
                     }
                 </div>
             </div>
+        
             <div class="input">
                 <p>اب الاعتراف</p>
-                <input type="text" />
-            </div>
-            <div class="input">
-                <p>دورك</p>
-                <div class="select" (click)="toggleMenu3()">
-                    <P>{{ this.role }}</P>
-                    @if (booleanrole) {
-                    <div class="menu-items">
-                        @for (role of roles; track role.key) {
-                        <a href="" (click)="selectrole(role.key)">{{ role.key }}</a>
-                        }
-                    </div>
-                    }
+                <input type="text" [(ngModel)]="user.father_Confessor" />
                 </div>
+                <div class="input">
+                    <p> العنوان</p>
+                    <input type="text" [(ngModel)]="user.address" />
+                </div>
+            <div class="inputradio">
+                <p>دورك</p>
+                <div class="menu-items">
+                    @for (stage of roles; track stage.key) {
+                <div class="radio" (click)="selectrole(stage.key)">
+                
+                    <input type="radio" name="role" id="">
+                    <a>{{ stage.key }}</a>
+                </div>
+                    }
+                    </div>
+            </div>
+            <div class="remember">نسيت كلمة المرور؟</div>
+            <div class="btns2">
+                <button class="btn1" type="button" (click)="submit()">تسجيل الدخول إلى الحساب</button>
+                <div class="btn2">⚡ دخول تجريبي سريع (صفة مخدوم / زائر)</div>
             </div>
         </div>
         }
-        <div class="remember">نسيت كلمة المرور؟</div>
-        <div class="btns2">
-            <div class="btn1">تسجيل الدخول إلى الحساب</div>
-            <div class="btn2">⚡ دخول تجريبي سريع (صفة مخدوم / زائر)</div>
-        </div>
         <div class="other">
             <p>أو من خلال</p>
             <div class="btns">
@@ -142,5 +161,10 @@
                 <div class="btn2">الهوية الكنسية</div>
             </div>
         </div>
+    </div>
+    <div class="footer">
+        <p>
+            ✟ كنيسة قبطية أرثوذكسية تحت رعاية الآباء الكهنة وأمانة الخدمة
+            ✟</p>
     </div>
 </div>

@@ -354,8 +354,8 @@ li,
         }
       }
       > .Chapter {
-        font-size: 2.2vw !important;
-        font-weight: 900;
+        font-size: 2vw !important;
+        font-weight: 600;
         /* font-size: .3vw; */
 
         /* color: white; */
@@ -413,7 +413,7 @@ li,
         border-radius: 50%;
         /* padding: 1vw 1vw; */
         font-size: 0.1vw;
-        border: 0.3vw solid #10b981;
+        border: 10% solid #10b981;
         transition: all 1s;
         background-color: #fff;
         transition:

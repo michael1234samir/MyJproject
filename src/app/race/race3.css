@@ -135,7 +135,7 @@
        inset 0 0vw 0.1vw 0vw rgba(0, 0, 0, 0.2),
        inset  0 0vw 0.1vw 0.1vw rgba(0, 0, 0, 0.14),
       inset  0 0vw 0vw 0 rgba(0, 0, 0, 0.2); */
-          background-color: #f2f4f6 !important;
+          background-color: #f2f4f6;
           width: 24vw;
           height: 3vw;
           /* padding: 0.1vw 2vw; */
@@ -151,7 +151,7 @@
           /* font-size: 1.3vw; */
 
           font-size: 0.8vw;
-          color: #05061b !important;
+          color: #05061b ;
           > .number {
             display: flex;
             justify-content: start;
@@ -161,11 +161,12 @@
             > p {
               font-weight: 400;
               margin: 0;
-              color: #05061b !important;
+              color: inherit;
             }
             > .index {
-              width: 2vw;
-              height: 2vw;
+              width: 3vw;
+              height: 1vw;
+              padding: 1vw;
               background-color: #e6e8ea;
               box-shadow: none;
               color: #05061b;
@@ -236,5 +237,12 @@
     font-weight: 600;
     color: #ffff !important;
     background-color: #0f2547;
+  }
+}
+.choice{
+  background-color: #f3f6ff;
+  >.first>.number>.index{
+background-color: #05061b;
+color: #fff;
   }
 }

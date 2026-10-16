@@ -10,7 +10,7 @@
           <li>مسابقة يومية رقم #102</li>
           </div>
           
-          <li class="Chapter">مسابقة اليوم: سفر الأمثال — الإصحاح الأول</li>
+          <li class="Chapter">مسابقة اليوم:{{this.competition.competition_title}}</li>
           <li>
             <h6>
             «لِمَعْرِفَةِ حِكْمَةٍ وَأَدَبٍ، لِلإِدْرَاكِ كَلِمَاتِ الْفَهْمِ» (أم 1: 2). تأمل في
@@ -19,15 +19,30 @@
             </li>
             </ul>
             </div>
-
     <div class="btns">
       <div class="btn btn1">
         <p>وقت التأمل</p>
-        <h1>: 04:27</h1>
+        <h1>
+          <span #seconds class="seconds">
+            27
+          </span>
+          :
+          <span #minutes class="minutes">
+            04
+          </span>
+        </h1>
         </div>
         <div class="btn btn2">
-        <p>الجائزة:</p>
-        <h1>30 نقطة</h1>
+        <p>وقت المسابقة</p>
+        <h1>
+          <span #seconds2 class="seconds">
+            00
+          </span>
+          :
+          <span #minutes2 class="minutes">
+            30
+          </span>
+        </h1>
         </div>
     </div>
     <div class="contain2">
@@ -35,18 +50,23 @@
         <p>السؤال الحالي: 3 /3</p>
         <p>نسبة الإكمال: تم تحديد 3 من أصل 3 أسئلة</p>
       </div>
-      <div class="line"></div>
+      <div class="line1">
+        <div class="line" #line>
+      
+        </div>
+      </div>
       </div>
       </div>
       <div class="columns">
+        @if(bool3){
         <div class="right_column">
       <div class="questions">
-        @for (question of Questions(); track $index) {
+        @for (question of this.questions; track $index;let parentindex=$index) {
         <div class="question">
           <div class="first">
             <div class="number">
               <p class="index">
-                  {{ $index }}
+                  {{ $index+1 }}
                   </p>
                 <p>سؤال من نص الإصحاح:</p>
                 </div>
@@ -54,35 +74,37 @@
               </div>
 
             <div class="body">
-              <h3>{{ question.QuestionBody }}</h3>
+              <h3>{{ question.competition_Question }}</h3>
               <div class="choices">
-                @for (choice of objectEntries(question.Choices); track $index) {
-                <div class="choice">
+                @for (choice of [question.choiceA,question.choiceB,question.choiceC,question.choiceD]; track $index) {
+                <div class="choice" (click)="selectedchoice(parentindex,$index)"
+                  [class.selected]="selectedChoices[parentindex]===$index">
                   <div class="number">
                     <p class="index">
-                        {{ choice.key }}
+                        {{($index==0?'ا':$index==1?'ب':$index==2?'ج' :'د' ) }}
                         </p>
                         <p>
-                        {{ choice.value }}
+                        {{ choice }}
                         </p>
                         </div>
-                        <div class="circle"></div>
+                        <div class="circle" [class.selected]="selectedChoices[parentindex]===$index"></div>
                         </div>
                         }
                         </div>
                         </div>
                         <div class="content">
-              <p>{{ question.ref }}</p>
               </div>
               </div>
               }
 
-        <div class="btn btn2">تأكيد وإرسال إجابات المسابقة ✨</div>
+        <div class="btn btn2" (click)="submit()">تأكيد وإرسال إجابات المسابقة ✨</div>
         <div class="content">
           <p>بالأنقر على هذا الزر، ستسجل النتيجة فوراً في ملفك الشخصي ولوحة الشرف الأسبوعية.</p>
           </div>
+
           </div>
           </div>
+        }
           <div class="left_column">
             <div class="card1">
         <div class="first">
@@ -138,6 +160,8 @@
           </div>
     </div>
     </div>
+    @if(!bool3){
+
     <div class="result">
       <div class="precen">
       <h1>100%</h1>
@@ -145,7 +169,7 @@
       </div>
     <div class="rect">علامة كاملة ومستوى فائق!</div>
     <div class="content">
-      <h3>أحسنت يا مينا! استمر في دراسة كلمة الله ❤️</h3>
+      <h3>أحسنت يا {{this.payload.Name?.split(" ")[0]}}! استمر في دراسة كلمة الله ❤️</h3>
       <p>
         إجابات دقيقة تدل على تأمل عميق في سفر الأمثال. تمت إضافة النقاط إلى سجل الترتيب العام
         لرعايتك.
@@ -178,4 +202,6 @@
       <p>تفتح المسابقة القادمة (سفر الأمثال 2) تلقائياً غداً في تمام الساعة 06:00 صباحاً.</p>
       </div>
         </div>
+    }
+
       </div>

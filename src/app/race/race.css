@@ -11,7 +11,7 @@ span {
   color: #a5b2d1;
 }
 .btn:hover {
-  color: white !important;
+  color:white !important;
   transform: translatey(-0.1vw);
        box-shadow:
         0 0.03vw 0vw 0vw rgb(5, 6, 27,.14),
@@ -408,7 +408,14 @@ align-items: center;
       > h1 {
         font-size: 1.6vw;
         margin: 0;
-        color: #05061b;
+        
+        >span{
+          font-size: 1.6vw;
+          margin: 0;
+          
+          color: #9e5e35 !important;
+          color: #05061b;
+        }
       }
     }
     > .btn1:before:before {
@@ -452,6 +459,18 @@ align-items: center;
     }
   }
 }
+.choice.selected{
+  background-color: #05061b !important;
+  color: #fff !important;
+  >.number>.index{
+    background-color: #05061b !important;
+    color: #fff !important;
+  }
+   >.number>.choice{
+    background-color: #05061b;
+    border-color:.3vw solid #fff;
+   }
+}
 .contain2{
   
  display: flex;
@@ -475,6 +494,18 @@ height: 3vw;
     font-size: 1vw;
    }
   }
+  .line1{
+    display: flex;
+    /* width: 80vw; */
+  /* height: 10vw; */
+  background-color: #e6e8ea;
+
+  justify-content: center;
+  flex-direction: column;
+  width: 80vw;
+  height: 1vw;
+  align-self: center;    
+  }
   .line {
     display: flex;
     /* width: 80vw; */
@@ -483,7 +514,7 @@ height: 3vw;
 
   justify-content: center;
   flex-direction: column;
-  width: 80vw;
+  /* width: 80vw; */
   height: 1vw;
   align-self: center;
   }

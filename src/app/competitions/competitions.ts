@@ -1,14 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, NgModule, OnInit, signal } from '@angular/core';
+import { Book, Choice, competition, CompQuestion, Makhdoom, Question } from '../../IData';
+import { JeServiceTs } from '../je-service.ts';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
 
   selector: 'app-competitions',
   styleUrl: './competitions.css',
   templateUrl: './competitions.html',
 })
-export class Competitions {
+export class Competitions implements OnInit {
+  /**
+   *
+   */
+  constructor(private myservice: JeServiceTs) {}
   books = signal<Book[]>([
     {
       book_id: 1,
@@ -471,124 +478,135 @@ export class Competitions {
       ],
     },
   ]);
+  persons: Makhdoom[] = [];
+  ngOnInit(): void {
+    this.myservice.getallusers().subscribe({
+      next: (response) => {
+        this.persons = response;
+        console.log(response);
+      },
+      error: (err) => {
+        console.error(err);
+      },
+    });
+  }
+  // Questions = signal<Question[]>([
+  //   {
+  //     QuestionBody:
+  //       '    «مَا هِيَ رَأْسُ الْمَعْرِفَةِ كَمَا وَرَدَ فِي الإِصْحَاحِ الأَوَّلِ مِنْ سِفْرِ الأَمْثَالِ؟»',
+  //     Choices: {
+  //       A: 'أ) مَخَافَةُ الرَّبِّ',
+  //       B: 'ب) كَثْرَةُ الْقِرَاءَةِ',
+  //       C: 'ج) سَمَاعُ مَشُورَةِ الأَصْدِقَاءِ',
+  //       D: 'د) حِفْظُ الأَسْرَارِ',
+  //     },
+  //     CorrectChoice: 'A',
+  //     ref: ' «مَخَافَةُ الرَّبِّ رَأْسُ الْمَعْرِفَةِ، أَمَّا الْجَاهِلُونَ فَيَحْتَقِرُونَ الْحِكْمَةَ وَالأَدَبَ» (أم 1: 7)',
+  //   },
+  //   {
+  //     QuestionBody: '«إِذَا أَرَاغَكَ الْخُطَاةُ فَمَاذَا تَفْعَلُ حَسَبَ نَصِيحَةِ الْحَكِيمِ؟»',
+  //     Choices: {
+  //       A: 'أ) تَمْشِي مَعَهُمْ لِتُرْشِدَهُمْ',
+  //       B: 'ب) فَلاَ تَرْضَ وَامْنَعْ رِجْلَكَ عَنْ مَسَالِكِهِمْ',
+  //       C: 'ج) تُجَادِلُهُمْ طَوِيلاً',
+  //       D: 'د) تَسْكُتُ فَقَطْ',
+  //     },
+  //     CorrectChoice: 'B',
+  //     ref: '«يَا ابْنِي، إِنْ أَرَاغَكَ الْخُطَاةُ فَلاَ تَرْضَ... اِمْنَعْ رِجْلَكَ عَنْ مَسَالِكِهِمْ» (أم 1: 10، 15)',
+  //   },
+  //   {
+  //     QuestionBody:
+  //       '«الْحِكْمَةُ تُنَادِي فِي الْخَارِجِ...» أَيْنَ تَرْفَعُ صَوْتَهَا كَمَا جَاءَ بِالنَّصِّ؟»',
+  //     Choices: {
+  //       A: 'أ) فِي الْقُصُورِ فَقَطْ',
+  //       B: 'ب) فِي الأَسْوَاقِ وَعِنْدَ مَدَاخِلِ الأَبْوَابِ',
+  //       C: 'ج) فِي الْبَرَارِي وَالْقِفَارِ',
+  //       D: 'د) بَيْنَ الْعُلَمَاءِ سِرّاً',
+  //     },
+  //     CorrectChoice: 'B',
+  //     ref: '«الْحِكْمَةُ تُنَادِي فِي الْخَارِجِ. فِي الشَّوَارِعِ تُعْطِي صَوْتَهَا. تَدْعُو فِي رُؤُوسِ الأَسْوَاقِ، فِي مَدَاخِلِ الأَبْوَابِ» (أم 1: 20-21',
+  //   },
+  // ]);
+  // Makhdoom = signal<Makhdoom[]>([
+  //   {
+  //     full_Name: 'كيرلس هاني (بطل الإنجيل)',
+  //     family_Name: 'أسرة القديس مرقس الرسول',
+  //     completed_competitions: 18,
+  //     daily_series: 18,
+  //     success_rate: 98,
+  //     total_points: 540,
+  //     Phone_Number: '+20 122 458 9162',
+  //     last_shared: 'اليوم (07:15 ص)',
+  //     stage: 1,
+  //   },
 
-  Questions = signal<Question[]>([
-    {
-      QuestionBody:
-        '    «مَا هِيَ رَأْسُ الْمَعْرِفَةِ كَمَا وَرَدَ فِي الإِصْحَاحِ الأَوَّلِ مِنْ سِفْرِ الأَمْثَالِ؟»',
-      Choices: {
-        A: 'أ) مَخَافَةُ الرَّبِّ',
-        B: 'ب) كَثْرَةُ الْقِرَاءَةِ',
-        C: 'ج) سَمَاعُ مَشُورَةِ الأَصْدِقَاءِ',
-        D: 'د) حِفْظُ الأَسْرَارِ',
-      },
-      CorrectChoice: 'A',
-      ref: ' «مَخَافَةُ الرَّبِّ رَأْسُ الْمَعْرِفَةِ، أَمَّا الْجَاهِلُونَ فَيَحْتَقِرُونَ الْحِكْمَةَ وَالأَدَبَ» (أم 1: 7)',
-    },
-    {
-      QuestionBody: '«إِذَا أَرَاغَكَ الْخُطَاةُ فَمَاذَا تَفْعَلُ حَسَبَ نَصِيحَةِ الْحَكِيمِ؟»',
-      Choices: {
-        A: 'أ) تَمْشِي مَعَهُمْ لِتُرْشِدَهُمْ',
-        B: 'ب) فَلاَ تَرْضَ وَامْنَعْ رِجْلَكَ عَنْ مَسَالِكِهِمْ',
-        C: 'ج) تُجَادِلُهُمْ طَوِيلاً',
-        D: 'د) تَسْكُتُ فَقَطْ',
-      },
-      CorrectChoice: 'B',
-      ref: '«يَا ابْنِي، إِنْ أَرَاغَكَ الْخُطَاةُ فَلاَ تَرْضَ... اِمْنَعْ رِجْلَكَ عَنْ مَسَالِكِهِمْ» (أم 1: 10، 15)',
-    },
-    {
-      QuestionBody:
-        '«الْحِكْمَةُ تُنَادِي فِي الْخَارِجِ...» أَيْنَ تَرْفَعُ صَوْتَهَا كَمَا جَاءَ بِالنَّصِّ؟»',
-      Choices: {
-        A: 'أ) فِي الْقُصُورِ فَقَطْ',
-        B: 'ب) فِي الأَسْوَاقِ وَعِنْدَ مَدَاخِلِ الأَبْوَابِ',
-        C: 'ج) فِي الْبَرَارِي وَالْقِفَارِ',
-        D: 'د) بَيْنَ الْعُلَمَاءِ سِرّاً',
-      },
-      CorrectChoice: 'B',
-      ref: '«الْحِكْمَةُ تُنَادِي فِي الْخَارِجِ. فِي الشَّوَارِعِ تُعْطِي صَوْتَهَا. تَدْعُو فِي رُؤُوسِ الأَسْوَاقِ، فِي مَدَاخِلِ الأَبْوَابِ» (أم 1: 20-21',
-    },
-  ]);
-  Makhdoom = signal<Makhdoom[]>([
-    {
-      Name_of_the_person: 'كيرلس هاني (بطل الإنجيل)',
-      family_and_class: 'أسرة القديس مرقس الرسول',
-      completed_competitions: 18,
-      daily_series: 18,
-      success_rate: 98,
-      total_points: 540,
-      Phone_Number: '+20 122 458 9162',
-      last_shared: 'اليوم (07:15 ص)',
-      stage: 1,
-    },
-
-    {
-      Name_of_the_person: 'مينا سمير (أنت)',
-      family_and_class: '	أسرة القديس بولس الرسول',
-      completed_competitions: 16,
-      daily_series: 7,
-      success_rate: 95,
-      total_points: 480,
-      Phone_Number: '+20 122 458 9162',
-      last_shared: 'اليوم (07:15 ص)',
-      stage: 1,
-    },
-    {
-      Name_of_the_person: 'مريم يوسف',
-      family_and_class: '	أسرة القديسة دميانة',
-      completed_competitions: 16,
-      daily_series: 12,
-      success_rate: 92,
-      total_points: 460,
-      Phone_Number: '+20 122 458 9162',
-      last_shared: 'اليوم (07:15 ص)',
-      stage: 1,
-    },
-    {
-      Name_of_the_person: 'فادى ابراهيم',
-      family_and_class: '	أسرة القديس بولس الرسول',
-      completed_competitions: 15,
-      daily_series: 5,
-      success_rate: 90,
-      total_points: 430,
-      Phone_Number: '+20 122 458 9162',
-      last_shared: 'اليوم (07:15 ص)',
-      stage: 1,
-    },
-    {
-      Name_of_the_person: 'سارة مجدي',
-      family_and_class: 'أسرة القديسة دميانه ',
-      completed_competitions: 15,
-      daily_series: 8,
-      success_rate: 88,
-      total_points: 410,
-      Phone_Number: '+20 122 458 9162',
-      last_shared: 'اليوم (07:15 ص)',
-      stage: 1,
-    },
-    {
-      Name_of_the_person: 'ايهاب جورج',
-      family_and_class: 'اسره القديس مرقس الرسول',
-      completed_competitions: 14,
-      daily_series: 3,
-      success_rate: 86,
-      total_points: 390,
-      Phone_Number: '+20 122 458 9162',
-      last_shared: 'اليوم (07:15 ص)',
-      stage: 1,
-    },
-    {
-      Name_of_the_person: 'يوستينا عادل',
-      family_and_class: 'اسره القديسه دميانه',
-      completed_competitions: 13,
-      daily_series: 4,
-      success_rate: 85,
-      total_points: 370,
-      Phone_Number: '+20 122 458 9162',
-      last_shared: 'اليوم (07:15 ص)',
-      stage: 1,
-    },
-  ]);
+  //   {
+  //     full_Name: 'مينا سمير (أنت)',
+  //     family_Name: '	أسرة القديس بولس الرسول',
+  //     completed_competitions: 16,
+  //     daily_series: 7,
+  //     success_rate: 95,
+  //     total_points: 480,
+  //     Phone_Number: '+20 122 458 9162',
+  //     last_shared: 'اليوم (07:15 ص)',
+  //     stage: 1,
+  //   },
+  //   {
+  //     full_Name: 'مريم يوسف',
+  //     family_Name: '	أسرة القديسة دميانة',
+  //     completed_competitions: 16,
+  //     daily_series: 12,
+  //     success_rate: 92,
+  //     total_points: 460,
+  //     Phone_Number: '+20 122 458 9162',
+  //     last_shared: 'اليوم (07:15 ص)',
+  //     stage: 1,
+  //   },
+  //   {
+  //     full_Name: 'فادى ابراهيم',
+  //     family_Name: '	أسرة القديس بولس الرسول',
+  //     completed_competitions: 15,
+  //     daily_series: 5,
+  //     success_rate: 90,
+  //     total_points: 430,
+  //     Phone_Number: '+20 122 458 9162',
+  //     last_shared: 'اليوم (07:15 ص)',
+  //     stage: 1,
+  //   },
+  //   {
+  //     full_Name: 'سارة مجدي',
+  //     family_Name: 'أسرة القديسة دميانه ',
+  //     completed_competitions: 15,
+  //     daily_series: 8,
+  //     success_rate: 88,
+  //     total_points: 410,
+  //     Phone_Number: '+20 122 458 9162',
+  //     last_shared: 'اليوم (07:15 ص)',
+  //     stage: 1,
+  //   },
+  //   {
+  //     full_Name: 'ايهاب جورج',
+  //     family_Name: 'اسره القديس مرقس الرسول',
+  //     completed_competitions: 14,
+  //     daily_series: 3,
+  //     success_rate: 86,
+  //     total_points: 390,
+  //     Phone_Number: '+20 122 458 9162',
+  //     last_shared: 'اليوم (07:15 ص)',
+  //     stage: 1,
+  //   },
+  //   {
+  //     full_Name: 'يوستينا عادل',
+  //     family_Name: 'اسره القديسه دميانه',
+  //     completed_competitions: 13,
+  //     daily_series: 4,
+  //     success_rate: 85,
+  //     total_points: 370,
+  //     Phone_Number: '+20 122 458 9162',
+  //     last_shared: 'اليوم (07:15 ص)',
+  //     stage: 1,
+  //   },
+  // ]);
   objectEntries(obj: Choice) {
     return Object.entries(obj).map(([key, value]) => ({ key, value }));
   }
@@ -596,7 +614,26 @@ export class Competitions {
   title: any;
   chapter: any;
   boolean: boolean = false;
+  payload: Makhdoom = {};
+
   boolean2: boolean = false;
+  Ques: CompQuestion = {
+    choiceA: 'مخافة الرب وتوقيره',
+    choiceB: 'طلب الغنى والشهرة العالمية',
+    choiceC: 'كثرة الجدال مع الناس',
+    choiceD: 'الانعزال عن المجتمع الكنسي',
+    competition_Question:
+      '«اسْمَعْ يَا ابْنِي تَأْدِيبَ أَبِيكَ، وَلاَ تَرْفُضْ شَرِيعَةَ أُمِّكَ»، ماذا تمثل شريعة وتأديب الوالدين للمؤمن؟',
+    correct_option_index: 0,
+  };
+  comp: competition = {
+    competition_title: '',
+    finished__At: new Date(),
+    Opened__At: new Date(),
+    family: this.payload.Family ?? '',
+    questions: [],
+    Created_At: new Date(),
+  };
   select(book: any) {
     this.book = book.total_chapters;
     this.title = book.book;
@@ -620,5 +657,85 @@ export class Competitions {
     if (this.boolean) {
       // this.boolean = false;
     }
+  }
+
+  boolean1: boolean = false;
+  save() {
+    this.boolean1 = true;
+    this.addquestion();
+    console.log(this.payload);
+    this.comp.family = this.payload.Family;
+    console.log(this.comp);
+    this.myservice.saveComp(this.comp).subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (err) => {
+        console.error(err);
+      },
+    });
+  }
+
+  bgcolor1 = '';
+  color1 = '';
+  bgcolor2 = '';
+  color2 = '';
+  bgcolor3 = '';
+  color3 = '';
+  bgcolor4 = '';
+  color4 = '';
+  add1() {
+    this.bgcolor1 = '#00a06f';
+    this.color1 = '#ffffff';
+    this.bgcolor2 = '';
+    this.color2 = '';
+    this.bgcolor4 = '';
+    this.color4 = '';
+    this.bgcolor3 = '';
+    this.color3 = '';
+  }
+  add2() {
+    this.bgcolor2 = '#00a06f';
+    this.color2 = '#ffffff';
+    this.bgcolor1 = '';
+    this.color1 = '';
+    this.bgcolor4 = '';
+    this.color4 = '';
+    this.bgcolor3 = '';
+    this.color3 = '';
+    this.bgcolor3 = '';
+    this.color3 = '';
+  }
+  add3() {
+    this.bgcolor1 = '';
+    this.color1 = '';
+    this.bgcolor3 = '#00a06f';
+    this.color3 = '#ffffff';
+    this.bgcolor2 = '';
+    this.color2 = '';
+    this.bgcolor4 = '';
+    this.color4 = '';
+  }
+  add4() {
+    this.bgcolor1 = '';
+    this.color1 = '';
+    this.bgcolor4 = '#00a06f';
+    this.color4 = '#ffffff';
+    this.bgcolor2 = '';
+    this.color2 = '';
+  }
+  addquestion() {
+    console.log(this.Ques);
+    this.comp.questions?.push({ ...this.Ques });
+    this.Ques = {
+      choiceA: 'مخافة الرب وتوقيره',
+      choiceB: 'طلب الغنى والشهرة العالمية',
+      choiceC: 'كثرة الجدال مع الناس',
+      choiceD: 'الانعزال عن المجتمع الكنسي',
+      competition_Question:
+        '«اسْمَعْ يَا ابْنِي تَأْدِيبَ أَبِيكَ، وَلاَ تَرْفُضْ شَرِيعَةَ أُمِّكَ»، ماذا تمثل شريعة وتأديب الوالدين للمؤمن؟',
+
+      correct_option_index: 0,
+    };
   }
 }

@@ -5,10 +5,9 @@
         <div class="rightContain">
             <ul>
                 <div class="con">
-                    <li>أسرة القديس بولس الرسول • مرحلة ثانوي</li>
+                    <li>احتماع • مرحلة {{this.payload?.Family}}</li>
                 </div>
-
-                <li class="Chapter">أهلاً يا مينا سمير 👋</li>
+<li class="Chapter">أهلاً يا {{this.payload.Name?.split(" ")[0]}} 👋</li>
                 <li>
                     <h6>«سراج لرجلي كلامك ونور لسبيلي»
                     </h6>
@@ -22,11 +21,14 @@
         <div class="btns">
             <div class="btn btn1">
                 <div class="precen">
-                    <h1>100%</h1>
+                    <h1>
+                        {{this.payload.success_rate}}%</h1>
                 </div>
                 <div class="content">
                     <h1>نسبة إنجازك العام</h1>
-                    <p>16 من 18 مسابقة أسبوعية</p>
+                    <p>
+                        {{this.payload.completed_competitions}}
+                        من 18 مسابقة أسبوعية</p>
                 </div>
             </div>
         </div>
@@ -43,7 +45,7 @@
                         <p class="BgBrown">الرصيد</p>
                     </div>
                     <div class="content">
-                        <h1>480</h1>
+                        <h1>{{this.payload.total_points}}</h1>
                         <p>
                             مجموع النقاط الذهبية
                         </p>
@@ -59,7 +61,7 @@
                         <p class="ashen">الشهر الحالي</p>
                     </div>
                     <div class="content">
-                        <h1>16 <sub>/ 18</sub></h1>
+                        <h1>{{this.payload.completed_competitions}} <sub>/ 18</sub></h1>
                         <p>مسابقة منجزة</p>
                     </div>
                 </div>
@@ -73,7 +75,7 @@
                         <p class="brown">لوحة الشرف</p>
                     </div>
                     <div class="content">
-                        <h1>المركز الثاني 🥈</h1>
+                        <h1>المركز N/A🥈</h1>
                         <p>أسرة القديس بولس (ثانوي)</p>
                     </div>
                 </div>
@@ -91,7 +93,7 @@
                     </div>
                     <div class="content">
                         <h1>
-                            7 أيام
+                            {{this.payload.daily_series}} أيام
                         </h1>
                         <p>
                             سلسلة الالتزام المتصلة
@@ -111,7 +113,7 @@
                     </div>
                     <div class="content">
                         <h1>
-                            89%
+                        {{this.payload.success_rate}}%
                         </h1>
                         <p>
                             دقة الإجابات الكلية

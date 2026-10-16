@@ -219,20 +219,22 @@
             width: 10vw;
             > .index {
               /* width: 3vw !important; */
-              padding: 0.5vw;
+              padding: 0.7vw 1vw;
               /* height: 3vw; */
               display: flex;
               justify-content: center;
               /* gap: 0.8vw; */
               align-items: center;
               border-radius: 9vw;
+              cursor: pointer;
+              width: 1.8vw;
               background-color: #e6e8ea;
               box-shadow: none;
               color: #05061b;
             }
             > .circle {
               background-color: #021530;
-              width: 1.3vw;
+              width: 2.3vw;
               height: 1.3vw;
               font-size: 0.1vw;
               border: 0.1vw solid #021530 !important;

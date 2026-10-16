@@ -1,74 +1,145 @@
-import { Component, signal } from '@angular/core';
+import { competition, Makhdoom, AnswerDto } from './../../IData';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  signal,
+  ViewChild,
+  viewChild,
+} from '@angular/core';
+import { Choice, Question } from '../../IData';
+import { JeServiceTs } from '../je-service.ts';
 
 @Component({
+  standalone: true,
   imports: [],
   selector: 'app-race',
   styleUrl: './race.css',
   templateUrl: './race.html',
 })
-export class Race {
-  Questions = signal<Question[]>([
-    {
-      QuestionBody:
-        '    «مَا هِيَ رَأْسُ الْمَعْرِفَةِ كَمَا وَرَدَ فِي الإِصْحَاحِ الأَوَّلِ مِنْ سِفْرِ الأَمْثَالِ؟»',
-      Choices: {
-        A: 'أ) مَخَافَةُ الرَّبِّ',
-        B: 'ب) كَثْرَةُ الْقِرَاءَةِ',
-        C: 'ج) سَمَاعُ مَشُورَةِ الأَصْدِقَاءِ',
-        D: 'د) حِفْظُ الأَسْرَارِ',
+export class Race implements OnInit, AfterViewInit {
+  payload: Makhdoom = {};
+  competition: competition = {
+    competition_title: '',
+    finished__At: new Date(),
+    Opened__At: new Date(),
+    family: this.payload.Family ?? '',
+    questions: [],
+    Created_At: new Date(),
+  };
+  /**
+   *
+   */
+  questions: any[] = [];
+  bool: boolean = false;
+  bool2: boolean = false;
+  bool3: boolean = true;
+  constructor(private myservice: JeServiceTs) {}
+  @ViewChild('seconds') seconds!: ElementRef<HTMLSpanElement>;
+  @ViewChild('seconds2') seconds2!: ElementRef<HTMLSpanElement>;
+  @ViewChild('minutes') minutes!: ElementRef<HTMLSpanElement>;
+  @ViewChild('minutes2') minutes2!: ElementRef<HTMLSpanElement>;
+  ngAfterViewInit(): void {
+    var sec = Number(this.seconds.nativeElement.textContent);
+    var min = Number(this.minutes.nativeElement.textContent);
+
+    setInterval(() => {
+      if (sec > 0) {
+        sec--;
+        this.seconds.nativeElement.textContent = sec.toString().padStart(2, '0');
+      } else if (sec == 0) {
+        min--;
+        sec = 59;
+      }
+      this.minutes.nativeElement.textContent = min.toString().padStart(2, '0');
+    }, 1000);
+    if (sec == 0 && min == 0) {
+      this.bool = true;
+    }
+    var sec2 = Number(this.seconds2.nativeElement.textContent);
+    var min2 = Number(this.minutes2.nativeElement.textContent);
+
+    setInterval(() => {
+      if (sec2 > 0) {
+        sec2--;
+        this.seconds2.nativeElement.textContent = sec2.toString().padStart(2, '0');
+      } else if (sec2 == 0) {
+        min2--;
+        sec2 = 59;
+      }
+      this.minutes2.nativeElement.textContent = min2.toString().padStart(2, '0');
+    }, 1000);
+    if (sec2 == 0 && min2 == 0) {
+      this.bool2 = false;
+    }
+  }
+  bgchoice = '';
+  selectedChoices: { [questionindex: number]: number } = {};
+  selectedchoice(questionidex: number, index: number) {
+    this.bgchoice = '#05061b';
+    this.selectedChoices[questionidex] = index;
+    console.log(questionidex);
+    console.log(index);
+  }
+
+  ngOnInit(): void {
+    this.myservice.GetCompetitionToday().subscribe({
+      next: (response) => {
+        this.competition = response;
+        this.questions = this.competition.questions ?? [];
+        console.log(this.competition);
       },
-      CorrectChoice: 'A',
-      ref: ' «مَخَافَةُ الرَّبِّ رَأْسُ الْمَعْرِفَةِ، أَمَّا الْجَاهِلُونَ فَيَحْتَقِرُونَ الْحِكْمَةَ وَالأَدَبَ» (أم 1: 7)',
-    },
-    {
-      QuestionBody: '«إِذَا أَرَاغَكَ الْخُطَاةُ فَمَاذَا تَفْعَلُ حَسَبَ نَصِيحَةِ الْحَكِيمِ؟»',
-      Choices: {
-        A: 'أ) تَمْشِي مَعَهُمْ لِتُرْشِدَهُمْ',
-        B: 'ب) فَلاَ تَرْضَ وَامْنَعْ رِجْلَكَ عَنْ مَسَالِكِهِمْ',
-        C: 'ج) تُجَادِلُهُمْ طَوِيلاً',
-        D: 'د) تَسْكُتُ فَقَطْ',
+      error: (error) => {
+        console.log(error);
       },
-      CorrectChoice: 'B',
-      ref: '«يَا ابْنِي، إِنْ أَرَاغَكَ الْخُطَاةُ فَلاَ تَرْضَ... اِمْنَعْ رِجْلَكَ عَنْ مَسَالِكِهِمْ» (أم 1: 10، 15)',
-    },
-    {
-      QuestionBody:
-        '«الْحِكْمَةُ تُنَادِي فِي الْخَارِجِ...» أَيْنَ تَرْفَعُ صَوْتَهَا كَمَا جَاءَ بِالنَّصِّ؟»',
-      Choices: {
-        A: 'أ) فِي الْقُصُورِ فَقَطْ',
-        B: 'ب) فِي الأَسْوَاقِ وَعِنْدَ مَدَاخِلِ الأَبْوَابِ',
-        C: 'ج) فِي الْبَرَارِي وَالْقِفَارِ',
-        D: 'د) بَيْنَ الْعُلَمَاءِ سِرّاً',
+    });
+  }
+  answers: AnswerDto[] = [];
+  submit() {
+    console.log(this.selectedChoices);
+    this.answers = Object.entries(this.selectedChoices).map(([questionindex, answerindex]) => ({
+      question_Id: Number(questionindex),
+      answer: answerindex,
+    }));
+    this.myservice.submit(this.competition.competition_id! as number, this.answers).subscribe({
+      next: (response) => {
+        this.bool3 = true;
+        console.log(response);
       },
-      CorrectChoice: 'B',
-      ref: '«الْحِكْمَةُ تُنَادِي فِي الْخَارِجِ. فِي الشَّوَارِعِ تُعْطِي صَوْتَهَا. تَدْعُو فِي رُؤُوسِ الأَسْوَاقِ، فِي مَدَاخِلِ الأَبْوَابِ» (أم 1: 20-21',
-    },
-  ]);
-  Racers = signal<Question[]>([
-    {
-      QuestionBody: '«إِذَا أَرَاغَكَ الْخُطَاةُ فَمَاذَا تَفْعَلُ حَسَبَ نَصِيحَةِ الْحَكِيمِ؟»',
-      Choices: {
-        A: 'أ) تَمْشِي مَعَهُمْ لِتُرْشِدَهُمْ',
-        B: 'ب) فَلاَ تَرْضَ وَامْنَعْ رِجْلَكَ عَنْ مَسَالِكِهِمْ',
-        C: 'ج) تُجَادِلُهُمْ طَوِيلاً',
-        D: 'د) تَسْكُتُ فَقَطْ',
+      error: (err) => {
+        console.log(err);
       },
-      CorrectChoice: 'B',
-      ref: '«يَا ابْنِي، إِنْ أَرَاغَكَ الْخُطَاةُ فَلاَ تَرْضَ... اِمْنَعْ رِجْلَكَ عَنْ مَسَالِكِهِمْ» (أم 1: 10، 15)',
-    },
-    {
-      QuestionBody:
-        '«الْحِكْمَةُ تُنَادِي فِي الْخَارِجِ...» أَيْنَ تَرْفَعُ صَوْتَهَا كَمَا جَاءَ بِالنَّصِّ؟»',
-      Choices: {
-        A: 'أ) فِي الْقُصُورِ فَقَطْ',
-        B: 'ب) فِي الأَسْوَاقِ وَعِنْدَ مَدَاخِلِ الأَبْوَابِ',
-        C: 'ج) فِي الْبَرَارِي وَالْقِفَارِ',
-        D: 'د) بَيْنَ الْعُلَمَاءِ سِرّاً',
-      },
-      CorrectChoice: 'B',
-      ref: '«الْحِكْمَةُ تُنَادِي فِي الْخَارِجِ. فِي الشَّوَارِعِ تُعْطِي صَوْتَهَا. تَدْعُو فِي رُؤُوسِ الأَسْوَاقِ، فِي مَدَاخِلِ الأَبْوَابِ» (أم 1: 20-21',
-    },
-  ]);
+    });
+  }
+  // Racers = signal<Question[]>([
+  //   {
+  //     QuestionBody: '«إِذَا أَرَاغَكَ الْخُطَاةُ فَمَاذَا تَفْعَلُ حَسَبَ نَصِيحَةِ الْحَكِيمِ؟»',
+  //     Choices: {
+  //       A: 'أ) تَمْشِي مَعَهُمْ لِتُرْشِدَهُمْ',
+  //       B: 'ب) فَلاَ تَرْضَ وَامْنَعْ رِجْلَكَ عَنْ مَسَالِكِهِمْ',
+  //       C: 'ج) تُجَادِلُهُمْ طَوِيلاً',
+  //       D: 'د) تَسْكُتُ فَقَطْ',
+  //     },
+  //     CorrectChoice: 'B',
+  //     ref: '«يَا ابْنِي، إِنْ أَرَاغَكَ الْخُطَاةُ فَلاَ تَرْضَ... اِمْنَعْ رِجْلَكَ عَنْ مَسَالِكِهِمْ» (أم 1: 10، 15)',
+  //   },
+  //   {
+  //     QuestionBody:
+  //       '«الْحِكْمَةُ تُنَادِي فِي الْخَارِجِ...» أَيْنَ تَرْفَعُ صَوْتَهَا كَمَا جَاءَ بِالنَّصِّ؟»',
+  //     Choices: {
+  //       A: 'أ) فِي الْقُصُورِ فَقَطْ',
+  //       B: 'ب) فِي الأَسْوَاقِ وَعِنْدَ مَدَاخِلِ الأَبْوَابِ',
+  //       C: 'ج) فِي الْبَرَارِي وَالْقِفَارِ',
+  //       D: 'د) بَيْنَ الْعُلَمَاءِ سِرّاً',
+  //     },
+  //     CorrectChoice: 'B',
+  //     ref: '«الْحِكْمَةُ تُنَادِي فِي الْخَارِجِ. فِي الشَّوَارِعِ تُعْطِي صَوْتَهَا. تَدْعُو فِي رُؤُوسِ الأَسْوَاقِ، فِي مَدَاخِلِ الأَبْوَابِ» (أم 1: 20-21',
+  //   },
+  // ]);
+  click() {
+    console.log(this.competition);
+  }
   objectEntries(obj: Choice) {
     return Object.entries(obj).map(([key, value]) => ({ key, value }));
   }

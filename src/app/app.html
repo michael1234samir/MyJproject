@@ -107,32 +107,36 @@
     <ul class="ChrchUl">
       <li (click)="goToMainPage()">الرئيسيه</li>
       <li (click)=" goToRacePage()">مسابقه اليوم</li>
-      <li (click)="goToPage()">مسابقاتى</li>
-      <li>لوحه الشرف والترتيب</li>
+      <li>مسابقاتى</li>
+      <li (click)="goToPage()">لوحه الشرف والترتيب</li>
       <li (click)="goToCompetitionPage()">لوحه الخادم والاداره</li>
     </ul>
     <ul class="churchDetialsUl">
-      <li>7 ايام متتاليه</li>
-      <li>480 نقطه</li>
+      <li>{{Tokens?.daily_series||0}} ايام متتاليه</li>
+      <li>{{Tokens?.total_points||0}} نقطه</li>
       <li>
         <div class="logo">
           <div class="content">
-            <h3>{{LoginMakhdoom().Name_of_the_person}}</h3>
-            <p>{{LoginMakhdoom().family_and_class}}</p>
+    <h3>{{Tokens?.Name||'jesus'}}</h3>
+    <p>{{Tokens?.Family||'jesus'}}</p>
           </div>
-          <div class="img">
+          <div class="img" (click)="logout()">
           </div>
-          </div>
+        </div>
       </li>
       </ul>
     </nav>
+    @if(!login){
     <app-comp-login></app-comp-login>
+    }
+    @else {
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
     <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
     <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
+    <!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- <app-roll-of-honor></app-roll-of-honor> -->
-<!-- <router-outlet></router-outlet> -->
+<router-outlet (activate)="onActivate($event)"> </router-outlet>
+}

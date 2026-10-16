@@ -1,35 +1,86 @@
-interface Makhdoom {
-  Name_of_the_person: any;
-  family_and_class: any;
+import { JwtPayload } from 'jwt-decode';
+
+export interface Makhdoom {
+  password?: string;
+  Family?: string;
+  phoneNumber?: string;
+  father_Confessor?: string;
+  Name?: string;
+  address?: string;
   stage?: any;
-  Phone_Number?: any;
+  role?: any;
   last_shared?: any;
   completed_competitions?: number;
-  daily_series: number;
-  success_rate: number;
+  daily_series?: number;
+  success_rate?: number;
+  total_points?: number;
+  BirthDate?: Date;
+}
+
+export interface Register {
+  password?: string;
+  Family_Name?: string;
+  phoneNumber?: string;
+  father_Confessor?: string;
+  Full_Name?: string;
+  address?: string;
+  BirthDate?: Date;
+  stage?: any;
+  role?: any;
+  last_shared?: any;
+  completed_competitions?: number;
+  daily_series?: number;
+  success_rate?: number;
+  total_points?: number;
+}
+export interface competition {
+  competition_id?: Number;
+  competition_title?: string;
+  family?: string;
+
+  finished__At?: Date;
+  Opened__At?: Date;
+
+  Created_At?: Date;
+  questions?: CompQuestion[];
+}
+export interface CompQuestion {
+  competition_Question: string;
+  choiceA: string;
+  choiceB: string;
+  choiceC: string;
+  choiceD: string;
+  correct_option_index: number;
+}
+export interface userlogin {
+  phoneNumber: any;
+  password: any;
+}
+export interface Racer {
+  Name?: any;
+  Family?: any;
   total_points: number;
 }
-interface Racer {
-  Name_of_the_person: any;
-  family_and_class: any;
-  points: number;
-}
-interface Question {
+export interface Question {
   QuestionBody: any;
   Choices: Choice;
   CorrectChoice: any;
   ref: any;
 }
-interface Book {
+export interface Book {
   book_id: any;
   book: any;
   book_en: any;
   total_chapters: any;
   chapters: any;
 }
-interface Choice {
+export interface Choice {
   A: any;
   B: any;
   C: any;
   D: any;
+}
+export interface AnswerDto {
+  question_Id: number;
+  answer: number;
 }

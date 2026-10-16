@@ -69,15 +69,16 @@
   border-radius: 0.3vw;
   gap: 2vw;
   > .btns {
-    justify-self: center;
+    justify-self: end;
     align-self: end;
     display: flex;
-    width: 37vw;
+    width: 39vw;
     font-size: 1.3vw;
     height: 7vw;
     padding-right: 1vw;
     gap: 1vw;
-    justify-content: center;
+    padding-left: 1vw;
+    justify-content: start;
     align-items: start;
     > .btn {
       background-color: #eceef0 !important;
@@ -91,6 +92,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
       /* height: 1.3vw !important; */
       /* padding: 2vw; */
       /* font-size: 1.3vw; */
@@ -114,7 +116,8 @@
       align-items: center;
       /* padding: 1.3vw; */
       height: 1.7vw;
-      padding: 1vw;
+      padding: 1.2vw;
+      width: fit-content;
 
       /* height: 0; */
       justify-content: space-between;

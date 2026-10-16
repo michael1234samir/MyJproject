@@ -162,7 +162,7 @@
                     الإشعارات
                     لجميع
                     المخدومين
-                    مباشرة في تمام الساعة 6:00 صباحاً.</li>
+                    مباشرة في تمام الساعة 7:00 صباحاً.</li>
             </ul>
         </ul>
     </div>
@@ -176,7 +176,8 @@
                     تاريخ ظهور المسابقة
                 </p>
                 <div class="input">
-                    <input type="datetime-local" name="" id="input" class="form-control" value="" required="required" title="">
+                    <input type="datetime-local" [(ngModel)]="comp.Opened__At" name="" id="input" class="form-control" value=""
+                        required="required" title="">
                     </div>
                     </div>
                     <div class="content">
@@ -184,7 +185,8 @@
                             تاريخ انتهاء المسابقة
                         </p>
                         <div class="input">
-                            <input type="datetime-local" name="" id="input" class="form-control" value="" required="required" title="">
+                    <input type="datetime-local" [(ngModel)]="comp.finished__At" name="" id="input" class="form-control" value=""
+                        required="required" title="">
                 </div>
             </div>
             <!-- </div> -->
@@ -234,71 +236,13 @@
                     عنوان المسابقة أو الآية المفتاحية
                 </p>
                 <div class="input">
-                    <input name="" value="«أَنَا هُوَ الطَّرِيقُ وَالْحَقُّ وَالْحَيَاةُ»" id="input" />
+                    <input [(ngModel)]="comp.competition_title" name="body" value="«أَنَا هُوَ الطَّرِيقُ وَالْحَقُّ وَالْحَيَاةُ»"
+                        id="input" />
                 </div>
             </div>
         </div>
         <div class="questions">
-            <div class="question">
-                <div class="first">
-                    <div class="number">
-                        <p class="index">
-                            1
-                        </p>
-                        <p>
-                            السؤال الأول (10 درجات)
-                        </p>
-                    </div>
-                    <p>الحمد لله</p>
-                </div>
-
-                <div class="body">
-<div class="first">
-    <p>نص السؤال التفاعلي:</p>
-    <input type="text" value="بِمَ وَعَدَ الرَّبُّ تَلاَمِيذَهُ أَنْ يُرْسِلَ لَهُمُ الآبُ لِيَمْكُثَ مَعَهُمْ إِلَى الأَبَدِ؟
-
-            ">
-</div>
-                    <div class="choices">
-                        <div class="choice">
-                            <div class="number">
-                                <input class="circle" type="radio" />
-                                <p class="index">
-                                    1
-                                </p>
-                            <input value="أ) ملكاً أرضياً كبيراً" />
-                            </div>
-                        </div>
-                        <div class="choice">
-                            <div class="number">
-                                <input class="circle" type="radio" />
-                                <p class="index">
-                                    1
-                                </p>
-                                <input value="ب) مُعَزِّيًا آخَرَ... رُوحَ الْحَقِّ (مُحدد كإجابة صحيحة)">
-                                </div>
-                                                        </div>
-                                                        <div class=" choice">
-                                <div class="number">
-                                    <input class="circle" type="radio" />
-                                    <p class="index">
-                                        1
-                                    </p>
-                                    <input value="ج) سَيْفاً وَجُنُوداً لِحِمَايَتِهِمْ " />
-                                    </div>
-                                    </div>
-                                    <div class="choice">
-                                        <div class="number">
-                                            <input class="circle" type="radio" />
-                                            <p class="index">
-                                                1
-                                            </p>
-                                <input value="د) كُنُوزاً وَأَمْوَالاً مَكْتُوزَةً">
-                                </div>
-                                </div>
-                                </div>
-                                </div>
-                                </div>
+            @for(question of comp.questions;track $index){
             <div class="question">
                 <div class="first">
                     <div class="number">
@@ -315,43 +259,171 @@
                 <div class="body">
                     <div class="first">
                         <p>نص السؤال التفاعلي:</p>
-                        <input type="text" value=" أَكْمِلْ قَوْلَ الرَّبِّ: «سَلاَمًا أَتْرُكُ لَكُمْ أَنَا...»" />
+                        <input type="text" value="{{question.competition_Question}}"
+                            value="بِمَ وَعَدَ الرَّبُّ تَلاَمِيذَهُ أَنْ يُرْسِلَ لَهُمُ الآبُ لِيَمْكُثَ مَعَهُمْ إِلَى الأَبَدِ؟
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ">
+                        </div>
+                    <div class="choices">
+                        <div class="choice">
+                            <div class="number">
+                                <p class="index">
+                                    1
+                                </p>
+                                <input name="choice" value="{{question.choiceA}}" />
+                            </div>
+                        </div>
+                        <div class="choice">
+                            <div class="number">
+                                <p class="index">
+                                    2
+                                </p>
+                                <input name="choice" value="{{question.choiceB}}" value="ب) مُعَزِّيًا آخَرَ... رُوحَ الْحَقِّ (مُحدد كإجابة صحيحة)">
+                                </div>
+                                </div>
+                        <div class="choice">
+                            <div class="number">
+                                <p class="index">
+                                    3
+                                    </p>
+                                <input name="choice" value="{{question.choiceC}}" value="ج) سَيْفاً وَجُنُوداً لِحِمَايَتِهِمْ " />
+                                </div>
+                                </div>
+                                <div class="choice">
+                                    <div class="number">
+                                <p class="index">
+                                    4
+                                    </p>
+                                <input name="choice" name="choice" value="{{question.choiceD}}" value="د) كُنُوزاً وَأَمْوَالاً مَكْتُوزَةً">
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+            }
+            </div>
+            @if(!boolean1){
+            
+            
+            <div class="questions">
+            <div class="question">
+                <div class="first">
+                    <div class="number">
+                        <p class="index">
+                            1
+                        </p>
+                        <p>
+                            السؤال الأول (10 درجات)
+                        </p>
+                    </div>
+                    <p>الحمد لله</p>
+                </div>
+
+                <div class="body">
+                    <div class="first">
+                        <p>نص السؤال التفاعلي:</p>
+                        <input type="text" placeholder="اكتب نص السؤال هنا، مثلاً: بحسب ما جاء في سفر الأمثال، ما هو رأس الحكمة والمعرفة؟"
+                            [(ngModel)]="Ques.competition_Question"
+                            value="بِمَ وَعَدَ الرَّبُّ تَلاَمِيذَهُ أَنْ يُرْسِلَ لَهُمُ الآبُ لِيَمْكُثَ مَعَهُمْ إِلَى الأَبَدِ؟
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ">
                     </div>
                     <div class="choices">
                         <div class="choice">
                             <div class="number">
-                                <input class="circle" type="radio" />
-                                <p class="index">
-                                    1
+                                <p class="index" value="A" (click)="()=>Ques.correct_option_index=0;" (click)="add1()"
+                                    [style.background-color]="bgcolor1"
+                                    [style.color]="color1">
+                                    ا
                                 </p>
-                            <input value="أ) أَنَا هُوَ الطَّرِيقُ وَالْحَقُّ وَالْحَيَاةُ (مُحدد كإجابة صحيحة)" />
+                                <input name="choice" [(ngModel)]="Ques.choiceA" placeholder="الخيار الأول (أ)..." />
+                                </div>
+                                </div>
+                                <div class="choice">
+                                    <div class="number">
+                                        <p class="index" value="B" (click)="()=>Ques.correct_option_index=1;" (click)="add2()"
+                                            [style.background-color]="bgcolor2" [style.color]="color2">
+                                            ب
+                                        </p>
+                                        <input name="choice" [(ngModel)]="Ques.choiceB"
+                                            value="ب) مُعَزِّيًا آخَرَ... رُوحَ الْحَقِّ (مُحدد كإجابة صحيحة)" placeholder="الخيار الثاني (ب)...">
+                                    </div>
+                                </div>
+                                <div class=" choice">
+                                    <div class="number">
+                                        <p class="index" value="C" (click)="()=>Ques.correct_option_index=2;" (click)="add3()"
+                                            [style.background-color]="bgcolor3" [style.color]="color3">
+                                            ج
+                                        </p>
+                                        <input name="choice" [(ngModel)]="Ques.choiceC" value="ج) سَيْفاً وَجُنُوداً لِحِمَايَتِهِمْ "
+                                            placeholder="الخيار الثالث (ج)..." />
+                                    </div>
+                                </div>
+                                <div class="choice">
+                                    <div class="number">
+                                        <p class="index" value="D" (click)="()=>Ques.correct_option_index=3;" (click)="add4()"
+                                            [style.background-color]="bgcolor4" [style.color]="color4">
+                                            د
+                                        </p>
+                                        <input name="choice" [(ngModel)]="Ques.choiceD" name="choice" value="د) كُنُوزاً وَأَمْوَالاً مَكْتُوزَةً"
+                                            placeholder="الخيار الرابع (د)...">
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                <p>
+                                    +
+                                </p>
+                                <!-- <div class="question">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="first">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="number">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p class="index">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                1
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            السؤال الأول (10 درجات)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p>الحمد لله</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="body">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="first">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p>نص السؤال التفاعلي:</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <input type="text" [(ngModel)]="comp.Competition_title"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    value=" أَكْمِلْ قَوْلَ الرَّبِّ: «سَلاَمًا أَتْرُكُ لَكُمْ أَنَا...»" />
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="choices">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="choice">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="number">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p class="index">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            1
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            (click)="add()" [style.background-color]="bgcolor" [style.color]="color" </p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <input [(ngModel)]="Ques.ChoiceA" value="أ) أَنَا هُوَ الطَّرِيقُ وَالْحَقُّ وَالْحَيَاةُ (مُحدد كإجابة صحيحة)" />
                                 </div>
                         </div>
                         <div class="choice">
                             <div class="number">
-                                <input class="circle" type="radio" />
                                 <p class="index">
                                     1
-                                </p>
-                                <input value="ب) أَنَا هُوَ نُورُ الْعَالَمِ" />
+(click)="add()" [style.background-color]="bgcolor" [style.color]="color" </p>
+<input [(ngModel)]="Ques.ChoiceB" value="ب) أَنَا هُوَ نُورُ الْعَالَمِ" />
                                 </div>
                                 </div>
                                 <div class="choice">
                                     <div class="number">
-                                        <input class="circle" type="radio" />
                                         <p class="index">
                                             1
-                                        </p>
-                                <input value=" ج) أَنَا هُوَ الرَّاعِي الصَّالِحُ">
-                                </div>
-                                </div>
-                                <div class="choice">
-                                    <div class="number">
-                                        <input class="circle" type="radio" />
-                                        <p class="index">
-                                            1
-                                        </p>
-                            <input value="د) أَنَا هُوَ خُبْزُ الْحَيَاةِ" />
+(click)="add()" [style.background-color]="bgcolor" [style.color]="color" </p>
+<input [(ngModel)]="Ques.ChoiceC" value=" ج) أَنَا هُوَ الرَّاعِي الصَّالِحُ">
+</div>
+</div>
+<div class="choice">
+    <div class="number">
+        <p class="index">
+            1
+            (click)="add()" [style.background-color]="bgcolor" [style.color]="color" </p>
+        <input [(ngModel)]="Ques.ChoiceD" value="د) أَنَا هُوَ خُبْزُ الْحَيَاةِ" />
                             </div>
                             </div>
                             </div>
@@ -380,10 +452,9 @@
                 <div class="choices">
                     <div class="choice">
                         <div class="number">
-                            <input class="circle" type="radio" />
                             <p class="index">
                                 1
-                            </p>
+(click)="add()" [style.background-color]="bgcolor" [style.color]="color" </p>
                             <p>
                                 أ) فَافْرَحُوا وَتَهَلَّلُوا!
                             </p>
@@ -391,52 +462,51 @@
                     </div>
                     <div class="choice">
                         <div class="number">
-                            <input class="circle" type="radio" />
                             <p class="index">
                                 1
-                            </p>
+(click)="add()" [style.background-color]="bgcolor" [style.color]="color" </p>
                         <input value="ب) فَلاَ تَحْزَنُوا أَبَداً">
                         </div>
                         </div>
                         <div class="choice">
                             <div class="number">
-                                <input class="circle" type="radio" />
                                 <p class="index">
                                     1
-                                </p>
+(click)="add()" [style.background-color]="bgcolor" [style.color]="color" </p>
                             <input value="ج) لاَ تَضْطَرِبْ قُلُوبُكُمْ وَلاَ تَرْهَبْ (مُحدد كإجابة صحيحة)" />
                             </div>
                             </div>
                             <div class="choice">
                                 <div class="number">
-                                    <input class="circle" type="radio" />
                                     <p class="index">
                                         1
-                                    </p>
+(click)="add()" [style.background-color]="bgcolor" [style.color]="color" </p>
                                 <input value=" د) فَقُومُوا نَنْطَلِقُ مِنْ هُنَا" />
                                 </div>
                             </div>
                             </div>
                             </div>
-                            </div>
+                            </div> -->
                             </div>
                             <div class="btns">
 
-                                <div class="btn btn1">
-                                    إعادة ضبط الحقول
-                                </div>
-                                <div class="btn btn2">
-                                    حفظ وجدولة المسابقة تلقائياً
-                                </div>
-                                </div>
-                                </div>
+            <div class="btn btn1" (click)="addquestion()">
+                حفظ السؤال وإضافة سؤال آخر ➕
+            </div>
+            <div class="btn btn2" type="submit" (click)="save()">
+                حفظ وجدولة المسابقة تلقائياً
+            </div>
+    
+            </div>
+            }
+            </div>
     <div class="containTab">
         <div class="List">
             <div class="content">
                 <h3>
                     سجل متابعة المخدومين ودرجات المسابقة
                 </h3>
-                <p>يتم تحديث الترتيب يومياً في تمام الساعة 11:59 مساءً عقب غلق مسابقة اليوم</p>
+                <p>يتم تحديث الترتيب يومياً في تمام الساعة 2:00 صباحا عقب غلق مسابقة اليوم</p>
             </div>
             <div class="left">
                 <input type="text" placeholder="حث بالاسم، رقم الهاتف، أو المرحلة...">
@@ -469,22 +539,22 @@
                     </th>
 
 
-            </tr>
+                </tr>
             </thead>
             <tbody>
-                @for (person of Makhdoom(); track $index)
+                <!-- @for (person of payload; track $index)
                 {
                 <tr>
                     <td [ngClass]="['index',$index==0?'index1':$index==1?'index2':$index==2?'index2':'']">{{ $index
                         + 1
                         }}
                     </td>
-                    <td class="Name">{{ person.Name_of_the_person }}</td>
+                    <td class="Name">{{ person.Family }}</td>
                     <td>{{ person.stage==1?'إعدادي (الصف الاول)':
                         person.stage==2?'إعدادي (الصف الثاني)'
                         :'إعدادي (الصف الثالث)' }}
                     </td>
-                    <td>{{ person.Phone_Number }}</td>
+                    <td>{{ person.phoneNumber }}</td>
                     <td class="daily-series">{{ person.completed_competitions }} / 30</td>
                     <td [ngClass]="['points',$index==0?'points1':'']">{{ person.total_points }}</td>
                     <td>{{person.last_shared}}</td>
@@ -493,8 +563,8 @@
                         <img src="https://img.icons8.com/?size=100&id=67884&format=png&color=000000" alt="" />
                     </td>
                 </tr>
-                }
+                } -->
             </tbody>
-            </table>
-            </div>
+        </table>
+        </div>
 </div>
