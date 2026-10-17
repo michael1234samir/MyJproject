@@ -30,7 +30,7 @@ input[type="password"]{
 * {
   cursor: pointer;
   box-sizing: border-box;
-  transition: all 1.3s  ease;
+  transition: all .8s  ease;
 }
 .login1 {
   /* display: flex;
@@ -250,9 +250,9 @@ form input[type='radio'] {
   }
 }
 .login {
-  width: 30vw;
+  width: 40%;
   /* width: 60vw; */
-  /* height: 50vw; */
+  height: fit-content;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -329,7 +329,7 @@ border: .3vw slategray #f5b21b;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    margin-top: 3vw;
+    margin-top: 2vw;
     /* gap: 1.7vw; */
     /* height: 20vw; */
     backdrop-filter: blur(1.3vw);
@@ -345,7 +345,7 @@ border: .3vw slategray #f5b21b;
       /* height: 13vw; */
       flex-direction: column;
       /* height: 9vw; */
-/* margin-bottom: 1.2vw; */
+margin-bottom: 1.2vw;
       width: 100% !important;
       > p,.passwords>.input>p {
         display: inline-block;
@@ -500,4 +500,11 @@ border: .3vw slategray #f5b21b;
       }
     }
   }
+}
+.error{
+  display: flex;
+  width: 94%;
+  text-align: start;
+  color: #db3630;
+  font-size: .78vw;
 }

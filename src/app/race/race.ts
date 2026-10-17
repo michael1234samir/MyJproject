@@ -1,4 +1,4 @@
-import { competition, Makhdoom, AnswerDto } from './../../IData';
+import { competition, Makhdoom, AnswerDto, CompQuestion } from './../../IData';
 import {
   AfterViewInit,
   Component,
@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { Choice, Question } from '../../IData';
 import { JeServiceTs } from '../je-service.ts';
+import { Competitions } from '../competitions/competitions';
 
 @Component({
   standalone: true,
@@ -20,21 +21,14 @@ import { JeServiceTs } from '../je-service.ts';
 })
 export class Race implements OnInit, AfterViewInit {
   payload: Makhdoom = {};
-  competition: competition = {
-    competition_title: '',
-    finished__At: new Date(),
-    Opened__At: new Date(),
-    family: this.payload.Family ?? '',
-    questions: [],
-    Created_At: new Date(),
-  };
+  competition = signal<competition | null>(null);
   /**
    *
    */
-  questions: any[] = [];
-  bool: boolean = false;
-  bool2: boolean = false;
-  bool3: boolean = true;
+  questions = signal<CompQuestion[]>([]);
+  bool = signal(false);
+  bool2 = signal(false);
+  bool3 = signal(true);
   constructor(private myservice: JeServiceTs) {}
   @ViewChild('seconds') seconds!: ElementRef<HTMLSpanElement>;
   @ViewChild('seconds2') seconds2!: ElementRef<HTMLSpanElement>;
@@ -55,7 +49,7 @@ export class Race implements OnInit, AfterViewInit {
       this.minutes.nativeElement.textContent = min.toString().padStart(2, '0');
     }, 1000);
     if (sec == 0 && min == 0) {
-      this.bool = true;
+      this.bool.set(true);
     }
     var sec2 = Number(this.seconds2.nativeElement.textContent);
     var min2 = Number(this.minutes2.nativeElement.textContent);
@@ -71,7 +65,7 @@ export class Race implements OnInit, AfterViewInit {
       this.minutes2.nativeElement.textContent = min2.toString().padStart(2, '0');
     }, 1000);
     if (sec2 == 0 && min2 == 0) {
-      this.bool2 = false;
+      this.bool2.set(false);
     }
   }
   bgchoice = '';
@@ -86,8 +80,8 @@ export class Race implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.myservice.GetCompetitionToday().subscribe({
       next: (response) => {
-        this.competition = response;
-        this.questions = this.competition.questions ?? [];
+        this.competition.set(response);
+        this.questions.set(response?.questions ?? []);
         console.log(this.competition);
       },
       error: (error) => {
@@ -102,9 +96,9 @@ export class Race implements OnInit, AfterViewInit {
       question_Id: Number(questionindex),
       answer: answerindex,
     }));
-    this.myservice.submit(this.competition.competition_id! as number, this.answers).subscribe({
+    this.myservice.submit(this.competition()?.competition_id! as number, this.answers).subscribe({
       next: (response) => {
-        this.bool3 = true;
+        this.bool3.set(false);
         console.log(response);
       },
       error: (err) => {

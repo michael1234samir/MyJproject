@@ -25,10 +25,10 @@ interface Makhdoom extends JwtPayload {
 })
 export class JeServiceTs {
   private http = inject(HttpClient);
-  private loginSubject = new BehaviorSubject<boolean>(!!this.GetDecodedToken());
+  private loginSubject = new BehaviorSubject<boolean>(!this.isTokenExpired());
   public isllogedIn$ = this.loginSubject.asObservable();
   notifyloginSuccess() {
-    this.loginSubject.next(true);
+    this.loginSubject.next(!this.isTokenExpired());
   }
   logout() {
     localStorage.removeItem('token');
@@ -51,10 +51,8 @@ export class JeServiceTs {
   }
   isTokenExpired(): boolean {
     const decoded = this.GetDecodedToken();
-    if (!decoded || !decoded.exp) return true;
-    const date = new Date(0);
-    date.setUTCSeconds(decoded.exp);
-    return date.valueOf() < new Date().valueOf();
+    if (!decoded?.exp) return true;
+    return decoded.exp * 1000 <= Date.now();
   }
   register(user: Register): Observable<any> {
     return this.http.post(`https://churchcomp.runasp.net/api/Auth/register`, user);

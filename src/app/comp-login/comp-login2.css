@@ -14,7 +14,7 @@
 }
 .inputradio {
   /* width: 60vw !important; */
-  /* border-radius: 0.3vw; */
+  border-radius: 0.3vw;
   display: flex;
   justify-content: start;
   /* align-content: space-around; */

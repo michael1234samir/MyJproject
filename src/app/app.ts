@@ -20,7 +20,8 @@ export class App {
     this.router.navigate(['race']);
   }
   goToMainPage() {
-    this.router.navigate(['Main']);
+    this.router.navigateByUrl('/main');
+    console.log('true');
   }
   goToCompetitionPage() {
     this.router.navigate(['competition']);
@@ -34,27 +35,31 @@ export class App {
   // token: any;
   login: boolean = false;
   ngOnInit() {
+
     this.myservice.isllogedIn$.subscribe((isloggedIn) => {
       this.login = isloggedIn;
       if (isloggedIn) {
         this.token = this.myservice.GetDecodedToken();
-        this.router.navigate(['main']);
         this.Tokens = this.token;
       } else {
         this.token = null;
+        this.Tokens = null;
       }
     });
     this.token = this.myservice.GetDecodedToken();
   }
   logout() {
     this.myservice.logout();
-    this.router.navigate(['']);
+    this.router.navigateByUrl('/login');
 
     // this.login = false;
   }
   registered: boolean = false;
   onActivate(compref: any) {
+    const token = this.myservice.GetDecodedToken();
     console.log(this.token);
-    compref.payload = this.token;
+    if (token) {
+      compref.payload = token;
+    }
   }
 }

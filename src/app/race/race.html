@@ -10,7 +10,7 @@
           <li>مسابقة يومية رقم #102</li>
           </div>
           
-          <li class="Chapter">مسابقة اليوم:{{this.competition.competition_title}}</li>
+          <li class="Chapter">مسابقة اليوم:{{this.competition()?.competition_title}}</li>
           <li>
             <h6>
             «لِمَعْرِفَةِ حِكْمَةٍ وَأَدَبٍ، لِلإِدْرَاكِ كَلِمَاتِ الْفَهْمِ» (أم 1: 2). تأمل في
@@ -58,10 +58,10 @@
       </div>
       </div>
       <div class="columns">
-        @if(bool3){
+        @if(bool3()){
         <div class="right_column">
       <div class="questions">
-        @for (question of this.questions; track $index;let parentindex=$index) {
+        @for (question of this.questions(); track $index;let parentindex=$index) {
         <div class="question">
           <div class="first">
             <div class="number">
@@ -74,7 +74,7 @@
               </div>
 
             <div class="body">
-              <h3>{{ question.competition_Question }}</h3>
+              <h3>{{ question.competition_Question??'' }}</h3>
               <div class="choices">
                 @for (choice of [question.choiceA,question.choiceB,question.choiceC,question.choiceD]; track $index) {
                 <div class="choice" (click)="selectedchoice(parentindex,$index)"
@@ -160,7 +160,7 @@
           </div>
     </div>
     </div>
-    @if(!bool3){
+    @if(!bool3()){
 
     <div class="result">
       <div class="precen">

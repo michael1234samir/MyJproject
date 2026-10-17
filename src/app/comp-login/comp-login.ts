@@ -9,6 +9,7 @@ import {
   model,
   Output,
   output,
+  signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { JeServiceTs } from '../je-service.ts';
@@ -92,6 +93,8 @@ export class CompLogin {
     this.border_color1 = '#9a6200';
     this.border_color2 = 'transparent';
   }
+  bool = signal(false);
+  errormessage = '';
   logins() {
     if (this.userlogin.phoneNumber && this.userlogin.password) {
       this.myservice.login(this.userlogin).subscribe({
@@ -100,9 +103,18 @@ export class CompLogin {
             // localStorage.removeItem('token');
             localStorage.setItem('token', response.token);
             this.myservice.notifyloginSuccess();
+            this.router.navigate(['/main'], { replaceUrl: true });
+          } else {
+            console.log('No toke in api response');
           }
         },
         error: (error) => {
+          this.bool.set(true);
+          if (error.status === 400 || error.status === 401) {
+            this.errormessage = 'رقم الهاتف او كلمه المرور غير صحيحه, يرجى المجاوله مره اخرى';
+          } else {
+            this.errormessage = 'حدث خطأ فى الاتصال بالخادم, يرجى المحاوله لاخقا';
+          }
           console.log('حدث خطأ اثناء تسجيل الدخول', error);
         },
       });

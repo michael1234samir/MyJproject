@@ -94,8 +94,9 @@
     margin: 0;
     color: var(--gray-700);
   }
-</style>
+  </style>
 
+@if(login){
   <nav class="nav">
     <div class="logo">
       <div class="img"></div>
@@ -103,7 +104,7 @@
         <h3>منصة كلمة الحياة</h3>
         <p>مسابقة الكتاب المقدس اليومية</p>
         </div>
-    </div>
+      </div>
     <ul class="ChrchUl">
       <li (click)="goToMainPage()">الرئيسيه</li>
       <li (click)=" goToRacePage()">مسابقه اليوم</li>
@@ -126,10 +127,7 @@
       </li>
       </ul>
     </nav>
-    @if(!login){
-    <app-comp-login></app-comp-login>
-    }
-    @else {
+  }
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
     <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
     <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
@@ -139,4 +137,3 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- <app-roll-of-honor></app-roll-of-honor> -->
 <router-outlet (activate)="onActivate($event)"> </router-outlet>
-}

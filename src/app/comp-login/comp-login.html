@@ -72,6 +72,9 @@
                 <p>كلمة المرور الكنسية</p>
                 <input [(ngModel)]="userlogin.password" name="password" type="password" placeholder="" />
                 </div>
+                @if(bool()){
+                <p class="error">{{errormessage}}</p>
+                }
                 <div class="btns2">
                     <div class="btn1" (click)="logins()">تسجيل الدخول إلى الحساب</div>
                     <div class="btn2">⚡ دخول تجريبي سريع (صفة مخدوم / زائر)</div>
