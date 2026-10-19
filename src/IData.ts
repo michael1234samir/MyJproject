@@ -16,6 +16,22 @@ export interface Makhdoom {
   total_points?: number;
   BirthDate?: Date;
 }
+export interface MakhdoomResponse {
+  address: string;
+  birthDate?: string;
+  completed_competitions?: number;
+  daily_series: number;
+  family_Name: string;
+  father_Confessor: string;
+  full_Name: string;
+  lastCompetitionDate?: Date;
+  phoneNumber: string;
+  stage: string;
+  success_rate: number;
+  total_points: number;
+  userCompetitions?: object[];
+  user_id: number;
+}
 
 export interface Register {
   password?: string;
@@ -37,12 +53,21 @@ export interface competition {
   competition_id?: Number;
   competition_title?: string;
   family?: string;
-
+  bonus?: number;
   finished__At?: Date;
   Opened__At?: Date;
 
   Created_At?: Date;
   questions?: CompQuestion[];
+}
+export interface UserComp {
+  competition_id?: number;
+  Family?: string;
+  CompletedAt?: Date;
+  score?: number;
+  User?: MakhdoomResponse[];
+  Competition?: competition[];
+  competition_title?: string;
 }
 export interface CompQuestion {
   competition_Question: string;
@@ -81,6 +106,6 @@ export interface Choice {
   D: any;
 }
 export interface AnswerDto {
-  question_Id: number;
+  Question_Index: number;
   answer: number;
 }

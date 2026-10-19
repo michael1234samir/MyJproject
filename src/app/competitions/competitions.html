@@ -542,28 +542,26 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- @for (person of payload; track $index)
+                @for (person of persons(); track $index)
                 {
                 <tr>
                     <td [ngClass]="['index',$index==0?'index1':$index==1?'index2':$index==2?'index2':'']">{{ $index
                         + 1
                         }}
                     </td>
-                    <td class="Name">{{ person.Family }}</td>
-                    <td>{{ person.stage==1?'إعدادي (الصف الاول)':
-                        person.stage==2?'إعدادي (الصف الثاني)'
-                        :'إعدادي (الصف الثالث)' }}
+                    <td class="Name">{{ person.full_Name }}</td>
+                    <td>{{person.stage}}
                     </td>
                     <td>{{ person.phoneNumber }}</td>
                     <td class="daily-series">{{ person.completed_competitions }} / 30</td>
                     <td [ngClass]="['points',$index==0?'points1':'']">{{ person.total_points }}</td>
-                    <td>{{person.last_shared}}</td>
+                    <td>{{person.lastCompetitionDate}}</td>
                     <td>
                         <img src="https://img.icons8.com/?size=100&id=DCUh9XJvXLYQ&format=png&color=000000" alt="" />
                         <img src="https://img.icons8.com/?size=100&id=67884&format=png&color=000000" alt="" />
                     </td>
                 </tr>
-                } -->
+                }
             </tbody>
         </table>
         </div>

@@ -105,9 +105,25 @@ export class JeServiceTs {
       },
     });
   }
+  GetMyCompletedCompetitions(): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.get(`https://churchcomp.runasp.net/api/MyUser/GetMyCompletedCompetitions`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
   saveComp(comp: competition): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.post(`https://churchcomp.runasp.net/api/Competition/create`, comp, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
+  getusercompetition(competition_id: number): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.post(`https://churchcomp.runasp.net/api/MyUser/get-by-id/${competition_id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

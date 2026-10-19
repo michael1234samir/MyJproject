@@ -3,7 +3,8 @@
   display: flex;
 
   /* grid-template-columns: 40vw 20vw 21vw; */
-
+  box-shadow: 0 .1vw .3vw -.2vw #0f2547;
+width: 100vw;
   flex-direction: column;
   justify-content: start;
   /* padding-top: 0; */
@@ -36,7 +37,7 @@
     height: fit-content;
     background-color: #ffff;
     /* padding: 3vw; */
-    width: 55vw;
+    width: 90vw;
     > .body {
       /* width: 60vw; */
       /* height: 3vw; */
@@ -55,7 +56,7 @@
       align-items: center;
     }
     > .first {
-      width: 53vw;
+      width: 86vw;
       > .number {
         display: flex;
         justify-content: center;
@@ -118,15 +119,15 @@
 
       > .choices {
         display: grid;
-        grid-template-columns: 18vw 18vw;
+        grid-template-columns: 40vw 40vw;
         grid-template-rows: 4vw 4vw;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         padding: 0.4vw 0.8vw;
 
         gap: 8vw;
-        column-gap: 9vw;
+        column-gap: 3vw;
         row-gap: 2vw;
         margin: 0 !important;
 
@@ -136,7 +137,7 @@
        inset  0 0vw 0.1vw 0.1vw rgba(0, 0, 0, 0.14),
       inset  0 0vw 0vw 0 rgba(0, 0, 0, 0.2); */
           background-color: #f2f4f6;
-          width: 24vw;
+          width: 40vw;
           height: 3vw;
           /* padding: 0.1vw 2vw; */
           padding: 0.7vw 1vw;
@@ -149,12 +150,14 @@
           /* height: 1.3vw !important; */
           /* padding: 2vw; */
           /* font-size: 1.3vw; */
+cursor: pointer;
+font-size: 0.8vw;
+transition: all .6s ease-in-out !important;
+color: #05061b ;
 
-          font-size: 0.8vw;
-          color: #05061b ;
-          > .number {
-            display: flex;
-            justify-content: start;
+> .number {
+  display: flex;
+  justify-content: start;
             gap: 0.8vw;
             align-items: center;
             width: 10vw;
@@ -176,8 +179,15 @@
             background-color: #e6e8ea;
             width: 1.3vw;
             height: 1.3vw;
-
+            transition:  all .1s !important;
+display: flex;
+justify-content: center;
+align-items: baseline;
             border-radius: 50%;
+            >img{
+              width: 1vw;
+              height: 1vw;
+            }
           }
         }
       }
@@ -229,7 +239,7 @@
     }
   }
   > .btn {
-    width: 53vw;
+    width: 86vw;
     margin-right: 1vw;
     border-radius: 1vw;
     height: 3vw !important;

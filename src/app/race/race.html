@@ -8,17 +8,17 @@
         <div class="con">
           <li>هد قديم • سفر الأمثال</li>
           <li>مسابقة يومية رقم #102</li>
-          </div>
-          
-          <li class="Chapter">مسابقة اليوم:{{this.competition()?.competition_title}}</li>
-          <li>
-            <h6>
+        </div>
+        
+        <li class="Chapter">مسابقة اليوم:{{this.competition()?.competition_title}}</li>
+        <li>
+          <h6>
             «لِمَعْرِفَةِ حِكْمَةٍ وَأَدَبٍ، لِلإِدْرَاكِ كَلِمَاتِ الْفَهْمِ» (أم 1: 2). تأمل في
             آيات هذا الإصحاح وأجب بتركيز وإخلاص.
-            </h6>
-            </li>
-            </ul>
-            </div>
+          </h6>
+          </li>
+          </ul>
+          </div>
     <div class="btns">
       <div class="btn btn1">
         <p>وقت التأمل</p>
@@ -31,8 +31,8 @@
             04
           </span>
         </h1>
-        </div>
-        <div class="btn btn2">
+      </div>
+      <div class="btn btn2">
         <p>وقت المسابقة</p>
         <h1>
           <span #seconds2 class="seconds">
@@ -43,7 +43,7 @@
             30
           </span>
         </h1>
-        </div>
+      </div>
     </div>
     <div class="contain2">
       <div class="con">
@@ -52,74 +52,76 @@
       </div>
       <div class="line1">
         <div class="line" #line>
-      
+
         </div>
       </div>
-      </div>
-      </div>
-      <div class="columns">
-        @if(bool3()){
-        <div class="right_column">
+    </div>
+    </div>
+    <div class="columns">
+      @if(bool3()){
+      <div class="right_column">
       <div class="questions">
         @for (question of this.questions(); track $index;let parentindex=$index) {
         <div class="question">
           <div class="first">
             <div class="number">
               <p class="index">
-                  {{ $index+1 }}
-                  </p>
+                {{ $index+1 }}
+                </p>
                 <p>سؤال من نص الإصحاح:</p>
                 </div>
-              <p>الحمد لله</p>
-              </div>
+                <p>الحمد لله</p>
+                </div>
 
-            <div class="body">
-              <h3>{{ question.competition_Question??'' }}</h3>
-              <div class="choices">
-                @for (choice of [question.choiceA,question.choiceB,question.choiceC,question.choiceD]; track $index) {
-                <div class="choice" (click)="selectedchoice(parentindex,$index)"
-                  [class.selected]="selectedChoices[parentindex]===$index">
-                  <div class="number">
-                    <p class="index">
-                        {{($index==0?'ا':$index==1?'ب':$index==2?'ج' :'د' ) }}
-                        </p>
-                        <p>
-                        {{ choice }}
-                        </p>
-                        </div>
-                        <div class="circle" [class.selected]="selectedChoices[parentindex]===$index"></div>
-                        </div>
-                        }
-                        </div>
-                        </div>
-                        <div class="content">
-              </div>
-              </div>
-              }
+          <div class="body">
+            <h3>{{ question.competition_Question??'' }}</h3>
+            <div class="choices">
+              @for (choice of [question.choiceA,question.choiceB,question.choiceC,question.choiceD]; track $index) {
+              <div class="choice" (click)="selectedchoice(parentindex,$index)"
+                [class.selected]="selectedChoices[parentindex]===$index">
+                <div class="number">
+                  <p class="index">
+                    {{($index==0?'ا':$index==1?'ب':$index==2?'ج' :'د' ) }}
+                  </p>
+                  <p>
+                    {{ choice }}
+                  </p>
+                </div>
+                <div class="circle" [class.selected]="selectedChoices[parentindex]===$index">
+                
+                </div>
+                </div>
+                }
+                </div>
+                </div>
+                <div class="content">
+                </div>
+                </div>
+                }
 
         <div class="btn btn2" (click)="submit()">تأكيد وإرسال إجابات المسابقة ✨</div>
         <div class="content">
           <p>بالأنقر على هذا الزر، ستسجل النتيجة فوراً في ملفك الشخصي ولوحة الشرف الأسبوعية.</p>
-          </div>
+        </div>
 
-          </div>
-          </div>
-        }
-          <div class="left_column">
-            <div class="card1">
+      </div>
+      </div>
+      }
+      <div class="left_column">
+        <div class="card1">
         <div class="first">
           <p>آية لحفظ اليومية</p>
           <p>أم 1: 7</p>
-          </div>
-          <div class="verse">
+        </div>
+        <div class="verse">
           «مَخَافَةُ الرَّبِّ رَأْسُ الْمَعْرِفَةِ، أَمَّا الْجَاهِلُونَ فَيَحْتَقِرُونَ الْحِكْمَةَ
           وَالأَدَبَ»
-          </div>
-          <div class="first">
+        </div>
+        <div class="first">
           <p>استمع للنص</p>
           <p>نسخ الآية</p>
-          </div>
-          </div>
+        </div>
+        </div>
 
       <div class="content">
         <h3>ملخص سريع للإصحاح:</h3>
@@ -127,81 +129,81 @@
           يفتتح سليمان الحكيم سفره بتوضيح الغاية من الأمثال: إكساب الإنسان فطنة واستقامة. يوجه
           تحذيراً أبوياً حاسماً للشباب ضد إغراءات الأشرار والمسالك العنيفة، ثم يجسد الحكمة كصوت إلهي
           حي يدعو كل إنسان لقبول الحق قبل فوات الأوان.
-          </p>
+        </p>
         <div class="aya">مقدم بإشراف أسرة القديس بولس الرسول</div>
-        </div>
-        <div class="race">
-          <div class="first">
+      </div>
+      <div class="race">
+        <div class="first">
           <p>أسرع المتسابقين اليوم</p>
           <p>(24 مشترك)</p>
-          </div>
-          <div class="race1 first">
-            <div class="number">
+        </div>
+        <div class="race1 first">
+          <div class="number">
             <p class="index">1</p>
             <p>بيشوي يوسف</p>
-            </div>
-          <p>(20/30 • 01:42)</p>
           </div>
+          <p>(20/30 • 01:42)</p>
+        </div>
 
         <div class="race1 first">
           <div class="number">
             <p class="index">1</p>
             <p>بيشوي يوسف</p>
-            </div>
-          <p>(20/30 • 01:42)</p>
           </div>
-          <div class="race1 first">
-            <div class="number">
+          <p>(20/30 • 01:42)</p>
+        </div>
+        <div class="race1 first">
+          <div class="number">
             <p class="index">1</p>
             <p>بيشوي يوسف</p>
-            </div>
+          </div>
           <p>(20/30 • 01:42)</p>
-          </div>
-          </div>
+        </div>
+        </div>
     </div>
-    </div>
-    @if(!bool3()){
+  </div>
+  @if(!bool3()){
 
-    <div class="result">
-      <div class="precen">
+  <div class="result">
+    <div class="precen">
       <h1>100%</h1>
       <p>كامل الدرجة</p>
-      </div>
+    </div>
     <div class="rect">علامة كاملة ومستوى فائق!</div>
     <div class="content">
       <h3>أحسنت يا {{this.payload.Name?.split(" ")[0]}}! استمر في دراسة كلمة الله ❤️</h3>
       <p>
         إجابات دقيقة تدل على تأمل عميق في سفر الأمثال. تمت إضافة النقاط إلى سجل الترتيب العام
         لرعايتك.
-        </p>
-        </div>
-        
-        <div class="btns">
-          <div class="btn btn5">
+      </p>
+      </div>
+      
+      <div class="btns">
+        <div class="btn btn5">
         <p>لدرجة المكتسبة</p>
-        <h1>30 / 30</h1>
+        <h1>{{score}}/ 10</h1>
         </div>
         <div class="btn btn2">
         <p>الإجابات الصحيحة</p>
-        <h1>من 3 </h1>
+        <h1>من 3 {{this.result().score}}</h1>
         </div>
         <div class="btn btn3">
         <p>نقاط مضافة</p>
-        <h1>+ 30 نقطة</h1>
+        <h1>+ {{score}}نقطة</h1>
         </div>
         <div class="btn btn4">
         <p>بونص السلسلة 🔥</p>
-        <h1>+ 10 بونص</h1>
+        <h1>+ {{this.competition()?.bonus}} بونص</h1>
         </div>
         </div>
         <div class="content1">
-    <div class="btns">
-      <div class="btn1 btn">مشاهدة لوحة الشرف والترتيب 🏆</div>
-      <div class="btn2 btn">مشاركة النتيجة مع الأسرة</div>
+          <div class="btns">
+            <div class="btn1 btn">مشاهدة لوحة الشرف والترتيب 🏆</div>
+            <div class="btn2 btn">مشاركة النتيجة مع الأسرة</div>
       </div>
       <p>تفتح المسابقة القادمة (سفر الأمثال 2) تلقائياً غداً في تمام الساعة 06:00 صباحاً.</p>
-      </div>
-        </div>
+    </div>
+    </div>
     }
 
-      </div>
+</div>

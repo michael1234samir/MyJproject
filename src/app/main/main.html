@@ -140,11 +140,12 @@
                         <!-- الحمد لله -->
                     </p>
                 </div>
-                <p>العهد القديم — أسفار الحكمة</p>
+                <p>العهد القديم — اسفار
+                    {{this.competition().competition_title?.split(' ')[1]}}</p>
             </div>
             <div class="body">
                 <div class="content">
-                    <h3>سفر الأمثال — الإصحاح الأول</h3>
+                    <h3>سفر {{this.competition().competition_title?.split(' ')[1]}} — الإصحاح الأول</h3>
                     <p>
                         «مَخَافَةُ الرَّبِّ رَأْسُ الْمَعْرِفَةِ، أَمَّا الْجُهَّالُ فَيَحْتَقِرُونَ الْحِكْمَةَ
                         وَالأَدَبَ.» ركّز في قراءة الإصحاح
@@ -161,7 +162,7 @@
                         <p>الوقت المقترح</p>
                     </div>
                     <div class="content">
-                        <h1>+30 نقطة</h1>
+                        <h1>+15 نقطة</h1>
                         <p>الجائزة اليومية</p>
                     </div>
                 </div>
@@ -211,55 +212,24 @@
                 <p>آخر المسابقات المنجزة</p>
                 <p>عرض كل السجل</p>
             </div>
-            <div class="race race1">
-                <div class="first">
-                    <p class="index">1</p>
-                    <div class="content">
-                        <h1>سفر أيوب — الإصحاح 42</h1>
-                        <p>أمس تم الإنجاز في 3 دقائق</p>
-                    </div>
-                </div>
-                <div class="content">
-                    <p>
-                        30 / 30
-                        <span> 100% </span>
-                    </p>
-                    <p>+30 نقطة</p>
-                </div>
-            </div>
-            <div class="race race1">
-                <div class="first">
-                    <p class="index">1</p>
-                    <div class="content">
-                        <h1>سفر التكوين — الإصحاح 12</h1>
-                        <p>قبل يومين تم الإنجاز في 4 دقائق</p>
-                    </div>
-                </div>
-                <div class="content">
-                    <p>
-                        30 / 30
-                        <span> 66% </span>
-                    </p>
-                    <p>+20 نقطة</p>
-                </div>
-            </div>
-
-            <div class="race race1">
-                <div class="first">
-                    <p class="index">1</p>
-                    <div class="content">
-                        <h1>سفر المزامير — مزمور 23</h1>
-                        <p>قبل 3 أيام تم الإنجاز في دقيقتين</p>
-                    </div>
-                </div>
-                <div class="content">
-                    <p>
-                        30 / 30
-                        <span> 100% </span>
-                    </p>
-                    <p>+30 نقطة</p>
-                </div>
-            </div>
+            @for(competition of this.competitions();track $index){
+                <div class="race race1">
+                    <div class="first">
+                        <p class="index">1</p>
+                        <div class="content">
+                            <h1> {{competition.competition_title}}</h1>
+                            <p>{{competition.CompletedAt}} تم الإنجاز في 3 دقائق</p>
+                            </div>
+                            </div>
+                            <div class="content">
+                                <p>
+                                {{competition.score}} / 15
+                                <span> {{competition.score}}% </span>
+                                </p>
+                                <p>+{{competition.score}} نقطة</p>
+                                </div>
+                                </div>
+            }
         </div>
 
 

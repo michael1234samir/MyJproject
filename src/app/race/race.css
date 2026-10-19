@@ -4,6 +4,9 @@
   --Tertiary-color: #10b981;
   --neutral-color: #f8fafc;
 }
+*{
+transition: all .2s ease-in-out !important;
+}
 span {
   /* display: inline-block; */
   text-wrap: wrap;
@@ -249,6 +252,8 @@ height: 1.7vw;
   grid-template-columns: 50vw 30vw;
   /* flex-direction:column; */
   justify-content: center;
+  box-shadow: 0 .1vw .3vw -.2vw #0f2547;
+
   align-items: center;
   width: 90vw;
   /* width: 100vw; */
@@ -261,6 +266,7 @@ height: 1.7vw;
   /* padding-right: 1vw; */
   /* padding: 1vw; */
   > .rightContain {
+    
     width: 60vw;
     display: flex;
     flex-direction: column;
@@ -359,6 +365,8 @@ align-items: center;
     /* justify-self: end; */
     /* align-self: end; */
     display: flex;
+  box-shadow: 0 .1vw .3vw -.2vw #0f2547;
+
     width: 22vw;
     font-size: 1.3vw;
     height:7.8vw;
@@ -460,15 +468,20 @@ align-items: center;
   }
 }
 .choice.selected{
-  background-color: #05061b !important;
-  color: #fff !important;
+  background-color: #f3f6ff;
+  box-shadow: 0 .1vw .3vw -.2vw #0f2547;
   >.number>.index{
-    background-color: #05061b !important;
+    background-color: #0f2547 !important;
     color: #fff !important;
   }
-   >.number>.choice{
-    background-color: #05061b;
-    border-color:.3vw solid #fff;
+   >.circle{
+    background-color: #05061b !important;
+    /* border:.01vw solid #fff !important; */
+    background: url(https://img.icons8.com/?size=10&id=83977&format=png&color=0f2547) no-repeat !important ;
+    /* width: 1vw; */
+    /* height: 1vw; */
+    background-position: center center;
+    /* background-size: cover; */
    }
 }
 .contain2{
@@ -536,6 +549,7 @@ height: 3vw;
 
 .columns{
 display: flex;
+flex-direction: column;
 justify-content: center;
 align-items: start;
 /* width: 90vw; */

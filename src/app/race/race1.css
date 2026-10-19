@@ -7,10 +7,10 @@
   flex-direction: column;
   justify-content: center;
   /* padding-top: 0; */
-  align-items: start;
+  align-items: center;
   /* height: 50vw; */
   /* gap: .1vw; */
-  width: 30vw;
+  width: 100vw;
   > .card1 {
     display: flex;
     /* grid-template-columns: 4vw 4vw 4vw 4vw; */
@@ -31,14 +31,13 @@
 
     /* gap: 1vw; */
     /* padding: 3vw; */
-    width: 30vw;
+    width: 90vw;
     > .first {
-      width: 30vw;
+      width: 86vw;
       height: 4vw;
       /* border-radius: 1vw; */
       padding: 0.6vw 0.6vw;
       font-size: 0.7vw;
-      width: 26vw;
 
       transition: all 1s;
       transition:
@@ -55,7 +54,7 @@
     > .verse {
       font-size: 1.4vw;
       background-color: #f2f4f6;
-      width: 26vw;
+      width: 86vw;
       height: 5vw;
       line-height: 2.3vw;
       padding: 1vw;
@@ -73,7 +72,7 @@
     border-radius: 1vw;
 
     padding: 1.3vw 2vw 1.3vw 0vw;
-    width: 30vw;
+    width: 90vw;
     height: 17vw;
     margin: 0 !important;
     margin: 1.3vw !important;
@@ -82,7 +81,7 @@
       /* width: 20vw; */
       /* padding: 0.7vw 0.3vw; */
       display: flex;
-
+width: 93vw;
       transition: all 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
       transition:
         all 0.25s cubic-bezier(0.16, 1, 0.3, 1),
@@ -99,7 +98,7 @@
     > p {
       font-size: 0.7vw;
       font-size: 1.1vw;
-      width: 29vw;
+      width: 86vw;
       /* height: 10vw; */
       color: rgb(5, 6, 27, 0.6);
       margin: 0;
@@ -116,7 +115,8 @@
       border-radius: 0.5vw;
       /* height: 7vw; */
       padding: 1vw;
-      width: 26vw;
+      padding-left: 0;
+      width: 86vw;
       /* font-weight: 900 !important; */
       color: #05061b;
       color: rgb(5, 6, 27, 0.8);
@@ -130,7 +130,7 @@
     flex-direction: column;
     /* gap: 1vw; */
     padding: 1.3vw 0vw 1.3vw 0vw !important;
-    width: 32vw;
+    width: 90vw;
     border-radius: 1vw;
 
     background-color: #fff;
@@ -139,7 +139,7 @@
     margin: 1.3vw !important;
     .first {
       display: flex;
-      width: 26vw;
+      width: 80vw;
 
       > p:nth-child(1) {
         font-size: 1.4vw;
@@ -151,7 +151,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 26vw;
+      width: 80vw;
       > .number {
         display: flex;
         justify-content: space-between;
@@ -159,10 +159,10 @@
         /* width: 5vw; */
         gap: 0.7vw;
         > .index {
-          width: 2vw;
+          width: 3vw;
           padding: 0;
           box-shadow: none;
-          height: 2vw;
+          height: 3vw;
           background-color: #e6e8ea;
           border-radius: 50%;
           color: #05061b;
@@ -179,7 +179,7 @@
       }
       > p {
         font-size: 1.1vw;
-        width: 3vw;
+        width: 4vw;
         color: #10b981;
         background-color: transparent;
       }

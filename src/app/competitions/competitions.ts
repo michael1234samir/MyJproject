@@ -1,6 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule, OnInit, signal } from '@angular/core';
-import { Book, Choice, competition, CompQuestion, Makhdoom, Question } from '../../IData';
+import {
+  Book,
+  Choice,
+  competition,
+  CompQuestion,
+  Makhdoom,
+  MakhdoomResponse,
+  Question,
+} from '../../IData';
 import { JeServiceTs } from '../je-service.ts';
 import { FormsModule } from '@angular/forms';
 
@@ -478,11 +486,11 @@ export class Competitions implements OnInit {
       ],
     },
   ]);
-  persons: Makhdoom[] = [];
+  persons = signal<MakhdoomResponse[]>([]);
   ngOnInit(): void {
     this.myservice.getallusers().subscribe({
       next: (response) => {
-        this.persons = response;
+        this.persons.set(response);
         console.log(response);
       },
       error: (err) => {

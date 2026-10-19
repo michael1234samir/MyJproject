@@ -1,4 +1,4 @@
-import { competition, Makhdoom, AnswerDto, CompQuestion } from './../../IData';
+import { competition, Makhdoom, AnswerDto, CompQuestion, UserComp } from './../../IData';
 import {
   AfterViewInit,
   Component,
@@ -42,15 +42,14 @@ export class Race implements OnInit, AfterViewInit {
       if (sec > 0) {
         sec--;
         this.seconds.nativeElement.textContent = sec.toString().padStart(2, '0');
+      } else if (sec == 0 && min == 0) {
+        this.bool.set(true);
       } else if (sec == 0) {
         min--;
         sec = 59;
       }
       this.minutes.nativeElement.textContent = min.toString().padStart(2, '0');
     }, 1000);
-    if (sec == 0 && min == 0) {
-      this.bool.set(true);
-    }
     var sec2 = Number(this.seconds2.nativeElement.textContent);
     var min2 = Number(this.minutes2.nativeElement.textContent);
 
@@ -58,15 +57,14 @@ export class Race implements OnInit, AfterViewInit {
       if (sec2 > 0) {
         sec2--;
         this.seconds2.nativeElement.textContent = sec2.toString().padStart(2, '0');
+      } else if (sec2 == 0 && min2 == 0) {
+        this.bool2.set(false);
       } else if (sec2 == 0) {
         min2--;
         sec2 = 59;
       }
       this.minutes2.nativeElement.textContent = min2.toString().padStart(2, '0');
     }, 1000);
-    if (sec2 == 0 && min2 == 0) {
-      this.bool2.set(false);
-    }
   }
   bgchoice = '';
   selectedChoices: { [questionindex: number]: number } = {};
@@ -89,16 +87,20 @@ export class Race implements OnInit, AfterViewInit {
       },
     });
   }
+  result = signal<UserComp>({});
+  score: number = 0;
   answers: AnswerDto[] = [];
   submit() {
     console.log(this.selectedChoices);
     this.answers = Object.entries(this.selectedChoices).map(([questionindex, answerindex]) => ({
-      question_Id: Number(questionindex),
+      Question_Index: Number(questionindex),
       answer: answerindex,
     }));
     this.myservice.submit(this.competition()?.competition_id! as number, this.answers).subscribe({
       next: (response) => {
         this.bool3.set(false);
+        this.result.set(response);
+        this.score = this.result().score ?? 0 + 1;
         console.log(response);
       },
       error: (err) => {

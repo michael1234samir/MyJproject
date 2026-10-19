@@ -115,13 +115,13 @@
       }
       > .person1img {
         border-color: #d8dadc;
-        background: url('./assets/Screens/screen_28.png') no-repeat;
+        /* background: url('./assets/Screens/screen_28.png') no-repeat; */
         background-size: cover;
         background-position: center;
       }
       > .person2img {
         border-color: #fe901f;
-        background: url('./assets/Screens/screen_27.png') no-repeat;
+        /* background: url('./assets/Screens/screen_27.png') no-repeat; */
         background-size: cover;
         background-position: center;
       }
