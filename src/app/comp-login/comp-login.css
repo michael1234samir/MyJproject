@@ -356,9 +356,9 @@ margin-bottom:1.6vw;
       width: 100% !important;
       > p,.passwords>.input>p {
         display: inline-block;
-        color: #c1c8da !important;
-        font-size: 2.8vw !important;
-        line-height: 2.6;
+        color: rgb(193, 200, 218,.9) !important;
+        font-size: 2.9vw !important;
+        line-height: 2.4;
         /* padding-right: 6vw; */
         align-self: self-start;
         font-weight: 600 !important;
@@ -385,15 +385,15 @@ margin-bottom:1.6vw;
         color: #c7cfdb;
         border: none !important;
         border: .4vw solid #293144 !important;
-        border-radius: 3vw;
+        border-radius: 2vw;
         color: #caced9 !important;
         box-sizing: border-box;
     transition: all 0s ease !important;
-        height: 7.5vw;
-        padding:4.5vw 3vw;
+        height: 7vw;
+        padding:4.9vw 3vw;
         /* line-height: 10vw; */
         /* border-bottom-width: 0.3vw !important; */
-        font-size: 2.9vw !important;
+        font-size: 2.7vw !important;
         /* padding-inline-end: 2.2vw; */
         /* line-height: 1.4; */
         font-weight: 600 !important;
@@ -427,10 +427,11 @@ margin-bottom:1.6vw;
       align-items: center !important;
       /* background: #000; */
       margin-top: 5vw;
+      transition: all 1s ease !important;
       gap: 4vw;
       > .btn1 {
         width: 100% !important;
-      height: 9vw;
+      height: 9.5vw;
       border: none;
         border-radius: 3vw;
         align-items: center;
@@ -458,17 +459,17 @@ margin-bottom:1.6vw;
         /* width: 5vw; */
         text-wrap: nowrap;
         /* padding: 0vw 2.3vw; */
-        height: 6vw;
-        padding: 1.4vw 25%;
+        height: 7vw;
+        padding: 3vw 25% !important;
         width: 100% !important;
         /* height: 5vw; */
         font-weight: bolder;
         background-color: rgba(15, 23, 42, 0.4);
-        color: #fbbf24;
+        color: #cccb9d;
 
         font-size: 2vw;
         border-radius: 2vw;
-        border: .3vw dashed rgba(245, 158, 11, 0.3);
+        border: .2vw dashed rgba(245, 158, 11, 0.3);
       }
     }
   }
