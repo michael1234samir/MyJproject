@@ -22,23 +22,28 @@
   /* font-size: 0.8vw; */
   /* padding: 0.3vw 1vw 0.3vw 3vw; */
   border-radius: 2vw;
-  width: 97%;
-  /* margin-top:1vw ; */
+  width: 100%;
+  gap: 2vw !important;
+  margin-bottom:2vw ;
   /* height: fit-content; */
-  margin-bottom: 1vw;
+  /* margin-bottom: 1vw; */
   /* position: relative !important; */
   /* border: 0.1vw solid #485467; */
   > p {
     /* width: 100%; */
     /* padding: 1.8vw 0.3vw 1.8vw 1vw; */
-    font-size: 0.8vw;
-    color: #fef08a;
+    font-size: 2.8vw;
+    /* color: #fef08a; */
     /* padding-inline: 1.5vw; */
     /* height: 4vw !important; */
     display: flex;
+           color: #c1c8da !important;
+        font-size: 2.8vw !important;
+        /* line-height: 2.6; */
     /* direction: ltr; */
     /* outline: none; 
         */
+        margin: 0;
     align-self: flex-start;
     justify-content: spa;
     align-items: center;
@@ -55,7 +60,7 @@
   /* height: 3vw; */
   display: flex;
   gap: 0vw;
-  width: 92%;
+  width: 96%;
   /* width: 50vw; */
   /* column-gap: 3vw; */
   /* position: absolute; */
@@ -74,8 +79,8 @@
     gap: 0.5vw;
     /* height: 10vw !important; */
     > input[type='radio'] {
-      width: 1vw;
-      height: 1vw;
+      width: 3vw;
+      height: 2vw;
       margin: 0;
       color: #021530;
       border: none;
@@ -95,14 +100,17 @@
       align-items: center;
       cursor: pointer;
       z-index: 3;
-      font-size: 0.7vw;
+      font-size: 2vw;
       /* width: 50vw; */
-      border-radius: 0.5vw;
+      border-radius: 0.7vw;
       /* border: 0.2vw solid #47361e; */
       /* padding: 1vw 7vw; */
       background-color: #021530;
       color: #c9d2df;
       text-wrap: nowrap;
+             color: #c1c8da !important;
+        font-size: 2.4vw !important;
+        line-height: 2.6;
     }
   }
 }
@@ -111,8 +119,8 @@ input[type='datetime'] {
 }
 input:focus {
   border: none;
-  box-shadow: 0 0.1vw 0.2vw 0.2vw #222c3f;
-  outline: 0.1vw solid #fed44e !important;
+  /* box-shadow: 0 .3vw 1vw -1vw #fed44e !important; */
+  outline: .3vw solid #fed44e !important;
 }
 
 .login > .btns > .btn1 {
@@ -121,7 +129,8 @@ input:focus {
   /* height: 4vw; */
 }
 input:hover {
-  background-color: #485467;
+  background-color: #0e1526 !important;
+  border: .1vw solid #64748b;
 }
 
 .btn1:hover,
@@ -133,4 +142,17 @@ input:hover {
 
 .btn {
   transition: all 0.3s ease;
+}
+
+.btns2>.btn1:hover{
+  color: #021530 !important;
+/* color: #fed44e  !important; */
+        background: linear-gradient(to left, #eab308,#d97706) !important;
+
+}
+input:-webkit-autofill{
+  -webkit-box-shadow:0 0 0px 1000px #05061b inset !important;
+  -webkit-text-fill-color: #fff !important;
+  color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
