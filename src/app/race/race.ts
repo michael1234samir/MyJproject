@@ -25,15 +25,19 @@ export class Race implements OnInit, AfterViewInit {
   /**
    *
    */
+  ordered_Makdhdooms = signal<Makhdoom[]>([]);
   questions = signal<CompQuestion[]>([]);
   bool = signal(false);
   bool2 = signal(false);
   bool3 = signal(true);
+  correct = signal<number>(0);
+  result = signal<UserComp>({});
   constructor(private myservice: JeServiceTs) {}
   @ViewChild('seconds') seconds!: ElementRef<HTMLSpanElement>;
   @ViewChild('seconds2') seconds2!: ElementRef<HTMLSpanElement>;
   @ViewChild('minutes') minutes!: ElementRef<HTMLSpanElement>;
   @ViewChild('minutes2') minutes2!: ElementRef<HTMLSpanElement>;
+  bool4 = signal<boolean>(false);
   ngAfterViewInit(): void {
     var sec = Number(this.seconds.nativeElement.textContent);
     var min = Number(this.minutes.nativeElement.textContent);
@@ -73,21 +77,43 @@ export class Race implements OnInit, AfterViewInit {
     this.selectedChoices[questionidex] = index;
     console.log(questionidex);
     console.log(index);
+    if (this.number() != 3) {
+      this.number.set(this.number() + 1);
+    }
   }
-
+  public usercompetition = signal<UserComp>({});
+  number = signal<number>(0);
   ngOnInit(): void {
     this.myservice.GetCompetitionToday().subscribe({
       next: (response) => {
         this.competition.set(response);
         this.questions.set(response?.questions ?? []);
-        console.log(this.competition);
-      },
-      error: (error) => {
-        console.log(error);
+        console.log(this.competition());
+        this.myservice
+          .Iscomplete(this.competition()?.competition_id! as number)
+          .subscribe((e: any) => {
+            console.log(e);
+            this.bool4.set(e);
+            if (this.bool4()) {
+              this.bool3.set(false);
+              this.myservice
+                .getusercompetition(this.competition()?.competition_id! as number)
+                .subscribe((e: any) => {
+                  this.result.set(e);
+                  console.log(this.result());
+                });
+              this.myservice.getorder().subscribe((e: any) => {
+                this.ordered_Makdhdooms.set(e);
+                console.log(e);
+              });
+            }
+          });
       },
     });
+    console.log(this.bool4());
+
+    console.log(this.bool4());
   }
-  result = signal<UserComp>({});
   score: number = 0;
   answers: AnswerDto[] = [];
   submit() {
@@ -96,12 +122,16 @@ export class Race implements OnInit, AfterViewInit {
       Question_Index: Number(questionindex),
       answer: answerindex,
     }));
+    console.log(this.answers);
     this.myservice.submit(this.competition()?.competition_id! as number, this.answers).subscribe({
       next: (response) => {
         this.bool3.set(false);
         this.result.set(response);
-        this.score = this.result().score ?? 0 + 1;
+        this.score = this.result().score!;
+        this.correct.set(this.result().score ?? 1 / 3);
+
         console.log(response);
+        console.log(this.bool3());
       },
       error: (err) => {
         console.log(err);

@@ -89,6 +89,18 @@ export class JeServiceTs {
       },
     });
   }
+  getuser(): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.get(
+      `https://churchcomp.runasp.net/api/MyUser/GetMe
+`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
+  }
   GetCompetitionToday(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(`https://churchcomp.runasp.net/api/MyUser/GetCompetitionToday`, {
@@ -123,7 +135,7 @@ export class JeServiceTs {
   }
   getusercompetition(competition_id: number): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.post(`https://churchcomp.runasp.net/api/MyUser/get-by-id/${competition_id}`, {
+    return this.http.get(`https://churchcomp.runasp.net/api/MyUser/get-by-id/${competition_id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -140,5 +152,13 @@ export class JeServiceTs {
         },
       },
     );
+  }
+  Iscomplete(competition_id: any): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.get(`https://churchcomp.runasp.net/api/MyUser/iscomplete/${competition_id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
   }
 }

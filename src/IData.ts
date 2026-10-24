@@ -3,6 +3,7 @@ import { JwtPayload } from 'jwt-decode';
 export interface Makhdoom {
   password?: string;
   Family?: string;
+  family_Name?: string;
   phoneNumber?: string;
   father_Confessor?: string;
   Name?: string;
@@ -66,7 +67,7 @@ export interface UserComp {
   CompletedAt?: Date;
   score?: number;
   User?: MakhdoomResponse[];
-  Competition?: competition[];
+  competition?: competition;
   competition_title?: string;
 }
 export interface CompQuestion {

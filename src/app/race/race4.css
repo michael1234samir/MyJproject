@@ -16,7 +16,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 90vw;
+  width: 60vw;
   padding: 2vw 15vw 4vw 15vw;
   gap: 1vw;
   /* padding: 3vw; */
@@ -41,7 +41,7 @@
       /* width: 8vw; */
       padding: 0;
       margin: 0;
-      font-size: 2.7vw;
+      font-size: 1.5vw;
       /* height: 8vw; */
       /* background-color: #05061b; */
       color: #05061b;
@@ -49,7 +49,7 @@
     > p {
       /* width: 8vw; */
       /* height: 8vw; */
-      font-size: 1.3vw;
+      font-size: 1vw;
       margin: 0;
       padding: 0;
       color: #05061b;
@@ -80,7 +80,7 @@
     align-items: center;
     > h3 {
       text-wrap: nowrap;
-      font-size: 3vw;
+      font-size: 2.4vw;
       /* height: 10vw; */
       /* width: 50vw; */
       margin: 0;
@@ -91,7 +91,7 @@
       /* width: 40vw !important; */
       text-wrap: nowrap;
       color: rgb(5, 6, 27, 0.8);
-      font-size: 1.3vw !important;
+      font-size: 1vw !important;
     }
   }
 
@@ -126,7 +126,7 @@
         align-items: center;
         text-wrap: nowrap;
         margin: 0;
-        font-size: 1.5vw;
+        font-size: 1.2vw;
         /* font-size: 2vw; */
         color: #10b981;
       }
@@ -174,7 +174,7 @@
       justify-self: center;
       justify-content: center;
       align-items: center;
-      font-size: 1vw;
+      font-size: .8vw;
       color: #05061b !important;
       width: 38vw !important;
       > .btn {
@@ -187,7 +187,7 @@
         padding: 1vw;
         height: 2.4vw;
         border-radius: 1vw;
-        font-size: 1vw;
+        font-size: .8vw;
       }
       > .btn1 {
         width: 16vw;
@@ -202,7 +202,7 @@
       }
     }
     > p {
-      font-size: 1vw;
+      font-size: .7vw;
       margin: 0;
       color: rgb(5, 6, 27, 0.8);
     }

@@ -10,7 +10,7 @@
           <li>مسابقة يومية رقم #102</li>
         </div>
         
-        <li class="Chapter">مسابقة اليوم:{{this.competition()?.competition_title}}</li>
+        <li class="Chapter">مسابقة اليوم: {{this.competition()?.competition_title}}</li>
         <li>
           <h6>
             «لِمَعْرِفَةِ حِكْمَةٍ وَأَدَبٍ، لِلإِدْرَاكِ كَلِمَاتِ الْفَهْمِ» (أم 1: 2). تأمل في
@@ -47,7 +47,7 @@
     </div>
     <div class="contain2">
       <div class="con">
-        <p>السؤال الحالي: 3 /3</p>
+        <p>السؤال الحالي: {{this.number()}} /3</p>
         <p>نسبة الإكمال: تم تحديد 3 من أصل 3 أسئلة</p>
       </div>
       <div class="line1">
@@ -58,7 +58,7 @@
     </div>
     </div>
     <div class="columns">
-      @if(bool3()){
+      @if(this.bool3()==true){
       <div class="right_column">
       <div class="questions">
         @for (question of this.questions(); track $index;let parentindex=$index) {
@@ -181,15 +181,15 @@
       <div class="btns">
         <div class="btn btn5">
         <p>لدرجة المكتسبة</p>
-        <h1>{{score}}/ 10</h1>
+        <h1>{{this.result().score}}/ 15</h1>
         </div>
         <div class="btn btn2">
         <p>الإجابات الصحيحة</p>
-        <h1>من 3 {{this.result().score}}</h1>
+        <h1>من 3 {{this.correct()}}</h1>
         </div>
         <div class="btn btn3">
         <p>نقاط مضافة</p>
-        <h1>+ {{score}}نقطة</h1>
+        <h1>+ {{this.result().score}}نقطة</h1>
         </div>
         <div class="btn btn4">
         <p>بونص السلسلة 🔥</p>
