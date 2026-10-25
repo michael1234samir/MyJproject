@@ -65,12 +65,12 @@
         <div class="form">
             <div class="input">
                 <p> رقم التلفون</p>
-                <input [(ngModel)]="userlogin.phoneNumber" name="phoneNumber" type="text" />
+                <input [(ngModel)]="userlogin.phoneNumber" name="phoneNumber" placeholder="رقم التلفون" type="text" />
             </div>
 
             <div class="input">
                 <p>كلمة المرور الكنسية</p>
-                <input [(ngModel)]="userlogin.password" name="password" type="password" placeholder="" />
+                <input [(ngModel)]="userlogin.password" name="password" type="password" placeholder="كلمة المرور الكنسية" />
                 </div>
                 @if(bool()){
                 <p class="error">{{errormessage}}</p>
@@ -84,21 +84,21 @@
         <div class="form">
             <div class="input">
             <p> رقم التلفون</p>
-            <input [(ngModel)]="user.phoneNumber" type="text" placeholder="مثال: Kyrillos@monastery.eg" />
+            <input [(ngModel)]="user.phoneNumber" type="text" placeholder="رقم التلفون" />
             </div>
 <div class="input">
     <p> الاسم الكامل</p>
-    <input type="text" [(ngModel)]="user.Full_Name" />
+    <input type="text" [(ngModel)]="user.Full_Name" placeholder="الاسم الكامل" />
 </div>
 <div class="passwords">
 
     <div class="input">
         <p>كلمة المرور الكنسية</p>
-        <input [(ngModel)]="user.password" type="password" placeholder="" />
+        <input [(ngModel)]="user.password" type="password" placeholder="كلمة المرور الكنسية" />
     </div>
     <div class="input">
         <p>تأكيد كلمة المرور</p>
-        <input type="password" placeholder="" />
+        <input type="password" placeholder="تأكيد كلمة المرور" />
     </div>
 </div>
             <div class="input">
@@ -132,11 +132,11 @@
         
             <div class="input">
                 <p>اب الاعتراف</p>
-                <input type="text" [(ngModel)]="user.father_Confessor" />
+                <input type="text" [(ngModel)]="user.father_Confessor" placeholder="" />
                 </div>
                 <div class="input">
-                    <p> العنوان</p>
-                    <input type="text" [(ngModel)]="user.address" />
+                    <p>العنوان</p>
+                    <input type="text" [(ngModel)]="user.address" placeholder="" />
                 </div>
             <div class="inputradio">
                 <p>دورك</p>

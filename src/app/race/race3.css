@@ -167,9 +167,14 @@ color: #05061b ;
               color: inherit;
             }
             > .index {
-              width: 3vw;
-              height: 1vw;
-              padding: 1vw;
+              width: 1vw !important;
+              height: 3vw !important;
+              padding:.1vw 1vw !important;
+                background-color: #ffe9d5;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
               background-color: #e6e8ea;
               box-shadow: none;
               color: #05061b;
@@ -177,8 +182,8 @@ color: #05061b ;
           }
           > .circle {
             background-color: #e6e8ea;
-            width: 1.3vw;
-            height: 1.3vw;
+            width: 1.7vw;
+            height: 1.7vw;
             transition:  all .1s !important;
 display: flex;
 justify-content: center;

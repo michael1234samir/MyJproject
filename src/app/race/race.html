@@ -114,8 +114,7 @@
           <p>أم 1: 7</p>
         </div>
         <div class="verse">
-          «مَخَافَةُ الرَّبِّ رَأْسُ الْمَعْرِفَةِ، أَمَّا الْجَاهِلُونَ فَيَحْتَقِرُونَ الْحِكْمَةَ
-          وَالأَدَبَ»
+          {{this.competition()?.verse_for_memorization}}
         </div>
         <div class="first">
           <p>استمع للنص</p>
@@ -185,7 +184,10 @@
         </div>
         <div class="btn btn2">
         <p>الإجابات الصحيحة</p>
-        <h1>من 3 {{this.correct()}}</h1>
+        <h1>
+          5 من
+          {{this.result().correct_answers}}
+        </h1>
         </div>
         <div class="btn btn3">
         <p>نقاط مضافة</p>
@@ -193,7 +195,7 @@
         </div>
         <div class="btn btn4">
         <p>بونص السلسلة 🔥</p>
-        <h1>+ {{this.competition()?.bonus}} بونص</h1>
+        <h1>+ {{this.result().bonus}} بونص</h1>
         </div>
         </div>
         <div class="content1">

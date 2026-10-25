@@ -22,9 +22,10 @@
   /* font-size: 0.8vw; */
   /* padding: 0.3vw 1vw 0.3vw 3vw; */
   border-radius: 2vw;
-  width: 100%;
+  width: 90%;
   gap: 2vw !important;
   margin-bottom:2vw ;
+  margin-right: 1vw;
   /* height: fit-content; */
   /* margin-bottom: 1vw; */
   /* position: relative !important; */
@@ -38,7 +39,7 @@
     /* height: 4vw !important; */
     display: flex;
            color: #c1c8da !important;
-        font-size: 2.8vw !important;
+        font-size: 1.6vw !important;
         /* line-height: 2.6; */
     /* direction: ltr; */
     /* outline: none; 
@@ -79,8 +80,8 @@
     gap: 0.5vw;
     /* height: 10vw !important; */
     > input[type='radio'] {
-      width: 3vw;
-      height: 2vw;
+      width: 2vw;
+      height: 1.3vw;
       margin: 0;
       color: #021530;
       border: none;
@@ -100,7 +101,6 @@
       align-items: center;
       cursor: pointer;
       z-index: 3;
-      font-size: 2vw;
       /* width: 50vw; */
       border-radius: 0.7vw;
       /* border: 0.2vw solid #47361e; */
@@ -109,7 +109,8 @@
       color: #c9d2df;
       text-wrap: nowrap;
              color: #c1c8da !important;
-        font-size: 2.4vw !important;
+             font-size: 2.4vw !important;
+             font-size: 1.2vw !important;
         line-height: 2.6;
     }
   }

@@ -128,7 +128,7 @@ export class Race implements OnInit, AfterViewInit {
         this.bool3.set(false);
         this.result.set(response);
         this.score = this.result().score!;
-        this.correct.set(this.result().score ?? 1 / 3);
+        this.correct.set(response.correct_answers ?? 1 / 3);
 
         console.log(response);
         console.log(this.bool3());

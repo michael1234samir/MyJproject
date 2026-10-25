@@ -7,6 +7,7 @@ export interface Makhdoom {
   phoneNumber?: string;
   father_Confessor?: string;
   Name?: string;
+  full_Name?: string;
   address?: string;
   stage?: any;
   role?: any;
@@ -52,6 +53,8 @@ export interface Register {
 }
 export interface competition {
   competition_id?: Number;
+  verse_for_memorization?: string;
+  verse_for_meditation?: string;
   competition_title?: string;
   family?: string;
   bonus?: number;
@@ -63,9 +66,11 @@ export interface competition {
 }
 export interface UserComp {
   competition_id?: number;
+  correct_answers?: number;
   Family?: string;
   CompletedAt?: Date;
   score?: number;
+  bonus?: number;
   User?: MakhdoomResponse[];
   competition?: competition;
   competition_title?: string;
