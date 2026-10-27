@@ -15,11 +15,10 @@ span {
 }
 .btn:hover {
   color:white !important;
+  background-color: #33476b !important;
   transform: translatey(-0.1vw);
        box-shadow:
-        0 0.03vw 0vw 0vw rgb(5, 6, 27,.14),
-        /* 0 0.08vw .8vw 0vw rgb(5, 6, 27,.14), */
-        0 0.04vw 0vw 0 rgb(5, 6, 27,.2);
+   0 0vw 3vw 10vw #33476b inset  !important;
     
 }
 .btn1:hover{
@@ -34,6 +33,9 @@ p{
 li,
 .btn {
   cursor: pointer;
+}
+*{
+  text-shadow: 0 .01vw .01vw rgba(1,5,37,71,.05);
 }
 /* .index {
   width: 3vw;
