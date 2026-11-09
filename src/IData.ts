@@ -51,6 +51,18 @@ export interface Register {
   success_rate?: number;
   total_points?: number;
 }
+export interface book {
+  id: number;
+  title: string;
+  description: string;
+  chapters: number;
+  category: string;
+  icon: string;
+  english_name: string;
+  testament: string;
+  progress: number;
+  done_chapters: number;
+}
 export interface competition {
   competition_id?: Number;
   verse_for_memorization?: string;
@@ -60,9 +72,13 @@ export interface competition {
   bonus?: number;
   finished__At?: Date;
   Opened__At?: Date;
-
+  verses?: Verse[];
   Created_At?: Date;
   questions?: CompQuestion[];
+}
+export interface Verse {
+  text: string;
+  explanation: string;
 }
 export interface UserComp {
   competition_id?: number;

@@ -1,0 +1,210 @@
+<link rel="stylesheet" href="./comps2.css">
+<link rel="stylesheet" href="./comps3.css">
+<link rel="stylesheet" href="./comps4.css">
+<div class="container">
+    <div class="contain1">
+        <div class="rightContain">
+            <ul>
+                <div class="con">
+                    <li> مكتبة المسابقات المفتوحة • متاحة للجميع بدون قيود
+
+                    </li>
+                </div>
+                <li class="Chapter">اكتشف الكتاب المقدس</li>
+                <li>
+                    <h6>
+                        اختر السفر المناسب وابدأ رحلتك التفاعلية في تعميق فهمك لكلمة ربنا، مع مسابقات مبنية على الفهم
+                        الروحي والدراسة الدقيقة
+                        لكل إصحاح.
+                    </h6>
+                </li>
+
+                <li class="spans">
+
+                    <span>
+                        توثيق وشواهد كنسية معتمدة
+                    </span>
+                    <span>
+                        فئة: متاحة لكافة الأسر والخدام
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="btns">
+
+            <div class="btn btn1">
+                <div class="content">
+                    <h1>
+                        ٧٣</h1>
+                    <p>
+                        سفرًا متاحً</p>
+                </div>
+            </div>
+            <div class="btn btn1">
+                <div class="content">
+                    <h1 class="red">
+                        +١٬٢٥٠</h1>
+                    <p>
+                        سابقة تفاعلية
+                    </p>
+                </div>
+            </div>
+
+            <div class="btn btn1">
+                <div class="precen">
+                    ٢٤٪
+                </div>
+                <p> إنجازك العام</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="contain1before">
+    <div class="row">
+
+        <input type="text" placeholder="ابحث عن سفر، إصحاح، أو كلمة مفتاحية (مثل: التكوين، داود، المحبة)...">
+        <div class="btns">
+            <div class="btn1"> الترتيب الكنسي التقليدي</div>
+            <div class="btn2">حالة الإنجاز: الكل</div>
+
+        </div>
+    </div>
+    <div class="line"></div>
+    <div class="row btns2">
+        <div class="btn">
+            جميع الأسفار (٧٣)
+
+        </div>
+        <div class="btn">
+
+            العهد القديم (٣٩)
+        </div>
+        <div class="btn">
+
+
+
+            العهد الجديد (٢٧)
+        </div>
+        <div class="btn">
+
+
+
+            الأسفار القانونية الثانية (٧)
+        </div>
+    </div>
+</div>
+<div class="contain2">
+    <div class="btns">
+        @for(book of this.bible_book;track $index){
+        <div class="btn btn5">
+            <div class="content">
+                <div class="first">
+                    <p class="index">
+                        {{book.category}}
+                    </p>
+                    <p class="BgBrown">
+                        سفر {{book.id}}
+                    </p>
+                </div>
+                <div class="content">
+                    <div class="icon">
+                        <div [innerHTML]="geticon(book.icon)"></div>
+                    </div>
+                    <div class="content">
+
+                        <h1>
+                            {{book.title}}
+                        </h1>
+                        <p>
+                            {{book.description}}
+                        </p>
+                    </div>
+                </div>
+                <div class="TypeComs">
+                    <div class="content">
+                        <h1>
+                            {{book.chapters}}
+                        </h1>
+                        <p>
+                            إصحاحًا
+                        </p>
+                    </div>
+                    <div class="content">
+                        <h1>
+                            ٤٢
+                        </h1>
+                        <p>
+                            مسابقة جاهزة
+                        </p>
+                    </div>
+                </div>
+                <div class="choice">
+
+                    <div class="con">
+                        <p>
+                            نسبة الإنجاز</p>
+                        <p>75%</p>
+                    </div>
+                    <div class="line" #line>
+
+                    </div>
+                    <div class="line2" #line>
+
+                    </div>
+                </div>
+            </div>
+            <div class="btn" (click)="gotopublicomps()">
+                استكشف الإصحاحات
+            </div>
+        </div>
+        }
+    </div>
+</div>
+<div class="columns">
+    <!-- <div class="right_column"> -->
+    <div class="right_column">
+
+        <div class="card">
+            <p class="bgred">
+                شاهد اليوم المشجع للقراءة والفهم
+            </p>
+            <div class="aya">
+                «وَتَعْرِفُونَ الْحَقَّ، وَالْحَقُّ يُحَرِّرُكُمْ»
+            </div>
+            <div class="line1">
+                <p>
+                    إنجيل يوحنا ٨: ٣٢
+                </p>
+                <p>
+                    اقرأ وتأمل كلمة المسيح كل يوم.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="left_column">
+
+
+
+        <div class="content">
+
+            <h3>
+                هل تحتاج مساعدة في خطة القراءة؟
+            </h3>
+            <p class="aya">
+                وفرنا لك تدرجًا مرئيًا مبسطًا يمكن السير به، بالإضافة لخطة سنوية منظمة تتناسب مع مواعيد خدمتك
+                اليومية
+            </p>
+        </div>
+        <div class="btns">
+            <div class="btn1">
+                كيف تبدأ دراسة السفر؟
+            </div>
+            <div class="btn2">
+                تحميل الخطة السنوية
+            </div>
+        </div>
+    </div>
+    <!-- </div> -->
+</div>

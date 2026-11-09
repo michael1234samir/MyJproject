@@ -195,12 +195,26 @@
         background-color: #05061b !important;
         color: #ffff !important;
       }
+      >.btn2:hover{
+          background: #ffb77d !important;
+     box-shadow:0vw .1vw 3vw -.1vw #e2e4e6 !important;
+   
+    }
       > .btn2 {
         width: 16vw;
         background-color: #ffdcc3 !important;
         color: #05061b !important;
       }
+     >.btn1:hover {
+  color:white !important;
+  background-color: #00102b !important;
+  /* transform: translatey(-0.1vw); */
+       box-shadow:
+   0 .1vw 3vw -.1vw #e2e4e6   !important;
+    
+} 
     }
+
     > p {
       font-size: .7vw;
       margin: 0;
@@ -215,4 +229,9 @@
           width: 100%;
         }
       } */
+}
+
+ .btn:hover{
+  background: #ffb77d !important;
+  color: whitesmoke !important;
 }

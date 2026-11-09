@@ -21,13 +21,23 @@ import { Competitions } from '../competitions/competitions';
 })
 export class Race implements OnInit, AfterViewInit {
   payload: Makhdoom = {};
+  @ViewChild('textcopy') copyElement!: ElementRef<HTMLElement>;
+  @ViewChild('btn1') btn1!: ElementRef<HTMLElement>;
+  @ViewChild('btn2') btn2!: ElementRef<HTMLElement>;
   competition = signal<competition | null>(null);
   /**
    *
    */
   ordered_Makdhdooms = signal<Makhdoom[]>([]);
   questions = signal<CompQuestion[]>([]);
+  level1 = signal<string | null>('المرحلة الأولى: اقرأ وافهم');
+  level(event: MouseEvent) {
+    const event1 = event.currentTarget as HTMLElement;
+    this.level1.set(event1.textContent);
+    console.log(this.level1()?.includes('المرحلة الأولى: اقرأ وافهم'));
+  }
   bool = signal(false);
+  copiedtext = signal(false);
   bool2 = signal(false);
   bool3 = signal(true);
   correct = signal<number>(0);
@@ -83,6 +93,11 @@ export class Race implements OnInit, AfterViewInit {
   }
   public usercompetition = signal<UserComp>({});
   number = signal<number>(0);
+  copy() {
+    const text = this.copyElement.nativeElement.innerText;
+    this.copiedtext.set(true);
+    navigator.clipboard.writeText(text);
+  }
   ngOnInit(): void {
     this.myservice.GetCompetitionToday().subscribe({
       next: (response) => {

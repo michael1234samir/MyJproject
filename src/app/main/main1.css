@@ -1,3 +1,4 @@
+@media(max-width:1000px){
 .result {
   display: flex;
   /* grid-template-columns: 4vw 4vw 4vw 4vw; */
@@ -399,4 +400,5 @@ margin-right: 3vw;
       background-color: #f3f6ff;
     }
   }
+}
 }

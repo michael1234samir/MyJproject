@@ -46,10 +46,25 @@
       </div>
     </div>
     <div class="contain2">
-      <div class="con">
+      <div class="row">
+      
+        <div class="btns">
+          <div class="btn" [class.select]="level1()?.includes('المرحلة الأولى: اقرأ وافهم')==true" (click)="level($event)">
+            المرحلة
+            الأولى:
+            اقرأ وافهم
+          </div>
+          <div class="btn" [class.select]="level1()?.includes('المرحلة الثانية: الأسئلة التفاعلية')" (click)="level($event)">
+            المرحلة الثانية: الأسئلة التفاعلية
+          </div>
+        </div>
+        <div class="btnText">{{level1()}}</div>
+      </div>
+      
+      <!-- <div class="con">
         <p>السؤال الحالي: {{this.number()}} /3</p>
         <p>نسبة الإكمال: تم تحديد 3 من أصل 3 أسئلة</p>
-      </div>
+      </div> -->
       <div class="line1">
         <div class="line" #line>
 
@@ -60,6 +75,51 @@
     <div class="columns">
       @if(this.bool3()==true){
       <div class="right_column">
+          <div class="content">
+            <div class="img"></div>
+            <div class="content">
+          
+              <h3>
+                توجيه روحي لدراسة المقطع
+          
+              </h3>
+              <p class="aya1">
+                اقرأ الآيات الثلاث التالية بتركيز، ثم أطلِع على التفسير المعاني المصاحب. بعد إتمام التأمل اضغط الزر بالأسفل
+                للانتقال
+                لأسئلة المسابقة التفاعلية.
+              </p>
+            </div>
+          </div>
+          @for(verse of this.competition()?.verses;track $index){
+          
+          <div class="card1">
+            <div class="first">
+              <div class="number">
+                <div class="index">1</div>
+                <h3>الآية {{$index}} • {{this.competition()?.competition_title}}</h3>
+              </div>
+              <p>
+                آية الحفظ الذهبية
+              </p>
+            </div>
+            <div #textcopy class="verse">
+              {{verse.text}}
+            </div>
+            <div #textcopy class="explanation content">
+              <h3>
+                التفسير والشرح المبسط:
+              </h3>
+              <p>
+                {{verse.explanation}}
+              </p>
+            </div>
+            <div class="first first2">
+              <p>استمع للنص</p>
+              <p [class.selectedtext]="copiedtext()==true" (click)="copy()">نسخ الآية</p>
+            </div>
+          </div>
+          
+          }
       <div class="questions">
         @for (question of this.questions(); track $index;let parentindex=$index) {
         <div class="question">
@@ -105,20 +165,59 @@
         </div>
 
       </div>
+      <div class="startQues">
+        <div class="content">
+          <h3></h3>
+          <p></p>
+        </div>
+        <div class="btn"></div>
+      </div>
       </div>
       }
       <div class="left_column">
+            <div class="card1">
+              <div class="first">
+                <p>
+                  إضاءة تأملية يومية
+                </p>
+                <p>
+                  سر الحكمة
+                </p>
+              </div>
+              <div #textcopy class="verse">
+                «مخافة الرب ليست رعباً يقيدك، بل هي هيبة الأب المحبوب في قلب الابن البار. كلما زاد احترامك لوصية الله، تلت حكمة تدير
+                بها
+                كل قرارات يومك.»
+              </div>
+              <div class="say">
+                تأملات الآياء: القديس يوحنا ذهبي الفم
+              </div>
+            </div>
+            <div class="card1">
+              <div class="first first1">
+                ملخص سفر الأمثال 1
+              </div>
+              <div #textcopy class="verse">
+                يفتتح سليمان الحكيم السفر بتوضيح الغاية: إكساب المؤمن يقظة واستقامة. بعد ترسيخ مخافة الله وطاعة الأسرة، يحذر
+                الشباب
+                بحزم
+                من إغراءات سالك الأشرار ثم يجدد الحكمة كصوت إلهي حي يدعو لقبول الحق.
+              </div>
+              <div class="supervise">
+                إشراف: {{this.competition()?.family}} </div>
+            
+            </div>
         <div class="card1">
         <div class="first">
           <p>آية لحفظ اليومية</p>
           <p>أم 1: 7</p>
         </div>
-        <div class="verse">
+        <div #textcopy class="verse">
           {{this.competition()?.verse_for_memorization}}
         </div>
         <div class="first">
           <p>استمع للنص</p>
-          <p>نسخ الآية</p>
+          <p [class.selectedtext]="copiedtext()==true" (click)="copy()">نسخ الآية</p>
         </div>
         </div>
 

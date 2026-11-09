@@ -6,7 +6,9 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+  integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer">
 <style>
   :host {
     --bright-blue: oklch(51.01% 0.274 263.83);
@@ -106,11 +108,12 @@
         </div>
       </div>
     <ul class="ChrchUl">
-      <li (click)="goToMainPage()">الرئيسيه</li>
-      <li (click)=" goToRacePage()">مسابقه اليوم</li>
-      <li>مسابقاتى</li>
-      <li (click)="goToPage()">لوحه الشرف والترتيب</li>
-      <li (click)="goToCompetitionPage()">لوحه الخادم والاداره</li>
+      <li [class.selected]="main()==true" (click)="goToMainPage()">الرئيسيه</li>
+      <li (click)=" goToRacePage()" [class.selected]="race()==true">مسابقه اليوم</li>
+      <li (click)="compsfun()" [class.selected]="comps()==true">مسابقاتى</li>
+      <li (click)="gotosaints()" [class.selected]="saintab()==true">سيره قديس اليوم</li>
+      <li [class.selected]="page()==true" (click)="goToPage()">لوحه الشرف والترتيب</li>
+      <li [class.selected]="competition()==true" (click)="goToCompetitionPage()">لوحه الخادم والاداره</li>
     </ul>
     <ul class="churchDetialsUl">
       <li>{{Tokens?.daily_series||0}} ايام متتاليه</li>
