@@ -20,7 +20,7 @@
           </ul>
           </div>
     <div class="btns">
-      <div class="btn btn1">
+      <!-- <div class="btn btn1">
         <p>وقت التأمل</p>
         <h1>
           <span #seconds class="seconds">
@@ -31,7 +31,7 @@
             04
           </span>
         </h1>
-      </div>
+      </div> -->
       <div class="btn btn2">
         <p>وقت المسابقة</p>
         <h1>
@@ -49,7 +49,7 @@
       <div class="row">
       
         <div class="btns">
-          <div class="btn" [class.select]="level1()?.includes('المرحلة الأولى: اقرأ وافهم')==true" (click)="level($event)">
+          <div class="btn" [class.select]="level1()=='المرحلة الأولى: اقرأ وافهم'" (click)="level($event)">
             المرحلة
             الأولى:
             اقرأ وافهم
@@ -292,10 +292,7 @@
         <p>نقاط مضافة</p>
         <h1>+ {{this.result().score}}نقطة</h1>
         </div>
-        <div class="btn btn4">
-        <p>بونص السلسلة 🔥</p>
-        <h1>+ {{this.result().bonus}} بونص</h1>
-        </div>
+      
         </div>
         <div class="content1">
           <div class="btns">

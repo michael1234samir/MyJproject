@@ -18,6 +18,33 @@ export interface Makhdoom {
   total_points?: number;
   BirthDate?: Date;
 }
+export interface saint {
+  id?: number;
+  SaintId?: number;
+  OpenedAt?: Date;
+  ClosedAt?: Date;
+  name_ar?: string;
+  nickname?: string;
+  birth_year?: string;
+  departure_year?: string;
+  age_at_departure?: string;
+  birth_place?: string;
+  country?: string;
+  short_bio?: string;
+  verse_for_meditation?: string;
+  competition?: competition[];
+  life_stages?: LifeStage[];
+}
+export interface LifeStage {
+  SaintId?: number;
+  stage_key?: string;
+  stage_title?: string;
+  stage_verse?: string;
+  stage_order?: number;
+  summary?: string;
+  detials?: string;
+  questions: Question[];
+}
 export interface MakhdoomResponse {
   address: string;
   birthDate?: string;
@@ -75,6 +102,13 @@ export interface competition {
   verses?: Verse[];
   Created_At?: Date;
   questions?: CompQuestion[];
+  SaintId?: number;
+  stage_key?: string;
+  stage_title?: string;
+  stage_verse?: string;
+  stage_order?: number;
+  summary?: string;
+  detials?: string;
 }
 export interface Verse {
   text: string;

@@ -1,0 +1,44 @@
+    <div class="questions">
+                    @for (question of lifestage.questions; track $index;let parentindex=$index) {
+                    <div class="question">
+                        <!-- <div class="first">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="number">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p class="index">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            {{ $index+1 }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p>سؤال من نص الإصحاح:</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                    <p>الحمد لله</p>
+                </div>
+                -->
+                <div class="body">
+                    <h3>{{ question.competition_Question }}</h3>
+                    <div class="choices">
+                        @for (choice of [question.choiceA,question.choiceB,question.choiceC,question.choiceD]; track
+                        $index) {
+                            <div class="choice">
+                            <div class="number">
+                                <p class="index">
+                                    {{($index==0?'ا':$index==1?'ب':$index==2?'ج' :'د' ) }}
+                                </p>
+                                <p>
+                                    {{ choice }}
+                                </p>
+                            </div>
+                            <div class="circle">
+                            </div>
+                        </div>
+                        }
+                    </div>
+                </div>
+                <div class="content">
+                </div>
+            </div>
+            }
+            
+            <div class="btn btn btn2" (click)="submit()">تأكيد وإرسال إجابات المسابقة ✨</div> -->
+            <div class="content">
+                <p>بالأنقر على هذا الزر، ستسجل النتيجة فوراً في ملفك الشخصي ولوحة الشرف الأسبوعية.</p>
+            </div>
+            
+        </div>

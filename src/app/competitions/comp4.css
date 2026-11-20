@@ -41,6 +41,7 @@
   > .question {
     display: flex;
     border-radius: 1vw;
+    margin-top: 0 !important;
     flex-direction: column;
     /* grid-template-columns: 4vw 4vw 4vw 4vw; */
     box-shadow:
@@ -141,7 +142,8 @@
           /* padding: 0.7vw 0.3vw; */
           display: flex;
           background-color: #fff;
-          width: 76vw;
+          width: 74.7vw;
+          border-radius: 1.3vw;
           display: flex;
           transition: all 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
           transition:
@@ -154,8 +156,8 @@
           border: none;
           font-weight: 400;
           margin: 0;
-          padding: 1vw;
-
+          padding: 1.18vw 1vw;
+box-shadow: 0 .001vw 1vw .00vw #e6e8ea;
           font-size: 1.3vw !important;
           color: #05061b;
         }
@@ -180,11 +182,13 @@
        inset 0 0vw 0.1vw 0vw rgba(0, 0, 0, 0.2),
        inset  0 0vw 0.1vw 0.1vw rgba(0, 0, 0, 0.14),
       inset  0 0vw 0vw 0 rgba(0, 0, 0, 0.2); */
-          background-color: #fff !important;
+          background-color: #fff ;
           width: 13vw;
           height: 1vw;
+box-shadow: 0 .001vw 1vw .00vw #e6e8ea;
+
           /* padding: 0.1vw 2vw; */
-          padding: 0.7vw 1vw;
+          padding: 0.9vw 1vw;
           border-radius: 1vw;
           text-wrap: nowrap;
           transition: all 0.3s cubic-bezier(1, 0, 0, 1);
@@ -194,6 +198,7 @@
           background-color: #fff;
           width: 36vw;
           display: flex;
+          cursor:pointer;
           transition: all 0.3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
           transition:
             all 0.25s cubic-bezier(0.16, 1, 0.3, 1),
@@ -202,7 +207,7 @@
           align-items: center;
           text-wrap: nowrap;
           font-weight: 400;
-          padding: 1vw;
+          padding: 1.1vw 1vw;
           /* font-size: 1.3vw !important; */
           color: #05061b;
           /* height: 1.3vw !important; */
@@ -216,7 +221,7 @@
             justify-content: start;
             gap: 0.9vw;
             align-items: center;
-            width: 10vw;
+            /* width: 20vw; */
             > .index {
               /* width: 3vw !important; */
               padding: 0.7vw 1vw;
@@ -244,6 +249,7 @@
             > input {
               font-weight: 400;
               margin: 0;
+              width: 18vw;
               font-size: 1vw !important;
               color: #05061b !important;
               border: none !important;
@@ -310,4 +316,15 @@
     color: #ffff !important;
     background-color: #0f2547;
   }
+}
+.choices>.choice:hover{
+    background-color: #e6e8ea !important;
+    /* box-shadow:0 .1vw .1vw .1vw #e6e8ea; */
+    >.number{
+
+      >input{
+        background-color: #e6e8ea !important;
+        
+      }
+    }
 }

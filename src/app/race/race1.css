@@ -25,6 +25,7 @@
     /* list-style: none; */
     /* width: 20vw; */
     padding: 1vw;
+    
     box-shadow:
       0 0.02vw 0vw 0vw rgb(5, 6, 27, 0.14),
       /* 0 0.08vw .8vw 0vw rgb(5, 6, 27,.14), */ 0 0.02vw 0vw 0 rgb(5, 6, 27, 0.2);
@@ -88,9 +89,9 @@
     gap: 1vw;
     border-radius: 1vw;
 
-    padding: 1.3vw 2vw 1.3vw 0vw;
+    padding: 0.3vw 2vw 0vw 0vw;
     width: 90vw;
-    height: 17vw;
+    height: 15vw;
     margin: 0 !important;
     margin: 1.3vw !important;
     > h3 {
@@ -147,16 +148,16 @@ width: 93vw;
     flex-direction: column;
     /* gap: 1vw; */
     padding: 1.3vw 0vw 1.3vw 0vw !important;
-    width: 90vw;
+    width: 91%;
     border-radius: 1vw;
-
     background-color: #fff;
+    gap: .4vw !important;
     /* height: 17vw; */
     margin: 0 !important;
     margin: 1.3vw !important;
     .first {
       display: flex;
-      width: 80vw;
+      width: 96%;
 
       > p:nth-child(1) {
         font-size: 1.4vw;
@@ -168,7 +169,10 @@ width: 93vw;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 80vw;
+      width: 97%;
+      height: fit-content;
+      /* height: 4vw; */
+      padding-inline: 2vw !important;
       > .number {
         display: flex;
         justify-content: space-between;
@@ -179,7 +183,7 @@ width: 93vw;
           width: 3vw;
           padding: 0;
           box-shadow: none;
-          height: 3vw;
+          height: 2.6vw;
           background-color: #e6e8ea;
           border-radius: 50%;
           color: #05061b;
@@ -197,6 +201,8 @@ width: 93vw;
       > p {
         font-size: 1.1vw;
         width: 4vw;
+        padding-left: 2vw;
+        font-weight: 500;
         color: #10b981;
         background-color: transparent;
       }

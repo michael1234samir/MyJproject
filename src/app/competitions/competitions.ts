@@ -1,5 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, NgModule, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  NgModule,
+  OnInit,
+  signal,
+  ViewChild,
+  viewChild,
+} from '@angular/core';
 import {
   Book,
   Choice,
@@ -497,6 +506,12 @@ export class Competitions implements OnInit {
         console.error(err);
       },
     });
+    this.myservice.getCompetitionForUpdate().subscribe({
+      next: (respsonse) => {
+        this.comp2.set(respsonse);
+        console.log(this.comp2());
+      },
+    });
   }
   // Questions = signal<Question[]>([
   //   {
@@ -625,6 +640,7 @@ export class Competitions implements OnInit {
   payload: Makhdoom = {};
 
   boolean2: boolean = false;
+  boolean3: boolean = false;
   Ques: CompQuestion = {
     choiceA: 'مخافة الرب وتوقيره',
     choiceB: 'طلب الغنى والشهرة العالمية',
@@ -632,7 +648,7 @@ export class Competitions implements OnInit {
     choiceD: 'الانعزال عن المجتمع الكنسي',
     competition_Question:
       '«اسْمَعْ يَا ابْنِي تَأْدِيبَ أَبِيكَ، وَلاَ تَرْفُضْ شَرِيعَةَ أُمِّكَ»، ماذا تمثل شريعة وتأديب الوالدين للمؤمن؟',
-    correct_option_index: 0,
+    correct_option_index: -1,
   };
   comp: competition = {
     competition_title: '',
@@ -642,6 +658,7 @@ export class Competitions implements OnInit {
     questions: [],
     Created_At: new Date(),
   };
+  comp2 = signal<competition>({});
   select(book: any) {
     this.book = book.total_chapters;
     this.title = book.book;
@@ -683,7 +700,9 @@ export class Competitions implements OnInit {
       },
     });
   }
-
+  correct(Number: number) {
+    this.Ques.correct_option_index = Number;
+  }
   bgcolor1 = '';
   color1 = '';
   bgcolor2 = '';
@@ -701,9 +720,11 @@ export class Competitions implements OnInit {
     this.color4 = '';
     this.bgcolor3 = '';
     this.color3 = '';
+    this.Ques.correct_option_index = 0;
   }
   add2() {
     this.bgcolor2 = '#00a06f';
+    this.Ques.correct_option_index = 1;
     this.color2 = '#ffffff';
     this.bgcolor1 = '';
     this.color1 = '';
@@ -716,6 +737,7 @@ export class Competitions implements OnInit {
   }
   add3() {
     this.bgcolor1 = '';
+    this.Ques.correct_option_index = 2;
     this.color1 = '';
     this.bgcolor3 = '#00a06f';
     this.color3 = '#ffffff';
@@ -726,6 +748,7 @@ export class Competitions implements OnInit {
   }
   add4() {
     this.bgcolor1 = '';
+    this.Ques.correct_option_index = 3;
     this.color1 = '';
     this.bgcolor4 = '#00a06f';
     this.color4 = '#ffffff';
@@ -743,7 +766,38 @@ export class Competitions implements OnInit {
       competition_Question:
         '«اسْمَعْ يَا ابْنِي تَأْدِيبَ أَبِيكَ، وَلاَ تَرْفُضْ شَرِيعَةَ أُمِّكَ»، ماذا تمثل شريعة وتأديب الوالدين للمؤمن؟',
 
-      correct_option_index: 0,
+      correct_option_index: -1,
     };
+  }
+  addquestion2() {
+    console.log(this.Ques);
+    this.Ques = {
+      choiceA: 'مخافة الرب وتوقيره',
+      choiceB: 'طلب الغنى والشهرة العالمية',
+      choiceC: 'كثرة الجدال مع الناس',
+      choiceD: 'الانعزال عن المجتمع الكنسي',
+      competition_Question:
+        '«اسْمَعْ يَا ابْنِي تَأْدِيبَ أَبِيكَ، وَلاَ تَرْفُضْ شَرِيعَةَ أُمِّكَ»، ماذا تمثل شريعة وتأديب الوالدين للمؤمن؟',
+
+      correct_option_index: -1,
+    };
+    this.comp2().questions?.push({ ...this.Ques });
+  }
+  save2() {
+    this.boolean3 = true;
+    this.myservice.updateCometition(this.comp2().competition_id, this.comp2()).subscribe(() => {
+      next: (respsonse: any) => {
+        console.log(respsonse);
+      };
+    });
+  }
+  @ViewChild('myaudio') audioclick!: ElementRef<HTMLAudioElement>;
+  // @HostListener('document:click', ['$event'])
+  click() {
+    // const target = event.target as HTMLElement;
+    // if (target.closest('.btn')) {
+    this.audioclick.nativeElement.currentTime = 0;
+    this.audioclick.nativeElement.play();
+    // }
   }
 }

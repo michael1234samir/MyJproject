@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   /* padding: 1vw; */
-  background-color: #f2f4f6;
+  /* background-color: #f2f4f6; */
   gap: 0.8vw;
   margin-top: 3vw;
   width: 87vw;
@@ -12,7 +12,10 @@
   margin-bottom: 3vw;
   > .content {
     width: 100%;
-    width: 87vw;
+    width: 88vw;
+    background-color: #f2f4f6;
+
+    padding:1vw 4vw;
     /* height: 3vw; */
     gap: 2vw !important;
     > h3 {
@@ -49,7 +52,7 @@
     /* justify-content: start; */
     align-items: center;
     color: #05061b;
-    background-color: #f2f4f6;
+    /* background-color: #f2f4f6; */
     font-size: 0.9vw;
     border-radius: 0.5vw;
     /* height: 7vw; */
@@ -66,8 +69,18 @@
   flex-direction: column;
   background-color: #ffff !important;
   width: 90vw;
-  border-radius: 0.3vw;
-  gap: 2vw;
+  justify-content: center;
+  align-items: center;
+  border-radius:1vw;
+  border-top: .4vw solid #fe932c;
+  >.comp{
+border: none;
+  /* justify-content: start; */
+  /* align-items: start; */
+
+  }
+
+  gap: .4vw;
   > .btns {
     justify-self: end;
     align-self: end;

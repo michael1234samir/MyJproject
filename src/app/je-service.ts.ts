@@ -109,9 +109,33 @@ export class JeServiceTs {
       },
     });
   }
+  getCompetitionForUpdate(): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.get(`https://churchcomp.runasp.net/api/MyUser/getcomforupdate`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
+  updateCometition(id: any, comp: object): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.put(`https://churchcomp.runasp.net/api/Competition/update/${id}`, comp, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
   getallcompetitions(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(`https://churchcomp.runasp.net/api/Competition/get-all`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
+  getsainttoday(): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http.get(`https://churchcomp.runasp.net/api/Competition/getsaint`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

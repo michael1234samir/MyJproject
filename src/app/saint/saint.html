@@ -28,30 +28,30 @@ saint">
     <div class="left">
         <div class=" btns">
             <div class="btn btn1">
-                نبي وملك (العهد القديم).
+            {{this.saint().nickname?.split('/')[0]}}.
             </div>
             <div class="btn btn2">
-                حوالي 990 ق.م – 931 ق.م.
+                حوالي {{this.saint().birth_year}} ق.م – {{this.saint().departure_year}} ق.م.
             
             
             
-                العمر: 60 سنة.
+                العمر: {{this.saint().age_at_departure}} .
             </div>
             <div class="btn btn3">
-                مكان الميلاد: أورشليم – أرض كنعان.
+                مكان الميلاد: {{this.saint().birth_place}} – أرض {{this.saint().country}}.
             </div>
         </div>
         <div class="content">
             <h1>
-                سليمان الحكيم (King Solomon the Wise)
+            {{this.saint().name_ar}}
             </h1>
             <p>
-                ملك إسرائيل وحكيم العهد القديم وكاتب أسفار الحكمة
+            {{this.saint().nickname?.split('/').join('و')}}
             </p>
         </div>
         <div class="content content2">
             <h3>
-                «بدء الحكمة مخافة الرب، ومعرفة القدوس فهم».
+                «{{this.saint().verse_for_meditation}}».
             </h3>
             <div class="row">
                 <p>
@@ -80,82 +80,42 @@ saint">
         </p>
     </div>
     <div class=" btns">
-        <div class=" btn">
-            المسحة والعرش
+        @for(comp of this.saint().competition;track $index){
+        <div class=" btn" (click)="click($index)">
+            {{comp.competition_title}}
         </div>
-        <div class=" btn">
-            حلم جبعون والحكمة.
+        }
         </div>
+        @for(lifestage of this.saint().competition;track $index){
 
-        <div class=" btn">
+        <div class="stage">
+            <div class="column">
 
-            بناء الهيكل وتكريسه.
-
-        </div>
-        <div class=" btn">
-
-
-            أسفار الوحي والتوبة.
-        </div>
-    </div>
-    <div class="stage">
-        <div class="first">
-            <p>المرحلة الأولى</p>
-        </div>
-        <h3>
-            المسحة والجلوس على العرش
-        </h3>
-        <p>
-            مسح صادوق الكاهن وناثان النبي سليمان ملكاً على كل إسرائيل بأمر داود الملك عند عين جيحون، حيث ركب بغلة الملك
-            وهتف الشعب
-            بفرح عظيم
-        </p>
-        <div class="questions">
-            <!-- @for (question of this.questions(); track $index;let parentindex=$index) {
-            <div class="question">
                 <div class="first">
-                    <div class="number">
-                        <p class="index">
-                            {{ $index+1 }}
-                        </p>
-                        <p>سؤال من نص الإصحاح:</p>
+                    <p>المرحلة 1</p>
+                    <p>{{lifestage.stage_title}}</p>
                     </div>
-                    <p>الحمد لله</p>
-                </div>
-
-                <div class="body">
-                    <h3>{{ question.competition_Question??'' }}</h3>
-                    <div class="choices">
-                        @for (choice of [question.choiceA,question.choiceB,question.choiceC,question.choiceD]; track
-                        $index) {
-                        <div class="choice" (click)="selectedchoice(parentindex,$index)"
-                            [class.selected]="selectedChoices[parentindex]===$index">
-                            <div class="number">
-                                <p class="index">
-                                    {{($index==0?'ا':$index==1?'ب':$index==2?'ج' :'د' ) }}
-                                </p>
-                                <p>
-                                    {{ choice }}
-                                </p>
-                            </div>
-                            <div class="circle" [class.selected]="selectedChoices[parentindex]===$index">
-
-                            </div>
-                        </div>
-                        }
-                    </div>
-                </div>
                 <div class="content">
+                    <h3>
+                        {{lifestage.stage_title}}
+                        </h3>
+                        <p>
+                        {{lifestage.detials}}
+                        </p>
                 </div>
-            </div>
-            }
-
-            <div class="btn btn btn2" (click)="submit()">تأكيد وإرسال إجابات المسابقة ✨</div> -->
-            <div class="content">
-                <p>بالأنقر على هذا الزر، ستسجل النتيجة فوراً في ملفك الشخصي ولوحة الشرف الأسبوعية.</p>
-            </div>
-
-        </div>
+                </div>
+                <div class="aya">
+                    <p>
+                        الشاهد الكتابي الأساسي:
+                        </p>
+                    <div class="aya1">
+                        {{lifestage.stage_verse}}
+                    </div>
+                </div>
+            
+    </div>
+    }
     </div>
     </div>
-</div>
+
+
