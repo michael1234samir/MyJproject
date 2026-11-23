@@ -26,7 +26,7 @@ export class CompLogin {
   constructor(private myservice: JeServiceTs) {}
   boolean: boolean = false;
   stages = [{ key: 'اعدادى' }, { key: 'ثانوى' }, { key: 'حامعه' }, { key: 'اخر' }];
-  families = [{ key: 'اجتماع الثلاثة فتيه القديسين' }];
+  families = [{ key: 'اجتماع الثلاثة فتيه القديسين' }, { key: 'اجتماع بترالشباب' }];
   roles = [{ key: 'user' }, { key: 'admin' }];
   booleanStage: boolean = false;
   booleanstage: boolean = false;

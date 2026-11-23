@@ -57,11 +57,13 @@
     font-style: normal;
     direction: rtl;
     margin: 0;
+    text-wrap:nowrap;
+    
     /* cursor: none; */
     transition:
     background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
     color 0.3s ease;
-    transition: all .3s ease-in-out;
+    transition: all .4s ease;
   }
   h1 {
     font-size: 3.125rem;
