@@ -1,12 +1,13 @@
 import { competition } from './../IData';
 import { Component, inject, Input, OnInit, input, NgModule, signal } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { RollOfHonor } from './roll-of-honor/roll-of-honor';
 import { CompLogin } from './comp-login/comp-login';
 import { jwtDecode, JwtPayload } from 'jwt-decode';
 import { JeServiceTs } from './je-service.ts';
 import { Makhdoom } from '../IData';
 import { Comps } from './comps/comps';
+import { filter } from 'rxjs';
 
 @Component({
   imports: [RouterOutlet, RollOfHonor, CompLogin, Comps],
@@ -14,6 +15,9 @@ import { Comps } from './comps/comps';
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
+/**
+ *
+ */
 export class App {
   private router = inject(Router);
   race = signal<boolean>(false);
@@ -23,7 +27,14 @@ export class App {
   comps = signal<boolean>(false);
   saintab = signal<boolean>(false);
   protected readonly title = signal('MyJProject');
-  constructor(private myservice: JeServiceTs) {}
+  constructor(
+    private myservice: JeServiceTs,
+    router: Router,
+  ) {
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
   goToRacePage() {
     this.router.navigate(['race']);
     this.saintab.set(false);

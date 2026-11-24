@@ -49,12 +49,12 @@
       <div class="row">
       
         <div class="btns">
-          <div class="btn" [class.select]="level1()=='المرحلة الأولى: اقرأ وافهم'" (click)="level($event)">
+          <div class="btn" [class.select]="level2()==0" (click)="level($event,0)">
             المرحلة
             الأولى:
             اقرأ وافهم
           </div>
-          <div class="btn" [class.select]="level1()?.includes('المرحلة الثانية: الأسئلة التفاعلية')" (click)="level($event)">
+          <div class="btn" [class.select]="level2()==1" (click)="level($event,1)">
             المرحلة الثانية: الأسئلة التفاعلية
           </div>
         </div>
@@ -90,6 +90,7 @@
               </p>
             </div>
           </div>
+          @if(submit12()==false){
           @for(verse of this.competition()?.verses;track $index){
           
           <div class="card1">
@@ -120,9 +121,45 @@
           </div>
           
           }
+          <div class="content">
+            <div class="img"></div>
+            <div class="content">
+          
+              <h3>
+                جاهز لاختبار فهمك؟
+          
+              </h3>
+              <p class="aya1">
+                ٣ أسئلة تفاعلية مبنية مباشرة على هذه الآيات الثلاث (١٠ نقاط لكل سؤال).
+              </p>
+            </div>
+            <div class="btn btn1" (click)="submit1()">فهمت الأيت , ابدأ الاسئله ✨</div>
+          
+          </div>
+          }
+          @if(submit12()==true){
+          <div class="con content">
+            @for(question of this.questions();track $index){
+            <div class="number" (click)="set($index)">
+              <div class="index">
+                {{$index+1}}
+              </div>
+              <p>
+                —
+              </p>
+            </div>
+          
+            }
+            <p>السؤال 1 من {{this.questions.length}}</p>
+          
+            <div class="btn">
+              📖 مراجعة الآيات والشرح
+            </div>
+          </div>
       <div class="questions">
         @for (question of this.questions(); track $index;let parentindex=$index) {
-        <div class="question">
+      @if($index==index()){
+          <div class="question">
           <div class="first">
             <div class="number">
               <p class="index">
@@ -157,7 +194,27 @@
                 <div class="content">
                 </div>
                 </div>
-                }
+      }
+      <div class="content">
+        @if(!this.boolean1()){
+      
+        <div class="btn btn1" (click)="before($index-1)">
+          السؤال السابق
+        </div>
+        }
+        @else{
+        <div class="btn"></div>
+        }
+        @if(this.boolean()){
+        <p class="green">اكتملت جميع الإجابات</p>
+        }
+        @else{
+        <div class="btn btn2" (click)="next($index+1)">
+          السؤال التالي
+        </div>
+        }
+      </div>
+      }
 
         <div class="btn btn2" (click)="submit()">تأكيد وإرسال إجابات المسابقة ✨</div>
         <div class="content">
@@ -165,6 +222,7 @@
         </div>
 
       </div>
+    }
       <div class="startQues">
         <div class="content">
           <h3></h3>

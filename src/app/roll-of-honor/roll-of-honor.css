@@ -26,7 +26,7 @@ li,
   align-items: center;
   flex-direction: column;
   background-color: #f7f9fb;
-  animation: anim .3s  linear;
+  /* animation: anim .3s  linear; */
 
 }
  @keyframes anim{

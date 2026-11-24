@@ -31,10 +31,17 @@ export class Race implements OnInit, AfterViewInit {
   ordered_Makdhdooms = signal<Makhdoom[]>([]);
   questions = signal<CompQuestion[]>([]);
   level1 = signal<string | null>('المرحلة الأولى: اقرأ وافهم');
-  level(event: MouseEvent) {
+  level2 = signal<number>(1);
+  level(event: MouseEvent, level2: number) {
+    this.level2.set(level2);
     const event1 = event.currentTarget as HTMLElement;
     this.level1.set(event1.textContent);
     console.log(this.level1()?.includes('المرحلة الأولى: اقرأ وافهم'));
+  }
+  submit12 = signal<boolean>(false);
+  submit1() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.submit12.set(true);
   }
   bool = signal(false);
   copiedtext = signal(false);
@@ -130,6 +137,23 @@ export class Race implements OnInit, AfterViewInit {
     console.log(this.bool4());
   }
   score: number = 0;
+  index = signal<number>(0);
+  set(index: number) {
+    this.index.set(index);
+    if (index <= this.questions().length) this.boolean.set(false);
+    if (index >= 0) this.boolean1.set(false);
+  }
+  boolean = signal<boolean>(false);
+  boolean1 = signal<boolean>(false);
+  next(index: number) {
+    console.log(this.questions().length);
+    if (index >= this.questions().length) this.index.set(index);
+    else this.boolean.set(true);
+  }
+  before(index: number) {
+    if (index >= 0) this.index.set(index);
+    else this.boolean1.set(true);
+  }
   answers: AnswerDto[] = [];
   submit() {
     console.log(this.selectedChoices);

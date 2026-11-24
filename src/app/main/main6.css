@@ -6,7 +6,7 @@
     --neutral-color: #f8fafc;
   }
   *{
-    animation: anim .3s both alternate;
+    /* animation: anim .3s both alternate; */
   }
    @keyframes anim{
     from{
