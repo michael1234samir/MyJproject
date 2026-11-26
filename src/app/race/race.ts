@@ -31,12 +31,13 @@ export class Race implements OnInit, AfterViewInit {
   ordered_Makdhdooms = signal<Makhdoom[]>([]);
   questions = signal<CompQuestion[]>([]);
   level1 = signal<string | null>('المرحلة الأولى: اقرأ وافهم');
-  level2 = signal<number>(1);
+  level2 = signal<number>(0);
   level(event: MouseEvent, level2: number) {
+    console.log(this.level2());
     this.level2.set(level2);
     const event1 = event.currentTarget as HTMLElement;
     this.level1.set(event1.textContent);
-    console.log(this.level1()?.includes('المرحلة الأولى: اقرأ وافهم'));
+    // console.log(this.level1()?.includes('المرحلة الأولى: اقرأ وافهم'));
   }
   submit12 = signal<boolean>(false);
   submit1() {
@@ -143,16 +144,26 @@ export class Race implements OnInit, AfterViewInit {
     if (index <= this.questions().length) this.boolean.set(false);
     if (index >= 0) this.boolean1.set(false);
   }
+  boolrevise = signal<boolean>(false);
+  revise() {
+    this.boolrevise.update((value) => !value);
+  }
   boolean = signal<boolean>(false);
   boolean1 = signal<boolean>(false);
   next(index: number) {
     console.log(this.questions().length);
-    if (index >= this.questions().length) this.index.set(index);
+    if (index < this.questions().length) this.index.set(index);
     else this.boolean.set(true);
+    if (index >= 0) {
+      this.boolean1.set(false);
+    }
   }
   before(index: number) {
     if (index >= 0) this.index.set(index);
     else this.boolean1.set(true);
+    if (index <= this.questions().length) {
+      this.boolean.set(false);
+    }
   }
   answers: AnswerDto[] = [];
   submit() {

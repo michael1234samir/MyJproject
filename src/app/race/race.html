@@ -9,16 +9,16 @@
           <li>هد قديم • سفر الأمثال</li>
           <li>مسابقة يومية رقم #102</li>
         </div>
-        
+
         <li class="Chapter">مسابقة اليوم: {{this.competition()?.competition_title}}</li>
         <li>
           <h6>
             «لِمَعْرِفَةِ حِكْمَةٍ وَأَدَبٍ، لِلإِدْرَاكِ كَلِمَاتِ الْفَهْمِ» (أم 1: 2). تأمل في
             آيات هذا الإصحاح وأجب بتركيز وإخلاص.
           </h6>
-          </li>
-          </ul>
-          </div>
+        </li>
+        </ul>
+        </div>
     <div class="btns">
       <!-- <div class="btn btn1">
         <p>وقت التأمل</p>
@@ -47,7 +47,7 @@
     </div>
     <div class="contain2">
       <div class="row">
-      
+
         <div class="btns">
           <div class="btn" [class.select]="level2()==0" (click)="level($event,0)">
             المرحلة
@@ -60,7 +60,7 @@
         </div>
         <div class="btnText">{{level1()}}</div>
       </div>
-      
+
       <!-- <div class="con">
         <p>السؤال الحالي: {{this.number()}} /3</p>
         <p>نسبة الإكمال: تم تحديد 3 من أصل 3 أسئلة</p>
@@ -71,104 +71,130 @@
         </div>
       </div>
     </div>
-    </div>
-    <div class="columns">
-      @if(this.bool3()==true){
-      <div class="right_column">
-          <div class="content">
-            <div class="img"></div>
-            <div class="content">
-          
-              <h3>
-                توجيه روحي لدراسة المقطع
-          
-              </h3>
-              <p class="aya1">
-                اقرأ الآيات الثلاث التالية بتركيز، ثم أطلِع على التفسير المعاني المصاحب. بعد إتمام التأمل اضغط الزر بالأسفل
-                للانتقال
-                لأسئلة المسابقة التفاعلية.
-              </p>
-            </div>
+  </div>
+  <div class="columns">
+    @if(this.bool3()==true){
+    <div class="right_column">
+      <div class="content">
+        <div class="img"></div>
+        <div class="content">
+  
+          <h3>
+            توجيه روحي لدراسة المقطع
+  
+          </h3>
+          <p class="aya1">
+            اقرأ الآيات الثلاث التالية بتركيز، ثم أطلِع على التفسير المعاني المصاحب. بعد إتمام التأمل اضغط الزر بالأسفل
+            للانتقال
+            لأسئلة المسابقة التفاعلية.
+          </p>
+        </div>
+      </div>
+      @if(submit12()==false){
+      @for(verse of this.competition()?.verses;track $index){
+  
+      <div class="card1">
+        <div class="first">
+          <div class="number">
+            <div class="index">1</div>
+            <h3>الآية {{$index}} • {{this.competition()?.competition_title}}</h3>
           </div>
-          @if(submit12()==false){
-          @for(verse of this.competition()?.verses;track $index){
-          
-          <div class="card1">
-            <div class="first">
-              <div class="number">
-                <div class="index">1</div>
-                <h3>الآية {{$index}} • {{this.competition()?.competition_title}}</h3>
-              </div>
-              <p>
-                آية الحفظ الذهبية
-              </p>
-            </div>
-            <div #textcopy class="verse">
-              {{verse.text}}
-            </div>
-            <div #textcopy class="explanation content">
-              <h3>
-                التفسير والشرح المبسط:
-              </h3>
-              <p>
-                {{verse.explanation}}
-              </p>
-            </div>
-            <div class="first first2">
-              <p>استمع للنص</p>
-              <p [class.selectedtext]="copiedtext()==true" (click)="copy()">نسخ الآية</p>
-            </div>
+          <p>
+            آية الحفظ الذهبية
+          </p>
+        </div>
+        <div #textcopy class="verse">
+          {{verse.text}}
+        </div>
+        <div #textcopy class="explanation content">
+          <h3>
+            التفسير والشرح المبسط:
+          </h3>
+          <p>
+            {{verse.explanation}}
+          </p>
+        </div>
+        <div class="first first2">
+          <p>استمع للنص</p>
+          <p [class.selectedtext]="copiedtext()==true" (click)="copy()">نسخ الآية</p>
+        </div>
+      </div>
+  
+      }
+      <div class="content">
+        <div class="img"></div>
+        <div class="content">
+  
+          <h3>
+            جاهز لاختبار فهمك؟
+  
+          </h3>
+          <p class="aya1">
+            ٣ أسئلة تفاعلية مبنية مباشرة على هذه الآيات الثلاث (١٠ نقاط لكل سؤال).
+          </p>
+        </div>
+        <div class="btn btn1" (click)="submit1()">فهمت الأيت , ابدأ الاسئله ✨</div>
+  
+      </div>
+      }
+      @if(submit12()==true){
+      <div class="con content">
+        @for(question of this.questions();track $index){
+        <div class="number" (click)="set($index)">
+          <!-- @if(($index) <= (this.index())){ -->
+          <div class="index" [class.violet]="$index <= index()">
+            {{$index+1}}
+          </div>
+          <!-- } -->
+          <!-- @else { -->
+          <!-- } -->
+          @if(!($index+1 >= this.questions().length)) {
+            <p>
+              —
+            </p>
+          }
           </div>
           
           }
+        <p>السؤال {{this.index()+1}} من {{this.questions().length}}</p>
+        <div class="btn" (click)="revise()">
+          📖 مراجعة الآيات والشرح
+        </div>
+        </div>
+        @if(boolrevise()){
+        <div class="revise">
           <div class="content">
-            <div class="img"></div>
-            <div class="content">
-          
-              <h3>
-                جاهز لاختبار فهمك؟
-          
-              </h3>
-              <p class="aya1">
-                ٣ أسئلة تفاعلية مبنية مباشرة على هذه الآيات الثلاث (١٠ نقاط لكل سؤال).
-              </p>
-            </div>
-            <div class="btn btn1" (click)="submit1()">فهمت الأيت , ابدأ الاسئله ✨</div>
-          
-          </div>
-          }
-          @if(submit12()==true){
-          <div class="con content">
-            @for(question of this.questions();track $index){
-            <div class="number" (click)="set($index)">
-              <div class="index">
-                {{$index+1}}
+            <h1>{{this.competition()?.competition_title}}</h1>
+            <h1></h1>
+            <div class="cards">
+              @for(verse of this.competition()?.verses;track $index){
+              <div class="card content">
+                <h6>{{verse.text}}</h6>
+                <div>
+                  <span>
+                    الشرح
+                  </span>
+                  <p>{{verse.explanation}}</p>
+                </div>
               </div>
-              <p>
-                —
-              </p>
-            </div>
-          
-            }
-            <p>السؤال 1 من {{this.questions.length}}</p>
-          
-            <div class="btn">
-              📖 مراجعة الآيات والشرح
+              }
             </div>
           </div>
+        </div>
+        }
       <div class="questions">
         @for (question of this.questions(); track $index;let parentindex=$index) {
-      @if($index==index()){
-          <div class="question">
+        @if($index==index()){
+        <div class="question">
           <div class="first">
             <div class="number">
               <p class="index">
                 {{ $index+1 }}
-                </p>
-                <p>سؤال من نص الإصحاح:</p>
-                </div>
-                <p>الحمد لله</p>
-                </div>
+              </p>
+              <p>سؤال من نص الإصحاح:</p>
+              </div>
+              <p>الحمد لله</p>
+              </div>
 
           <div class="body">
             <h3>{{ question.competition_Question??'' }}</h3>
@@ -185,87 +211,88 @@
                   </p>
                 </div>
                 <div class="circle" [class.selected]="selectedChoices[parentindex]===$index">
-                
-                </div>
-                </div>
-                }
-                </div>
-                </div>
-                <div class="content">
-                </div>
-                </div>
-      }
-      <div class="content">
-        @if(!this.boolean1()){
-      
-        <div class="btn btn1" (click)="before($index-1)">
-          السؤال السابق
-        </div>
-        }
-        @else{
-        <div class="btn"></div>
-        }
-        @if(this.boolean()){
-        <p class="green">اكتملت جميع الإجابات</p>
-        }
-        @else{
-        <div class="btn btn2" (click)="next($index+1)">
-          السؤال التالي
-        </div>
-        }
-      </div>
-      }
 
-        <div class="btn btn2" (click)="submit()">تأكيد وإرسال إجابات المسابقة ✨</div>
+                </div>
+              </div>
+              }
+              </div>
+              </div>
+              <div class="content">
+              </div>
+              </div>
+        <div class="content">
+          @if(!this.boolean1()){
+        
+          <div class="btn btn1" (click)="before($index-1)">
+            السؤال السابق
+          </div>
+          }
+          @else{
+          <div class="btn"></div>
+          }
+          @if(this.boolean()){
+          <p class="green">اكتملت جميع الإجابات</p>
+          }
+          @else{
+          <div class="btn btn2" (click)="next($index+1)">
+            السؤال التالي
+          </div>
+          }
+        </div>
+        }
+        }
+
+        <div class="btn btn2" (click)="submit()" [class.disable]="index()!=this.questions().length">تأكيد وإرسال إجابات المسابقة
+          ✨</div>
         <div class="content">
           <p>بالأنقر على هذا الزر، ستسجل النتيجة فوراً في ملفك الشخصي ولوحة الشرف الأسبوعية.</p>
         </div>
-
       </div>
     }
-      <div class="startQues">
+      <!-- <div class="startQues">
         <div class="content">
           <h3></h3>
           <p></p>
         </div>
         <div class="btn"></div>
-      </div>
+      </div> -->
       </div>
       }
       <div class="left_column">
-            <div class="card1">
-              <div class="first">
-                <p>
-                  إضاءة تأملية يومية
-                </p>
-                <p>
-                  سر الحكمة
-                </p>
-              </div>
-              <div #textcopy class="verse">
-                «مخافة الرب ليست رعباً يقيدك، بل هي هيبة الأب المحبوب في قلب الابن البار. كلما زاد احترامك لوصية الله، تلت حكمة تدير
-                بها
-                كل قرارات يومك.»
-              </div>
-              <div class="say">
-                تأملات الآياء: القديس يوحنا ذهبي الفم
-              </div>
-            </div>
-            <div class="card1">
-              <div class="first first1">
-                ملخص سفر الأمثال 1
-              </div>
-              <div #textcopy class="verse">
-                يفتتح سليمان الحكيم السفر بتوضيح الغاية: إكساب المؤمن يقظة واستقامة. بعد ترسيخ مخافة الله وطاعة الأسرة، يحذر
-                الشباب
-                بحزم
-                من إغراءات سالك الأشرار ثم يجدد الحكمة كصوت إلهي حي يدعو لقبول الحق.
-              </div>
-              <div class="supervise">
-                إشراف: {{this.competition()?.family}} </div>
-            
-            </div>
         <div class="card1">
+          <div class="first">
+            <p>
+              إضاءة تأملية يومية
+            </p>
+            <p>
+              سر الحكمة
+            </p>
+          </div>
+          <div #textcopy class="verse">
+          «مخافة الرب ليست رعباً يقيدك، بل هي هيبة الأب المحبوب في قلب الابن البار. كلما زاد احترامك لوصية الله، تلت
+          حكمة تدير
+          بها
+          كل قرارات يومك.»
+          </div>
+          <div class="say">
+            تأملات الآياء: القديس يوحنا ذهبي الفم
+          </div>
+          </div>
+          <div class="card1">
+            <div class="first first1">
+              ملخص سفر الأمثال 1
+            </div>
+            <div #textcopy class="verse">
+              يفتتح سليمان الحكيم السفر بتوضيح الغاية: إكساب المؤمن يقظة واستقامة. بعد ترسيخ مخافة الله وطاعة الأسرة، يحذر
+              الشباب
+              بحزم
+              من إغراءات سالك الأشرار ثم يجدد الحكمة كصوت إلهي حي يدعو لقبول الحق.
+            </div>
+            <div class="supervise">
+              إشراف: {{this.competition()?.family}} </div>
+          
+          </div>
+          <div class="card1">
         <div class="first">
           <p>آية لحفظ اليومية</p>
           <p>أم 1: 7</p>
@@ -277,7 +304,7 @@
           <p>استمع للنص</p>
           <p [class.selectedtext]="copiedtext()==true" (click)="copy()">نسخ الآية</p>
         </div>
-        </div>
+      </div>
 
       <div class="content">
         <h3>ملخص سريع للإصحاح:</h3>
@@ -315,7 +342,7 @@
           </div>
           <p>(20/30 • 01:42)</p>
         </div>
-        </div>
+      </div>
     </div>
   </div>
   @if(!bool3()){
@@ -332,34 +359,34 @@
         إجابات دقيقة تدل على تأمل عميق في سفر الأمثال. تمت إضافة النقاط إلى سجل الترتيب العام
         لرعايتك.
       </p>
-      </div>
-      
-      <div class="btns">
-        <div class="btn btn5">
+    </div>
+    
+    <div class="btns">
+      <div class="btn btn5">
         <p>لدرجة المكتسبة</p>
         <h1>{{this.result().score}}/ 25</h1>
-        </div>
-        <div class="btn btn2">
+      </div>
+      <div class="btn btn2">
         <p>الإجابات الصحيحة</p>
         <h1>
           5 من
           {{this.result().correct_answers}}
         </h1>
-        </div>
-        <div class="btn btn3">
+      </div>
+      <div class="btn btn3">
         <p>نقاط مضافة</p>
         <h1>+ {{this.result().score}}نقطة</h1>
-        </div>
+      </div>
       
-        </div>
-        <div class="content1">
-          <div class="btns">
-            <div class="btn1 btn">مشاهدة لوحة الشرف والترتيب 🏆</div>
-            <div class="btn2 btn">مشاركة النتيجة مع الأسرة</div>
+      </div>
+      <div class="content1">
+        <div class="btns">
+          <div class="btn1 btn">مشاهدة لوحة الشرف والترتيب 🏆</div>
+          <div class="btn2 btn">مشاركة النتيجة مع الأسرة</div>
       </div>
       <p>تفتح المسابقة القادمة (سفر الأمثال 2) تلقائياً غداً في تمام الساعة 06:00 صباحاً.</p>
     </div>
-    </div>
-    }
+  </div>
+  }
 
 </div>

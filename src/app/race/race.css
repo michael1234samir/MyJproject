@@ -6,7 +6,25 @@
 }
 *{
 transition: all .2s ease !important;
-/* animation: anim 1s both alternate; */
+
+}
+/* animation: anim 1s both ; */
+.revise{
+  animation: anim 1s both alternate;
+}
+.questions{
+  /* animation: anim2 1s both ; */
+}
+@keyframes anim2{
+  from{
+  transform: scale(0);
+  }
+  to{
+    transform: scale(1);
+  }
+}
+p{
+  text-shadow: 1px 1px 1px 3px rgba(0, 0, 0, 0.14);
 }
  @keyframes anim{
     0%{
@@ -510,6 +528,13 @@ justify-self: flex-end;
   background-color: #00102b !important;
   color: #fff !important;
 }
+.violet{
+  background-color: #00102b !important;
+  color: #fff !important;
+}
+.disable{
+  /* background-color: ; */
+}
 .con{
   padding-right:1.6vw;
   width: 91vw !important;
@@ -528,6 +553,65 @@ font-size: 1vw;
 font-weight: 600;
             padding: 1.2vw 1vw;
           }
+}
+.revise{
+  background-color: #f2f4f6;
+  border: .3vw solid #904d00;
+  width: 90vw;
+  height: fit-content;
+  padding: 1vw;
+  border-radius: 1vw;
+
+  >.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: 1vw;
+    padding: 1vw;
+    >h1{
+      font-size: 1.7vw;
+      font-weight: 800;
+margin: 0;
+    }
+    >.cards{
+      display: flex;
+      justify-content: start;
+      gap: 1vw;
+      align-items: center;
+      width: 90vw;
+      flex-wrap: wrap;
+      >.card{
+        display: flex;
+        flex-basis: auto;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        /* width: 30%; */
+        border-radius: 1vw;
+        height:fit-content;
+        gap: .4vw;
+        padding:1.3vw 1.1vw 2vw ;
+        background-color: #fff;
+        >h6{
+font-size: 1vw;
+margin: 0;
+font-weight: 500;
+        }
+       >div{
+display: flex;
+justify-content: space-between;
+align-items: start;
+gap: 1vw;
+         >p{
+           width: fit-content;
+           font-size: .91vw;
+           margin: 0;
+          }
+        }
+      }
+    }
+  }
 }
 .number {
         display: flex;
@@ -550,7 +634,7 @@ font-weight: 600;
 .choice.selected{
   background-color: #f3f6ff !important;
   box-shadow: 0 .1vw .1vw -.2vw #0f2547;
-  border: .17vw solid #0f2547;
+  border: .1vw solid #0f2547;
 
   >.number>.index{
     background-color: #0f2547 !important;
@@ -559,7 +643,7 @@ font-weight: 600;
    >.circle{
     background-color: #05061b !important;
     /* border:.01vw solid #fff !important; */
-    background: url(https://img.icons8.com/?size=10&id=83977&format=png&color=0f2547) no-repeat !important ;
+    background: url('./screen2.png') no-repeat !important ;
     width: 1vw;
     height: 1vw;
     background-position: 300%;

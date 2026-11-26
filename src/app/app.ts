@@ -1,5 +1,14 @@
 import { competition } from './../IData';
-import { Component, inject, Input, OnInit, input, NgModule, signal } from '@angular/core';
+import {
+  Component,
+  inject,
+  Input,
+  OnInit,
+  input,
+  NgModule,
+  signal,
+  HostListener,
+} from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { RollOfHonor } from './roll-of-honor/roll-of-honor';
 import { CompLogin } from './comp-login/comp-login';
@@ -34,6 +43,29 @@ export class App {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  }
+  mousex = signal<number>(0);
+  mousey = signal<number>(0);
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(event: MouseEvent) {
+    this.mousex.set(event.clientX);
+    this.mousey.set(event.clientY);
+  }
+  boolean = signal<boolean>(false);
+  @HostListener('document:click', ['$event'])
+  onClick(event: MouseEvent) {
+    this.boolean.set(true);
+
+    setTimeout(() => {
+      this.boolean.set(false);
+    }, 100);
+    setTimeout(() => {
+      this.boolean.set(true);
+    }, 1000);
+
+    setTimeout(() => {
+      this.boolean.set(false);
+    }, 1100);
   }
   goToRacePage() {
     this.router.navigate(['race']);

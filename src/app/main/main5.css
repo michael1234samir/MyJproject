@@ -231,7 +231,7 @@
       align-items: start !important;
       /* height: 50vw; */
       background-color: #fff;
-      gap: 1vw;
+      gap: .3vw !important;
       padding: 1.3vw 1.3vw;
       border-radius: 1vw;
 

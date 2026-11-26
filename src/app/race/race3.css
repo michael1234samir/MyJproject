@@ -194,7 +194,7 @@ width: 100vw;
           padding: 0.7vw 1vw;
           border-radius: 1vw;
           text-wrap: nowrap;
-          transition: all 0.1s ease;
+          transition: all 0.2s ease;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -203,7 +203,7 @@ width: 100vw;
           /* font-size: 1.3vw; */
 cursor: pointer;
 font-size: 0.8vw;
-transition: all .2s ease border .1s ease !important;
+transition: all .2s ease !important;
 color: #05061b ;
 
 > .number {
@@ -340,7 +340,7 @@ text-shadow: none;
 .choice{
   background-color: #f3f6ff;
 
-  transition:  background-color 0s !important;
+  transition:  all .2s ease !important;
   >.first>.number>.index{
 background-color: #05061b;
 color: #fff;
@@ -351,3 +351,4 @@ color: #fff;
 /* border: .3vw solid #0f2547; */
   background-color: #eceef0 !important;
 }
+
