@@ -19,11 +19,14 @@ li,
   color: white !important;
 }
 .container{
-  width: 80vw;
-  padding:0  5vw;
+  width: 90vw;
+  /* padding: 0 6vw; */
   display: flex;
+  /* background-color: #; */
   justify-content: center;
   align-items: center;
+  gap: 1vw;
+  padding-inline: 5vw;
   flex-direction: column;
   background-color: #f7f9fb;
   /* animation: anim .3s  linear; */

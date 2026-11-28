@@ -1,10 +1,12 @@
 .container {
-  width: 100vw;
+  width: 90vw;
   /* padding: 0 6vw; */
   display: flex;
   /* background-color: #; */
   justify-content: center;
   align-items: center;
+  gap: 1vw;
+  padding-inline: 5vw;
   /* gap: 1vw; */
   /* grid-template-columns: repeat(2,1fr); */
   /* grid-area: in ; */
